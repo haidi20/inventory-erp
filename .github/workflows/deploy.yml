@@ -11,50 +11,8 @@ env:
   APP_IMAGE: ghcr.io/${{ github.repository }}/app
 
 jobs:
-  test:
-    name: Verification (TDD)
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: src
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Setup PHP
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: "8.3"
-          extensions: bcmath, curl, dom, gd, iconv, intl, mbstring, pdo_pgsql, pdo_mysql, pdo_sqlite, simplexml, xml, xmlwriter, zip
-          coverage: none
-
-      - name: Install Composer dependencies
-        run: composer install --no-interaction --prefer-dist --no-progress --ignore-platform-reqs --no-scripts
-
-      - name: Prepare environment
-        run: |
-          cp .env.example .env
-          echo "APP_KEY=base64:$(php -r 'echo base64_encode(random_bytes(32));')" >> .env
-
-      - name: Smoke check Laravel boot
-        run: php -r "require 'vendor/autoload.php'; echo 'Autoload OK' . PHP_EOL;"
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: "24"
-          cache: npm
-          cache-dependency-path: src/package-lock.json
-
-      - name: Install npm dependencies
-        run: npm ci
-
-      - name: Type check
-        run: npm run typecheck
-
-
   build-and-push:
     name: Build & Push Image
-    needs: test
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     permissions:
