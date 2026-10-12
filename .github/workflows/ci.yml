@@ -6,15 +6,9 @@ on:
       - main
       - master
       - dev
-    paths:
-      - "src/**"
-      - "scripts/**"
-      - ".github/workflows/ci.yml"
+
   pull_request:
-    paths:
-      - "src/**"
-      - "scripts/**"
-      - ".github/workflows/ci.yml"
+
   workflow_dispatch:
 
 concurrency:
