@@ -28,7 +28,7 @@ jobs:
           coverage: none
 
       - name: Install Composer dependencies
-        run: composer install --no-interaction --prefer-dist --no-progress --ignore-platform-req=ext-*
+        run: composer install --no-interaction --prefer-dist --no-progress --ignore-platform-reqs --no-scripts
 
       - name: Run PHPUnit
         run: php artisan test
