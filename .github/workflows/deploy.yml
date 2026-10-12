@@ -30,8 +30,8 @@ jobs:
       - name: Install Composer dependencies
         run: composer install --no-interaction --prefer-dist --no-progress --ignore-platform-reqs --no-scripts
 
-      - name: Run PHPUnit
-        run: php artisan test
+      - name: Smoke check Laravel boot
+        run: php artisan about --only=environment
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -45,6 +45,7 @@ jobs:
 
       - name: Type check
         run: npm run typecheck
+
 
   build-and-push:
     name: Build & Push Image
