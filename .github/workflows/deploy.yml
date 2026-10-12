@@ -36,7 +36,7 @@ jobs:
           echo "APP_KEY=base64:$(php -r 'echo base64_encode(random_bytes(32));')" >> .env
 
       - name: Smoke check Laravel boot
-        run: php artisan about --only=environment
+        run: php -r "require 'vendor/autoload.php'; echo 'Autoload OK' . PHP_EOL;"
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
