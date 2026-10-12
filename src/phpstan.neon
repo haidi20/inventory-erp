@@ -1,0 +1,24 @@
+includes:
+    - vendor/larastan/larastan/extension.neon
+
+parameters:
+    level: 1
+    paths:
+        - modules/Clinical
+        - modules/Operational/Master/Support
+        - modules/Operational/Master/Services/ProductExportService.php
+        - modules/Operational/Master/Services/ProductImportService.php
+        - modules/Core/Identity/Repositories/UserRepository.php
+        - modules/Core/Identity/Http/Controllers/UserController.php
+        - modules/Analytics
+        - modules/Finance
+    # Larastan membaca skema tabel dari migrasi modul agar relasi Eloquent
+    # (with/belongsTo/hasMany) terdeteksi statis; tanpa ini muncul false
+    # positive larastan.relationExistence untuk relasi yang jelas ada.
+    databaseMigrationsPath:
+        - modules
+    excludePaths:
+        analyse:
+            - modules/*/tests
+            - modules/*/database/migrations
+

@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login - Klinik 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    @vite(['resources/css/login.css'])
+</head>
+
+<body>
+    <!-- Left decorative panel -->
+    <div class="panel-left">
+        <div class="panel-left-content">
+            <div class="panel-logo">
+                <i class="fa-solid fa-hospital-user"></i>
+            </div>
+            <div class="panel-app-name">Klinik 2026</div>
+            <div class="panel-app-sub">Sistem Manajemen Klinik Terintegrasi untuk pelayanan kesehatan yang lebih baik
+            </div>
+
+            <div class="panel-features">
+                <div class="panel-feature">
+                    <i class="fa-solid fa-users-rectangle"></i>
+                    <span>Manajemen pasien dan rekam medis</span>
+                </div>
+                <div class="panel-feature">
+                    <i class="fa-solid fa-file-invoice-dollar"></i>
+                    <span>Transaksi, piutang & hutang supplier</span>
+                </div>
+                <div class="panel-feature">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <span>Klaim BPJS dan verifikasi kepesertaan</span>
+                </div>
+                <div class="panel-feature">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <span>Laporan & analitik keuangan</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Right login form -->
+    <div class="panel-right">
+        <div class="login-box">
+            <div class="login-greeting">Selamat Datang!</div>
+            <div class="login-sub">Masuk ke akun Anda untuk melanjutkan</div>
+
+            @if (session('status'))
+                <div class="alert-success">{{ session('status') }}</div>
+            @endif
+
+            @if (session('error'))
+                <div class="alert-error">
+                    <i class="fa-solid fa-circle-exclamation"></i>
+                    {{ session('error') }}
+                </div>
+            @endif
+
+            @if ($errors->any())
+                <div class="alert-error">
+                    <i class="fa-solid fa-circle-exclamation"></i>
+                    {{ $errors->first() }}
+                </div>
+            @endif
+
+            <form method="POST" action="/login" id="loginForm">
+                @csrf
+                <div class="field">
+                    <label>Email</label>
+                    <div class="input-wrap">
+                        <i class="fa-solid fa-envelope"></i>
+                        <input type="email" name="email" value="{{ old('email') }}" required autocomplete="off"
+                            placeholder="nama@email.com">
+                    </div>
+                </div>
+                <div class="field">
+                    <label>Password</label>
+                    <div class="input-wrap">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" name="password" required autocomplete="new-password"
+                            placeholder="••••••••">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <label class="remember">
+                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}>
+                        Ingat saya
+                    </label>
+                    <a href="{{ route('password.request') }}" class="forgot">Lupa password?</a>
+                </div>
+
+                <button class="btn-login" type="submit">
+                    <i class="fa-solid fa-right-to-bracket"></i> Masuk
+                </button>
+            </form>
+
+            <button type="button" id="openInfoModal"
+                style="margin-top: 16px; width: 100%; padding: 12px; background: #e0e7ff; color: #3730a3; border: none; border-radius: 10px; font-weight: 700; font-family: inherit; cursor: pointer; transition: background 0.2s; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                <i class="fa-solid fa-circle-info"></i> Lihat Akun Demo (Role)
+            </button>
+
+            <!-- Role Selection Modal -->
+            <div id="roleModal" class="modal">
+                <div class="modal-content" style="max-width: 400px;">
+                    <div class="modal-header">
+                        <div class="modal-title"><i class="fa-solid fa-user-tag"></i> Pilih Role Anda</div>
+                        <span class="close-modal" id="closeRoleModal">&times;</span>
+                    </div>
+                    <div class="login-sub" style="margin-bottom: 20px;">Akun Anda memiliki lebih dari satu role. Silakan
+                        pilih role untuk melanjutkan.</div>
+                    <div id="roleList" style="display: flex; flex-direction: column; gap: 10px;">
+                        <!-- Roles will be inserted here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal -->
+            <div id="infoModal" class="modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="modal-title"><i class="fa-solid fa-users"></i> Daftar Akun Demo</div>
+                        <span class="close-modal" id="closeInfoModal">&times;</span>
+                    </div>
+                    <div style="overflow-x: auto;">
+                        <table class="modal-table">
+                            <thead>
+                                <tr>
+                                    <th>Role</th>
+                                    <th>Email</th>
+                                    <th>Password</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{-- jangan gunakan akun admin --}}
+                                {{-- <tr><td>Admin</td><td><code>admin@klinik.local</code></td><td><code>admin123</code></td><td><button type="button" class="btn-use-account" data-email="admin@klinik.local" data-password="admin123" style="padding: 5px 10px; font-size: 11px; background: var(--primary); color: #fff; border: none; border-radius: 6px; cursor: pointer; font-weight: 700;">Gunakan</button></td></tr> --}}
+                                <tr>
+                                    <td>Owner</td>
+                                    <td><code>owner@klinik.local</code></td>
+                                    <td><code>klinik123</code></td>
+                                    <td><button type="button" class="btn-use-account" data-email="owner@klinik.local"
+                                            data-password="klinik123"
+                                            style="padding: 5px 10px; font-size: 11px; background: var(--primary); color: #fff; border: none; border-radius: 6px; cursor: pointer; font-weight: 700;">Gunakan</button>
+                                    </td>
+                                </tr>
+                                {{-- <tr>
+                                    <td>Pendaftaran</td>
+                                    <td><code>pendaftaran@klinik.local</code></td>
+                                    <td><code>klinik123</code></td>
+                                    <td><button type="button" class="btn-use-account"
+                                            data-email="pendaftaran@klinik.local" data-password="klinik123"
+                                            style="padding: 5px 10px; font-size: 11px; background: var(--primary); color: #fff; border: none; border-radius: 6px; cursor: pointer; font-weight: 700;">Gunakan</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Perawat</td>
+                                    <td><code>perawat@klinik.local</code></td>
+                                    <td><code>klinik123</code></td>
+                                    <td><button type="button" class="btn-use-account" data-email="perawat@klinik.local"
+                                            data-password="klinik123"
+                                            style="padding: 5px 10px; font-size: 11px; background: var(--primary); color: #fff; border: none; border-radius: 6px; cursor: pointer; font-weight: 700;">Gunakan</button>
+                                    </td>
+                                </tr>
+                                --}}
+                                <tr>
+                                    <td>Apoteker</td>
+                                    <td><code>apoteker@klinik.local</code></td>
+                                    <td><code>klinik123</code></td>
+                                    <td><button type="button" class="btn-use-account"
+                                            data-email="apoteker@klinik.local" data-password="klinik123"
+                                            style="padding: 5px 10px; font-size: 11px; background: var(--primary); color: #fff; border: none; border-radius: 6px; cursor: pointer; font-weight: 700;">Gunakan</button>
+                                    </td>
+                                </tr>
+                                {{-- <tr>
+                                    <td>Kasir</td>
+                                    <td><code>kasir@klinik.local</code></td>
+                                    <td><code>klinik123</code></td>
+                                    <td><button type="button" class="btn-use-account"
+                                            data-email="kasir@klinik.local" data-password="klinik123"
+                                            style="padding: 5px 10px; font-size: 11px; background: var(--primary); color: #fff; border: none; border-radius: 6px; cursor: pointer; font-weight: 700;">Gunakan</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Lab</td>
+                                    <td><code>lab@klinik.local</code></td>
+                                    <td><code>klinik123</code></td>
+                                    <td><button type="button" class="btn-use-account" data-email="lab@klinik.local"
+                                            data-password="klinik123"
+                                            style="padding: 5px 10px; font-size: 11px; background: var(--primary); color: #fff; border: none; border-radius: 6px; cursor: pointer; font-weight: 700;">Gunakan</button>
+                                    </td>
+                                </tr>
+                                --}}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @include('auth.screens.login_js')
+</body>
+
+</html>

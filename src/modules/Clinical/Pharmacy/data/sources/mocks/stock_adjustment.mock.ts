@@ -1,0 +1,167 @@
+import type {
+    FarmacyStockAdjustmentBatchOption,
+    FarmacyStockAdjustmentOption,
+    FarmacyStockAdjustmentRow,
+} from '@modules/Clinical/Pharmacy/domain/models/farmacy.model';
+
+export const MOCK_ADJUSTMENT_BUSINESS_UNITS: FarmacyStockAdjustmentOption[] = [
+    { value: 'Klinik Utama', label: 'Klinik Utama' },
+    { value: 'CABANG-A', label: 'Cabang A' },
+];
+
+export const MOCK_ADJUSTMENT_WAREHOUSES: FarmacyStockAdjustmentOption[] = [
+    { value: 'warehouse-main', label: 'Gudang Pusat' },
+    { value: 'warehouse-farmacy-a', label: 'Gudang Farmasi A' },
+    { value: 'warehouse-farmacy-b', label: 'Gudang Farmasi B' },
+];
+
+export const MOCK_ADJUSTMENT_PRODUCTS: FarmacyStockAdjustmentOption[] = [
+    { value: 'paracetamol-500', label: 'Paracetamol 500mg' },
+    { value: 'amoxicillin-500', label: 'Amoxicillin 500mg' },
+    { value: 'cetirizine-10', label: 'Cetirizine 10mg' },
+];
+
+export const MOCK_ADJUSTMENT_BATCHES: FarmacyStockAdjustmentBatchOption[] = [
+    { value: 'batch-paracetamol-001', productId: 'paracetamol-500', label: 'BCH001 - Exp: 12/2026', stock: 120 },
+    { value: 'batch-paracetamol-002', productId: 'paracetamol-500', label: 'BCH002 - Exp: 08/2026', stock: 48 },
+    { value: 'batch-amoxicillin-001', productId: 'amoxicillin-500', label: 'AMX001 - Exp: 11/2026', stock: 80 },
+    { value: 'batch-cetirizine-001', productId: 'cetirizine-10', label: 'CTZ001 - Exp: 09/2026', stock: 60 },
+];
+
+export const MOCK_STOCK_ADJUSTMENT_ROWS: FarmacyStockAdjustmentRow[] = [
+    {
+        uuid: 'adjustment-001',
+        date: '25 Apr 2026',
+        time: '20:28',
+        referenceNo: 'IJ-PU-00000111',
+        businessUnit: 'Klinik Utama',
+        description: 'Penyesuaian Persediaan',
+        status: 'Diposting',
+    },
+    {
+        uuid: 'adjustment-002',
+        date: '25 Apr 2026',
+        time: '15:18',
+        referenceNo: 'IJ-PU-00000109',
+        businessUnit: 'Klinik Utama',
+        description: 'Penyesuaian Persediaan',
+        status: 'Diposting',
+    },
+    {
+        uuid: 'adjustment-003',
+        date: '25 Apr 2026',
+        time: '14:25',
+        referenceNo: 'IJ-PU-00000108',
+        businessUnit: 'Klinik Utama',
+        description: 'PERBAIKAN STOK',
+        status: 'Diposting',
+    },
+    {
+        uuid: 'adjustment-004',
+        date: '24 Apr 2026',
+        time: '13:55',
+        referenceNo: 'IJ-PU-00000107',
+        businessUnit: 'Klinik Utama',
+        description: 'Penyesuaian Persediaan',
+        status: 'Diposting',
+    },
+    {
+        uuid: 'adjustment-005',
+        date: '23 Apr 2026',
+        time: '22:07',
+        referenceNo: 'IJ-PU-00000106',
+        businessUnit: 'Klinik Utama',
+        description: 'Penyesuaian Persediaan',
+        status: 'Diposting',
+    },
+    {
+        uuid: 'adjustment-006',
+        date: '22 Apr 2026',
+        time: '10:14',
+        referenceNo: 'IJ-PU-00000105',
+        businessUnit: 'Klinik Utama',
+        description: 'Penyesuaian Persediaan',
+        status: 'Diposting',
+    },
+    {
+        uuid: 'adjustment-007',
+        date: '17 Apr 2026',
+        time: '18:09',
+        referenceNo: 'IJ-PU-00000103',
+        businessUnit: 'Klinik Utama',
+        description: 'Penyesuaian Persediaan',
+        status: 'Diposting',
+    },
+    {
+        uuid: 'adjustment-008',
+        date: '16 Apr 2026',
+        time: '11:32',
+        referenceNo: 'IJ-PU-00000102',
+        businessUnit: 'Klinik Utama',
+        description: 'Koreksi stok gudang farmasi',
+        status: 'Draft',
+    },
+    {
+        uuid: 'adjustment-009',
+        date: '15 Apr 2026',
+        time: '09:46',
+        referenceNo: 'IJ-PU-00000101',
+        businessUnit: 'Klinik Utama',
+        description: 'Penyesuaian stok masuk',
+        status: 'Diposting',
+    },
+    {
+        uuid: 'adjustment-010',
+        date: '14 Apr 2026',
+        time: '16:20',
+        referenceNo: 'IJ-PU-00000100',
+        businessUnit: 'Klinik Utama',
+        description: 'Selisih stok opname',
+        status: 'Diposting',
+    },
+    {
+        uuid: 'adjustment-011',
+        date: '13 Apr 2026',
+        time: '10:05',
+        referenceNo: 'IJ-PU-00000099',
+        businessUnit: 'Klinik Utama',
+        description: 'Obat rusak gudang',
+        status: 'Dibatalkan',
+    },
+    {
+        uuid: 'adjustment-012',
+        date: '12 Apr 2026',
+        time: '14:51',
+        referenceNo: 'IJ-PU-00000098',
+        businessUnit: 'Klinik Utama',
+        description: 'Tambah stok manual',
+        status: 'Diposting',
+    },
+    {
+        uuid: 'adjustment-013',
+        date: '11 Apr 2026',
+        time: '08:18',
+        referenceNo: 'IJ-PU-00000097',
+        businessUnit: 'Klinik Utama',
+        description: 'Penyesuaian stok expired',
+        status: 'Draft',
+    },
+    {
+        uuid: 'adjustment-014',
+        date: '10 Apr 2026',
+        time: '19:40',
+        referenceNo: 'IJ-PU-00000096',
+        businessUnit: 'Klinik Utama',
+        description: 'Retur internal farmasi',
+        status: 'Diposting',
+    },
+    {
+        uuid: 'adjustment-015',
+        date: '09 Apr 2026',
+        time: '12:27',
+        referenceNo: 'IJ-PU-00000095',
+        businessUnit: 'Klinik Utama',
+        description: 'Koreksi batch lama',
+        status: 'Diposting',
+    },
+];

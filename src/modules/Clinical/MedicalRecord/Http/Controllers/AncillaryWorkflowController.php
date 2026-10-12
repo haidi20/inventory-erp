@@ -1,0 +1,11 @@
+<?php
+namespace App\Modules\Clinical\MedicalRecord\Http\Controllers;
+use App\Modules\Core\Identity\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use Inertia\Inertia;
+use Inertia\Response;
+class AncillaryWorkflowController extends Controller {
+    public function __construct() { parent::__construct(); }
+    public function showRequestEntry(Request $r): Response { return Inertia::render('Clinical/MedicalRecord/presentations/views/AncillaryRequestIndex',['filters'=>['search'=>(string)$r->string('search')->trim(),'page'=>$r->integer('page',1),'per_page'=>$r->integer('per_page',10)]]); }
+    public function showResultEntry(Request $r): Response { return Inertia::render('Clinical/MedicalRecord/presentations/views/AncillaryResultIndex',['filters'=>['search'=>(string)$r->string('search')->trim(),'page'=>$r->integer('page',1),'per_page'=>$r->integer('per_page',10)]]); }
+}

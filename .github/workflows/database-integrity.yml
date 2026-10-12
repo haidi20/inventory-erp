@@ -1,0 +1,59 @@
+name: Database Integrity
+
+on:
+  push:
+    branches:
+      - main
+      - master
+      - dev
+      - haidi
+    paths:
+      - "src/database/migrations/**"
+      - "src/database/seeders/**"
+      - "src/modules/**/database/seeders/**"
+      - "src/scripts/ci/verify-database-integrity.php"
+      - ".github/workflows/database-integrity.yml"
+  pull_request:
+    paths:
+      - "src/database/migrations/**"
+      - "src/database/seeders/**"
+      - "src/modules/**/database/seeders/**"
+      - "src/scripts/ci/verify-database-integrity.php"
+      - ".github/workflows/database-integrity.yml"
+  workflow_dispatch:
+
+concurrency:
+  group: database-integrity-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  sqlite:
+    name: SQLite Migration Lifecycle
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: src
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.2"
+          extensions: mbstring, pdo_sqlite, sqlite3
+          coverage: none
+      - name: Install dependencies
+        run: composer install --no-interaction --prefer-dist --no-progress
+      - name: Verify V2 seeder remains disabled
+        run: php scripts/ci/verify-database-integrity.php --seeder-only
+      - name: Verify fresh migration and rollback lifecycle
+        run: |
+          set -o pipefail
+          php scripts/ci/verify-database-integrity.php --migrations-only | tee ../database-integrity.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: database-integrity-log
+          path: database-integrity.log
+          retention-days: 7

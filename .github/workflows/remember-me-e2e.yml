@@ -1,0 +1,73 @@
+name: Remember Me E2E Security
+
+on:
+  push:
+    branches:
+      - haidi
+    paths:
+      - "src/config/**"
+      - "src/database/seeders/**"
+      - "src/modules/Core/Identity/**"
+      - "src/scripts/ci/**"
+      - "src/playwright.config.ts"
+      - "src/package.json"
+      - "src/package-lock.json"
+      - ".github/workflows/remember-me-e2e.yml"
+  workflow_dispatch:
+
+concurrency:
+  group: remember-me-e2e-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  chromium:
+    name: Persisted Browser Restart
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: src
+    env:
+      KLINIK_TEST_BASE_URL: http://127.0.0.1:8000
+      APP_ENV: testing
+      APP_DEBUG: "false"
+      APP_URL: http://127.0.0.1:8000
+      DB_CONNECTION: sqlite
+      DB_FOREIGN_KEYS: "true"
+      SESSION_DRIVER: database
+      CACHE_STORE: file
+      CACHE_DRIVER: file
+      E2E_REMEMBER_ME_DB: ${{ github.workspace }}/src/storage/framework/remember-me-e2e.sqlite
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.2"
+          extensions: mbstring, pdo_sqlite, sqlite3
+          coverage: none
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: npm
+          cache-dependency-path: src/package-lock.json
+      - name: Install Composer dependencies
+        run: composer install --no-interaction --prefer-dist --no-progress
+      - name: Install npm dependencies
+        run: npm ci
+      - name: Set isolated test key
+        run: |
+          echo "APP_KEY=base64:$(php -r 'echo base64_encode(random_bytes(32));')" >> "$GITHUB_ENV"
+      - name: Build frontend assets
+        run: npm run build
+      - name: Run isolated remember-me E2E
+        run: |
+          set -o pipefail
+          bash scripts/ci/run-remember-me-e2e.sh | tee ../remember-me-e2e.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: remember-me-e2e-log
+          path: remember-me-e2e.log
+          retention-days: 7

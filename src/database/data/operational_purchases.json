@@ -1,0 +1,1512 @@
+[
+  {
+    "invoice_no": "MFJ/00074/V/2026",
+    "supplier": "MUSTANG FARMA JAYA",
+    "total": 742830.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-01-19",
+    "due_date": "2026-02-17",
+    "amount_hutang": 742830.0
+  },
+  {
+    "invoice_no": "23ASB2A000629",
+    "supplier": "KEBAYORAN PHARMA",
+    "total": 1498500.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-01-20",
+    "due_date": "2026-01-20",
+    "amount_hutang": 1498500.0
+  },
+  {
+    "invoice_no": "28117ADM-0007",
+    "supplier": "METTA KARYA HUTAMA",
+    "total": 54006.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-01-22",
+    "due_date": "2026-02-16",
+    "amount_hutang": 54006.0
+  },
+  {
+    "invoice_no": "63260002292",
+    "supplier": "ANUGRAH ARGON MEDICA",
+    "total": 3471690.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-01-22",
+    "due_date": "2026-02-20",
+    "amount_hutang": 3471690.0
+  },
+  {
+    "invoice_no": "133026000557",
+    "supplier": "MILLENIUM PHARMACON INTERNASIONAL",
+    "total": 36908.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-01-22",
+    "due_date": "2026-02-12",
+    "amount_hutang": 36908.0
+  },
+  {
+    "invoice_no": "INVSMD260100945",
+    "supplier": "ANTARMITRA SEMBADA",
+    "total": 595000.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-01-22",
+    "due_date": "2026-02-03",
+    "amount_hutang": 595000.0
+  },
+  {
+    "invoice_no": "300143260000597",
+    "supplier": "PENTA VALENT",
+    "total": 3209471.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-01-22",
+    "due_date": "2026-02-02",
+    "amount_hutang": 3209471.0
+  },
+  {
+    "invoice_no": "00446",
+    "supplier": "PT KALLISTA PRIMA",
+    "total": 949080.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-01-22",
+    "due_date": "2026-02-12",
+    "amount_hutang": 949080.0
+  },
+  {
+    "invoice_no": "00711",
+    "supplier": "PT KALLISTA PRIMA",
+    "total": 752940.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-01-22",
+    "due_date": "2026-02-17",
+    "amount_hutang": 752940.0
+  },
+  {
+    "invoice_no": "00710",
+    "supplier": "PT KALLISTA PRIMA",
+    "total": 395400.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-01-22",
+    "due_date": "2026-02-17",
+    "amount_hutang": 395400.0
+  },
+  {
+    "invoice_no": "28117ADM-0006",
+    "supplier": "METTA KARYA HUTAMA",
+    "total": 221318.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-01-22",
+    "due_date": "2026-02-16",
+    "amount_hutang": 221318.0
+  },
+  {
+    "invoice_no": "BTJ-2601-00226",
+    "supplier": "ANTARMITRA PERSADA",
+    "total": 1118880.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-01-22",
+    "due_date": "2026-02-16",
+    "amount_hutang": 1118880.0
+  },
+  {
+    "invoice_no": "FKSMD/202601/03098",
+    "supplier": "BINA SAN PRIMA",
+    "total": 579500.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-01-22",
+    "due_date": "2026-01-19",
+    "amount_hutang": 579500.0
+  },
+  {
+    "invoice_no": "126005495",
+    "supplier": "ENSEVAL PUTERA MEGATRADING",
+    "total": 1381680.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-01-22",
+    "due_date": "2026-02-03",
+    "amount_hutang": 1381680.0
+  },
+  {
+    "invoice_no": "126005494",
+    "supplier": "ENSEVAL PUTERA MEGATRADING",
+    "total": 1790000.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-01-22",
+    "due_date": "2026-02-03",
+    "amount_hutang": 1790000.0
+  },
+  {
+    "invoice_no": "MFJ/0074/I/2026",
+    "supplier": "MUSTANG FARMA JAYA",
+    "total": 742830.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-01-22",
+    "due_date": "2026-02-16",
+    "amount_hutang": 742830.0
+  },
+  {
+    "invoice_no": "00914",
+    "supplier": "PT KALLISTA PRIMA",
+    "total": 1437330.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-01-22",
+    "due_date": "2026-02-21",
+    "amount_hutang": 1437330.0
+  },
+  {
+    "invoice_no": "00907",
+    "supplier": "PT KALLISTA PRIMA",
+    "total": 369100.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-01-22",
+    "due_date": "2026-02-21",
+    "amount_hutang": 369100.0
+  },
+  {
+    "invoice_no": "INVSMD260101979",
+    "supplier": "ANTARMITRA SEMBADA",
+    "total": 692950.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-01-22",
+    "due_date": "2026-02-11",
+    "amount_hutang": 692950.0
+  },
+  {
+    "invoice_no": "133026000769",
+    "supplier": "MILLENIUM PHARMACON INTERNASIONAL",
+    "total": 4035370.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-01-22",
+    "due_date": "2026-02-16",
+    "amount_hutang": 4035370.0
+  },
+  {
+    "invoice_no": "133026000950",
+    "supplier": "MILLENIUM PHARMACON INTERNASIONAL",
+    "total": 343925.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-01-22",
+    "due_date": "2026-02-20",
+    "amount_hutang": 343925.0
+  },
+  {
+    "invoice_no": "BTJ-2601-00273",
+    "supplier": "ANTARMITRA PERSADA",
+    "total": 799200.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-01-22",
+    "due_date": "2026-02-20",
+    "amount_hutang": 799200.0
+  },
+  {
+    "invoice_no": "23ASB26000712",
+    "supplier": "KEBAYORAN PHARMA",
+    "total": 1714950.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-01-23",
+    "due_date": "2026-02-11",
+    "amount_hutang": 1714950.0
+  },
+  {
+    "invoice_no": "23ASB26000719",
+    "supplier": "KEBAYORAN PHARMA",
+    "total": 522000.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-01-23",
+    "due_date": "2026-02-11",
+    "amount_hutang": 522000.0
+  },
+  {
+    "invoice_no": "MFJ/00058/1/2025",
+    "supplier": "MUSTANG FARMA JAYA",
+    "total": 261072.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-01-23",
+    "due_date": "2026-02-20",
+    "amount_hutang": 261072.0
+  },
+  {
+    "invoice_no": "280122ADM-0008",
+    "supplier": "METTA KARYA HUTAMA",
+    "total": 275200.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-01-23",
+    "due_date": "2026-02-21",
+    "amount_hutang": 275200.0
+  },
+  {
+    "invoice_no": "2808941024",
+    "supplier": "KIMIA FARMA TRADING & DISTRIBUTOR",
+    "total": 393200.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-01-23",
+    "due_date": "2026-02-20",
+    "amount_hutang": 393200.0
+  },
+  {
+    "invoice_no": "133026000553",
+    "supplier": "MILLENIUM PHARMACON INTERNASIONAL",
+    "total": 247800.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-01-23",
+    "due_date": "2026-02-12",
+    "amount_hutang": 247800.0
+  },
+  {
+    "invoice_no": "CD260078670",
+    "supplier": "MENSA BINA SUKSES",
+    "total": 2207550.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-01-23",
+    "due_date": "2026-02-21",
+    "amount_hutang": 2207550.0
+  },
+  {
+    "invoice_no": "126006668",
+    "supplier": "ENSEVAL PUTERA MEGATRADING",
+    "total": 537840.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-01-23",
+    "due_date": "2026-02-05",
+    "amount_hutang": 537840.0
+  },
+  {
+    "invoice_no": "133026001067",
+    "supplier": "MILLENIUM PHARMACON INTERNASIONAL",
+    "total": 2066040.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-01-23",
+    "due_date": "2026-02-22",
+    "amount_hutang": 2066040.0
+  },
+  {
+    "invoice_no": "260130251",
+    "supplier": "APOTEK BUNDA FARMA",
+    "total": 113000.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-01-26",
+    "due_date": "2026-01-26",
+    "amount_hutang": 113000.0
+  },
+  {
+    "invoice_no": "8240400821",
+    "supplier": "PT. PARIT PADANG GLOBAL",
+    "total": 531916.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-01-26",
+    "due_date": "2026-02-16",
+    "amount_hutang": 531916.0
+  },
+  {
+    "invoice_no": "INVSMD260102414",
+    "supplier": "ANTARMITRA SEMBADA",
+    "total": 639360.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-01-27",
+    "due_date": "2026-02-16",
+    "amount_hutang": 639360.0
+  },
+  {
+    "invoice_no": "126007991",
+    "supplier": "ENSEVAL PUTERA MEGATRADING",
+    "total": 439728.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-01-27",
+    "due_date": "2026-02-10",
+    "amount_hutang": 439728.0
+  },
+  {
+    "invoice_no": "63260003256",
+    "supplier": "ANUGRAH ARGON MEDICA",
+    "total": 1438950.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-01-27",
+    "due_date": "2026-02-10",
+    "amount_hutang": 1438950.0
+  },
+  {
+    "invoice_no": "63260003225",
+    "supplier": "ANUGRAH ARGON MEDICA",
+    "total": 2182890.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-01-27",
+    "due_date": "2026-02-09",
+    "amount_hutang": 2182890.0
+  },
+  {
+    "invoice_no": "133026001218",
+    "supplier": "MILLENIUM PHARMACON INTERNASIONAL",
+    "total": 5257324.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-01-27",
+    "due_date": "2026-02-26",
+    "amount_hutang": 5257324.0
+  },
+  {
+    "invoice_no": "260127NAL-0017",
+    "supplier": "SEJAHTERA MULIA FARMA",
+    "total": 251620.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-01-27",
+    "due_date": null,
+    "amount_hutang": 251620.0
+  },
+  {
+    "invoice_no": "01153",
+    "supplier": "PT KALLISTA PRIMA",
+    "total": 2583630.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-01-27",
+    "due_date": null,
+    "amount_hutang": 2583630.0
+  },
+  {
+    "invoice_no": "260128NAL-0002",
+    "supplier": "SEJAHTERA MULIA FARMA",
+    "total": 277349.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-01-28",
+    "due_date": "2026-02-18",
+    "amount_hutang": 277349.0
+  },
+  {
+    "invoice_no": "63260003355",
+    "supplier": "ANUGRAH ARGON MEDICA",
+    "total": 4213860.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-01-28",
+    "due_date": "2026-02-10",
+    "amount_hutang": 4213860.0
+  },
+  {
+    "invoice_no": "INVSMD260102539",
+    "supplier": "ANTARMITRA SEMBADA",
+    "total": 3827360.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-01-28",
+    "due_date": "2026-02-17",
+    "amount_hutang": 3827360.0
+  },
+  {
+    "invoice_no": "126008789",
+    "supplier": "ENSEVAL PUTERA MEGATRADING",
+    "total": 127650.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-01-28",
+    "due_date": "2026-02-11",
+    "amount_hutang": 127650.0
+  },
+  {
+    "invoice_no": "126008802",
+    "supplier": "ENSEVAL PUTERA MEGATRADING",
+    "total": 2672620.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-01-29",
+    "due_date": "2026-02-27",
+    "amount_hutang": 2672620.0
+  },
+  {
+    "invoice_no": "400143260001455",
+    "supplier": "PENTA VALENT",
+    "total": 1780700.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-01-29",
+    "due_date": "2026-02-18",
+    "amount_hutang": 1780700.0
+  },
+  {
+    "invoice_no": "63260003566",
+    "supplier": "ANUGRAH ARGON MEDICA",
+    "total": 2261760.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-01-29",
+    "due_date": "2026-02-11",
+    "amount_hutang": 2261760.0
+  },
+  {
+    "invoice_no": "63260003634",
+    "supplier": "ANUGRAH ARGON MEDICA",
+    "total": 2237700.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-01-29",
+    "due_date": "2026-02-12",
+    "amount_hutang": 2237700.0
+  },
+  {
+    "invoice_no": "63260003650",
+    "supplier": "ANUGRAH ARGON MEDICA",
+    "total": 754800.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-01-30",
+    "due_date": "2026-02-12",
+    "amount_hutang": 754800.0
+  },
+  {
+    "invoice_no": "FKSMD/202601/05112",
+    "supplier": "BINA SAN PRIMA",
+    "total": 1041324.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-01-30",
+    "due_date": "2026-01-29",
+    "amount_hutang": 1041324.0
+  },
+  {
+    "invoice_no": "23ASB26001056",
+    "supplier": "KEBAYORAN PHARMA",
+    "total": 2997000.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-01-30",
+    "due_date": "2026-02-20",
+    "amount_hutang": 2997000.0
+  },
+  {
+    "invoice_no": "63260003730",
+    "supplier": "ANUGRAH ARGON MEDICA",
+    "total": 1240740.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-01-30",
+    "due_date": "2026-02-12",
+    "amount_hutang": 1240740.0
+  },
+  {
+    "invoice_no": "BTJ-2601-00440",
+    "supplier": "ANTAR MITRA PERSADA",
+    "total": 799200.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-01-30",
+    "due_date": "2026-03-01",
+    "amount_hutang": 799200.0
+  },
+  {
+    "invoice_no": "01348",
+    "supplier": "PT KALLISTA PRIMA",
+    "total": 403350.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-01-31",
+    "due_date": "2026-02-28",
+    "amount_hutang": 403350.0
+  },
+  {
+    "invoice_no": "63260004297",
+    "supplier": "ANUGRAH ARGON MEDICA",
+    "total": 6078240.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-02-02",
+    "due_date": "2026-02-14",
+    "amount_hutang": 6078240.0
+  },
+  {
+    "invoice_no": "133026001592",
+    "supplier": "MILLENIUM PHARMACON INTERNASIONAL",
+    "total": 2333275.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-02-02",
+    "due_date": "2026-03-02",
+    "amount_hutang": 2333275.0
+  },
+  {
+    "invoice_no": "01457",
+    "supplier": "PT KALLISTA PRIMA",
+    "total": 474540.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-02-02",
+    "due_date": "2026-03-02",
+    "amount_hutang": 474540.0
+  },
+  {
+    "invoice_no": "01.FF.26.02.0001",
+    "supplier": "BUANA INTIPRIMA USAHA",
+    "total": 301182.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-02-03",
+    "due_date": "2026-03-04",
+    "amount_hutang": 301182.0
+  },
+  {
+    "invoice_no": "030226",
+    "supplier": "APOTEK BUNDA FARMA",
+    "total": 675990.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-02-04",
+    "due_date": null,
+    "amount_hutang": 675990.0
+  },
+  {
+    "invoice_no": "2808959276",
+    "supplier": "KIMIA FARMA TRADING & DISTRIBUTOR",
+    "total": 165800.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-02-04",
+    "due_date": "2026-02-28",
+    "amount_hutang": 165800.0
+  },
+  {
+    "invoice_no": "CD260124400",
+    "supplier": "MENSA BINA SUKSES",
+    "total": 1324530.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-02-04",
+    "due_date": "2026-03-02",
+    "amount_hutang": 1324530.0
+  },
+  {
+    "invoice_no": "BTJ-2602-00031",
+    "supplier": "ANTAR MITRA PERSADA",
+    "total": 1598400.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-02-04",
+    "due_date": "2026-03-06",
+    "amount_hutang": 1598400.0
+  },
+  {
+    "invoice_no": "INVSMD260200397",
+    "supplier": "ANTARMITRA SEMBADA",
+    "total": 1092550.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-02-05",
+    "due_date": "2026-02-26",
+    "amount_hutang": 1092550.0
+  },
+  {
+    "invoice_no": "01633",
+    "supplier": "PT KALLISTA PRIMA",
+    "total": 369100.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-02-05",
+    "due_date": null,
+    "amount_hutang": 369100.0
+  },
+  {
+    "invoice_no": "400143260001905",
+    "supplier": "PENTA VALENT",
+    "total": 247800.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-02-05",
+    "due_date": "2026-02-26",
+    "amount_hutang": 247800.0
+  },
+  {
+    "invoice_no": "400143260001928",
+    "supplier": "PENTA VALENT",
+    "total": 2717660.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-02-05",
+    "due_date": "2026-02-26",
+    "amount_hutang": 2717660.0
+  },
+  {
+    "invoice_no": "2808975706",
+    "supplier": "KIMIA FARMA TRADING & DISTRIBUTOR",
+    "total": 122200.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-02-07",
+    "due_date": null,
+    "amount_hutang": 122200.0
+  },
+  {
+    "invoice_no": "8240402906",
+    "supplier": "PT. PARIT PADANG GLOBAL",
+    "total": 514028.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-02-07",
+    "due_date": null,
+    "amount_hutang": 514028.0
+  },
+  {
+    "invoice_no": "FKSMD/202602/01293",
+    "supplier": "BINA SAN PRIMA",
+    "total": 914145.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-02-07",
+    "due_date": null,
+    "amount_hutang": 914145.0
+  },
+  {
+    "invoice_no": "090226",
+    "supplier": "APOTEK BUNDA FARMA",
+    "total": 374000.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-02-09",
+    "due_date": null,
+    "amount_hutang": 374000.0
+  },
+  {
+    "invoice_no": "23ASB26001407",
+    "supplier": "KEBAYORAN PHARMA",
+    "total": 2697300.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-02-10",
+    "due_date": null,
+    "amount_hutang": 2697300.0
+  },
+  {
+    "invoice_no": "260208ADM-0026",
+    "supplier": "METTA KARYA HUTAMA",
+    "total": 224800.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-02-10",
+    "due_date": null,
+    "amount_hutang": 224800.0
+  },
+  {
+    "invoice_no": "400143260002157",
+    "supplier": "PENTA VALENT",
+    "total": 1386400.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-02-10",
+    "due_date": null,
+    "amount_hutang": 1386400.0
+  },
+  {
+    "invoice_no": "126013122",
+    "supplier": "ENSEVAL PUTERA MEGATRADING",
+    "total": 1425840.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-02-10",
+    "due_date": null,
+    "amount_hutang": 1425840.0
+  },
+  {
+    "invoice_no": "133026002019",
+    "supplier": "MILLENIUM PHARMACON INTERNASIONAL",
+    "total": 6424730.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-02-10",
+    "due_date": null,
+    "amount_hutang": 6424730.0
+  },
+  {
+    "invoice_no": "260212ADM-0002",
+    "supplier": "METTA KARYA HUTAMA",
+    "total": 2093940.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-02-12",
+    "due_date": null,
+    "amount_hutang": 2093940.0
+  },
+  {
+    "invoice_no": "63260005858",
+    "supplier": "ANUGRAH ARGON MEDICA",
+    "total": 1089630.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-02-12",
+    "due_date": null,
+    "amount_hutang": 1089630.0
+  },
+  {
+    "invoice_no": "F0002279/REG/MSA/2026",
+    "supplier": "MAHAKAM SEJAHTERA ABADI",
+    "total": 433384.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-02-12",
+    "due_date": null,
+    "amount_hutang": 433384.0
+  },
+  {
+    "invoice_no": "400143260002339",
+    "supplier": "PENTA VALENT",
+    "total": 3163600.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-02-12",
+    "due_date": null,
+    "amount_hutang": 3163600.0
+  },
+  {
+    "invoice_no": "63260005910",
+    "supplier": "ANUGRAH ARGON MEDICA",
+    "total": 2142540.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-02-12",
+    "due_date": null,
+    "amount_hutang": 2142540.0
+  },
+  {
+    "invoice_no": "63260006014",
+    "supplier": "ANUGRAH ARGON MEDICA",
+    "total": 314880.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-02-13",
+    "due_date": null,
+    "amount_hutang": 314880.0
+  },
+  {
+    "invoice_no": "63260006000",
+    "supplier": "ANUGRAH ARGON MEDICA",
+    "total": 1223850.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-02-13",
+    "due_date": null,
+    "amount_hutang": 1223850.0
+  },
+  {
+    "invoice_no": "02018",
+    "supplier": "PT KALLISTA PRIMA",
+    "total": 595200.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-02-13",
+    "due_date": null,
+    "amount_hutang": 595200.0
+  },
+  {
+    "invoice_no": "MFJ/K/00053/II/2026",
+    "supplier": "MUSTANG FARMA JAYA",
+    "total": 293608.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-02-13",
+    "due_date": null,
+    "amount_hutang": 293608.0
+  },
+  {
+    "invoice_no": "126014663",
+    "supplier": "ENSEVAL PUTERA MEGATRADING",
+    "total": 854700.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-02-14",
+    "due_date": null,
+    "amount_hutang": 854700.0
+  },
+  {
+    "invoice_no": "133026002424",
+    "supplier": "MILLENIUM PHARMACON INTERNASIONAL",
+    "total": 438625.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-02-16",
+    "due_date": null,
+    "amount_hutang": 438625.0
+  },
+  {
+    "invoice_no": "400143260002544",
+    "supplier": "PENTA VALENT",
+    "total": 2214520.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-02-18",
+    "due_date": null,
+    "amount_hutang": 2214520.0
+  },
+  {
+    "invoice_no": "133026002450",
+    "supplier": "MILLENIUM PHARMACON INTERNASIONAL",
+    "total": 3659730.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-02-18",
+    "due_date": null,
+    "amount_hutang": 3659730.0
+  },
+  {
+    "invoice_no": "INVSMD260201902",
+    "supplier": "ANTARMITRA SEMBADA",
+    "total": 1598400.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-02-19",
+    "due_date": null,
+    "amount_hutang": 1598400.0
+  },
+  {
+    "invoice_no": "63260006583",
+    "supplier": "ANUGRAH ARGON MEDICA",
+    "total": 3064860.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-02-19",
+    "due_date": null,
+    "amount_hutang": 3064860.0
+  },
+  {
+    "invoice_no": "CD260199452",
+    "supplier": "MENSA BINA SUKSES",
+    "total": 1324530.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-02-20",
+    "due_date": null,
+    "amount_hutang": 1324530.0
+  },
+  {
+    "invoice_no": "63260007070",
+    "supplier": "ANUGRAH ARGON MEDICA",
+    "total": 1713390.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-02-23",
+    "due_date": null,
+    "amount_hutang": 1713390.0
+  },
+  {
+    "invoice_no": "133026002701",
+    "supplier": "MILLENIUM PHARMACON INTERNASIONAL",
+    "total": 3121012.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-02-23",
+    "due_date": null,
+    "amount_hutang": 3121012.0
+  },
+  {
+    "invoice_no": "126017488",
+    "supplier": "ENSEVAL PUTERA MEGATRADING",
+    "total": 328686.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-02-23",
+    "due_date": null,
+    "amount_hutang": 328686.0
+  },
+  {
+    "invoice_no": "260224ADM-0008",
+    "supplier": "METTA KARYA HUTAMA",
+    "total": 1567530.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-02-24",
+    "due_date": null,
+    "amount_hutang": 1567530.0
+  },
+  {
+    "invoice_no": "126017891",
+    "supplier": "ENSEVAL PUTERA MEGATRADING",
+    "total": 328686.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-02-24",
+    "due_date": null,
+    "amount_hutang": 328686.0
+  },
+  {
+    "invoice_no": "26022026",
+    "supplier": "MILLENIUM PHARMACON INTERNASIONAL",
+    "total": 799200.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-02-24",
+    "due_date": null,
+    "amount_hutang": 799200.0
+  },
+  {
+    "invoice_no": "2620061003172",
+    "supplier": "SAPTA SARI TAMA",
+    "total": 2226160.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-02-24",
+    "due_date": null,
+    "amount_hutang": 2226160.0
+  },
+  {
+    "invoice_no": "250226",
+    "supplier": "APOTEK BUNDA FARMA",
+    "total": 46620.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-02-25",
+    "due_date": null,
+    "amount_hutang": 46620.0
+  },
+  {
+    "invoice_no": "63260007529",
+    "supplier": "ANUGRAH ARGON MEDICA",
+    "total": 503460.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-02-25",
+    "due_date": null,
+    "amount_hutang": 503460.0
+  },
+  {
+    "invoice_no": "XS4-SR260205692",
+    "supplier": "APOTEK XS MART",
+    "total": 56000.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-02-26",
+    "due_date": null,
+    "amount_hutang": 56000.0
+  },
+  {
+    "invoice_no": "2620061003916",
+    "supplier": "SAPTA SARI TAMA",
+    "total": 173937.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-02-26",
+    "due_date": null,
+    "amount_hutang": 173937.0
+  },
+  {
+    "invoice_no": "CD260227070",
+    "supplier": "MENSA BINA SUKSES",
+    "total": 2207550.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-02-26",
+    "due_date": null,
+    "amount_hutang": 2207550.0
+  },
+  {
+    "invoice_no": "INVSMD260202798",
+    "supplier": "ANTARMITRA SEMBADA",
+    "total": 959040.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-02-26",
+    "due_date": null,
+    "amount_hutang": 959040.0
+  },
+  {
+    "invoice_no": "133026002943",
+    "supplier": "MILLENIUM PHARMACON INTERNASIONAL",
+    "total": 1595940.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-02-26",
+    "due_date": null,
+    "amount_hutang": 1595940.0
+  },
+  {
+    "invoice_no": "260223NAL-0005",
+    "supplier": "SEJAHTERA MULIA FARMA",
+    "total": 212023.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-02-27",
+    "due_date": null,
+    "amount_hutang": 212023.0
+  },
+  {
+    "invoice_no": "260320132",
+    "supplier": "APOTEK BUNDA FARMA",
+    "total": 114000.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-03-02",
+    "due_date": null,
+    "amount_hutang": 114000.0
+  },
+  {
+    "invoice_no": "260228ADM-0004",
+    "supplier": "METTA KARYA HUTAMA",
+    "total": 100000.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-03-02",
+    "due_date": null,
+    "amount_hutang": 100000.0
+  },
+  {
+    "invoice_no": "133026003253",
+    "supplier": "MILLENIUM PHARMACON INTERNASIONAL",
+    "total": 3722650.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-03-03",
+    "due_date": null,
+    "amount_hutang": 3722650.0
+  },
+  {
+    "invoice_no": "F0003246/REG/MSA/2026",
+    "supplier": "MAHAKAM SEJAHTERA ABADI",
+    "total": 276595.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-03-03",
+    "due_date": null,
+    "amount_hutang": 276595.0
+  },
+  {
+    "invoice_no": "126020414",
+    "supplier": "ENSEVAL PUTERA MEGATRADING",
+    "total": 317746.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-03-03",
+    "due_date": null,
+    "amount_hutang": 317746.0
+  },
+  {
+    "invoice_no": "01.FF.26.03.0057",
+    "supplier": "BUANA INTIPRIMA USAHA",
+    "total": 57500.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-03-03",
+    "due_date": null,
+    "amount_hutang": 57500.0
+  },
+  {
+    "invoice_no": "INVSMD260300144",
+    "supplier": "ANTARMITRA SEMBADA",
+    "total": 3427760.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-03-03",
+    "due_date": null,
+    "amount_hutang": 3427760.0
+  },
+  {
+    "invoice_no": "63260008558",
+    "supplier": "ANUGRAH ARGON MEDICA",
+    "total": 3461550.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-03-03",
+    "due_date": null,
+    "amount_hutang": 3461550.0
+  },
+  {
+    "invoice_no": "02871",
+    "supplier": "PT KALLISTA PRIMA",
+    "total": 847600.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-03-03",
+    "due_date": null,
+    "amount_hutang": 847600.0
+  },
+  {
+    "invoice_no": "02866",
+    "supplier": "PT KALLISTA PRIMA",
+    "total": 369100.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-03-03",
+    "due_date": null,
+    "amount_hutang": 369100.0
+  },
+  {
+    "invoice_no": "133026003253.0",
+    "supplier": "MILLENIUM PHARMACON INTERNASIONAL",
+    "total": 474540.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-03-03",
+    "due_date": null,
+    "amount_hutang": 474540.0
+  },
+  {
+    "invoice_no": "02913",
+    "supplier": "PT KALLISTA PRIMA",
+    "total": 256230.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-03-04",
+    "due_date": null,
+    "amount_hutang": 256230.0
+  },
+  {
+    "invoice_no": "2809001995 (19.02.2026)",
+    "supplier": "KIMIA FARMA TRADING & DISTRIBUTOR",
+    "total": 142500.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-03-04",
+    "due_date": null,
+    "amount_hutang": 142500.0
+  },
+  {
+    "invoice_no": "126021380",
+    "supplier": "ENSEVAL PUTERA MEGATRADING",
+    "total": 993450.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-03-05",
+    "due_date": null,
+    "amount_hutang": 993450.0
+  },
+  {
+    "invoice_no": "MFJ/00015/III/2026",
+    "supplier": "MUSTANG FARMA JAYA",
+    "total": 817740.0,
+    "paid": 817740.0,
+    "status": "paid",
+    "purchase_date": "2026-03-05",
+    "due_date": null,
+    "amount_hutang": 0
+  },
+  {
+    "invoice_no": "CD260256921",
+    "supplier": "MENSA BINA SUKSES",
+    "total": 2207550.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-03-05",
+    "due_date": null,
+    "amount_hutang": 2207550.0
+  },
+  {
+    "invoice_no": "CD260264032",
+    "supplier": "MENSA BINA SUKSES",
+    "total": 495270.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-03-05",
+    "due_date": null,
+    "amount_hutang": 495270.0
+  },
+  {
+    "invoice_no": "63260009004",
+    "supplier": "ANUGRAH ARGON MEDICA",
+    "total": 389064.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-03-05",
+    "due_date": null,
+    "amount_hutang": 389064.0
+  },
+  {
+    "invoice_no": "XS4-SR260301403",
+    "supplier": "APOTEK XS MART",
+    "total": 50700.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-03-06",
+    "due_date": null,
+    "amount_hutang": 50700.0
+  },
+  {
+    "invoice_no": "133026003179",
+    "supplier": "MILLENIUM PHARMACON INTERNASIONAL",
+    "total": 1581800.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-03-06",
+    "due_date": null,
+    "amount_hutang": 1581800.0
+  },
+  {
+    "invoice_no": "INVSMD260300560",
+    "supplier": "ANTARMITRA SEMBADA",
+    "total": 1038960.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-03-06",
+    "due_date": null,
+    "amount_hutang": 1038960.0
+  },
+  {
+    "invoice_no": "63260009138",
+    "supplier": "ANUGRAH ARGON MEDICA",
+    "total": 1808940.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-03-06",
+    "due_date": null,
+    "amount_hutang": 1808940.0
+  },
+  {
+    "invoice_no": "400143260003406",
+    "supplier": "PENTA VALENT",
+    "total": 1557526.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-03-06",
+    "due_date": null,
+    "amount_hutang": 1557526.0
+  },
+  {
+    "invoice_no": "400143260003405",
+    "supplier": "PENTA VALENT",
+    "total": 1168800.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-03-06",
+    "due_date": null,
+    "amount_hutang": 1168800.0
+  },
+  {
+    "invoice_no": "260303ADM-0010",
+    "supplier": "METTA KARYA HUTAMA",
+    "total": 2245740.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-03-07",
+    "due_date": null,
+    "amount_hutang": 2245740.0
+  },
+  {
+    "invoice_no": "03040",
+    "supplier": "PT KALLISTA PRIMA",
+    "total": 2267230.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-03-07",
+    "due_date": null,
+    "amount_hutang": 2267230.0
+  },
+  {
+    "invoice_no": "400143260003597",
+    "supplier": "PENTA VALENT",
+    "total": 2258670.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-03-09",
+    "due_date": null,
+    "amount_hutang": 2258670.0
+  },
+  {
+    "invoice_no": "260305ADM-0010",
+    "supplier": "METTA KARYA HUTAMA",
+    "total": 226637.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-03-09",
+    "due_date": null,
+    "amount_hutang": 226637.0
+  },
+  {
+    "invoice_no": "126022346",
+    "supplier": "ENSEVAL PUTERA MEGATRADING",
+    "total": 619950.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-03-10",
+    "due_date": null,
+    "amount_hutang": 619950.0
+  },
+  {
+    "invoice_no": "133026003623",
+    "supplier": "MILLENIUM PHARMACON INTERNASIONAL",
+    "total": 6037216.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-03-10",
+    "due_date": null,
+    "amount_hutang": 6037216.0
+  },
+  {
+    "invoice_no": "63260009636",
+    "supplier": "ANUGRAH ARGON MEDICA",
+    "total": 725010.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-03-10",
+    "due_date": null,
+    "amount_hutang": 725010.0
+  },
+  {
+    "invoice_no": "260331352",
+    "supplier": "APOTEK SAHABAT",
+    "total": 249000.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-03-11",
+    "due_date": null,
+    "amount_hutang": 249000.0
+  },
+  {
+    "invoice_no": "INVSMD260300982",
+    "supplier": "ANTARMITRA SEMBADA",
+    "total": 1598400.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-03-11",
+    "due_date": null,
+    "amount_hutang": 1598400.0
+  },
+  {
+    "invoice_no": "260311ADM-0003",
+    "supplier": "METTA KARYA HUTAMA",
+    "total": 1045020.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-03-11",
+    "due_date": null,
+    "amount_hutang": 1045020.0
+  },
+  {
+    "invoice_no": "133026003688",
+    "supplier": "MILLENIUM PHARMACON INTERNASIONAL",
+    "total": 892080.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-03-11",
+    "due_date": null,
+    "amount_hutang": 892080.0
+  },
+  {
+    "invoice_no": "400143260003740",
+    "supplier": "PENTA VALENT",
+    "total": 263340.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-03-11",
+    "due_date": null,
+    "amount_hutang": 263340.0
+  },
+  {
+    "invoice_no": "FKSMD/202603/01538",
+    "supplier": "BINA SAN PRIMA",
+    "total": 631080.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-03-11",
+    "due_date": null,
+    "amount_hutang": 631080.0
+  },
+  {
+    "invoice_no": "03294",
+    "supplier": "PT KALLISTA PRIMA",
+    "total": 738180.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-03-11",
+    "due_date": null,
+    "amount_hutang": 738180.0
+  },
+  {
+    "invoice_no": "03293",
+    "supplier": "PT KALLISTA PRIMA",
+    "total": 332160.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-03-11",
+    "due_date": "2026-04-01",
+    "amount_hutang": 332160.0
+  },
+  {
+    "invoice_no": "PI-PU-00000148",
+    "supplier": "MENSA BINA SUKSES",
+    "total": 3090570.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-03-12",
+    "due_date": null,
+    "amount_hutang": 3090570.0
+  },
+  {
+    "invoice_no": "23ASB26002619",
+    "supplier": "KEBAYORAN PHARMA",
+    "total": 1423650.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-03-13",
+    "due_date": null,
+    "amount_hutang": 1423650.0
+  },
+  {
+    "invoice_no": "40-0143-26-0003834",
+    "supplier": "PENTA VALENT",
+    "total": 1237290.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-03-13",
+    "due_date": null,
+    "amount_hutang": 1237290.0
+  },
+  {
+    "invoice_no": "63260010280",
+    "supplier": "ANUGRAH ARGON MEDICA",
+    "total": 733560.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-03-14",
+    "due_date": null,
+    "amount_hutang": 733560.0
+  },
+  {
+    "invoice_no": "INVSMD260301317",
+    "supplier": "ANTARMITRA SEMBADA",
+    "total": 595000.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-03-14",
+    "due_date": null,
+    "amount_hutang": 595000.0
+  },
+  {
+    "invoice_no": "PI-PU-00000153",
+    "supplier": "ANTARMITRA SEMBADA",
+    "total": 1598400.0,
+    "paid": 0,
+    "status": "unpaid",
+    "purchase_date": "2026-03-14",
+    "due_date": null,
+    "amount_hutang": 1598400.0
+  }
+]

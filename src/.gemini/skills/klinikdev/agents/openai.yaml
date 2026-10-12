@@ -1,0 +1,4 @@
+interface:
+  display_name: "Klinik Dev"
+  short_description: "Standar fitur baru Klinik 2026"
+  default_prompt: "Use $klinikdev to design and implement a new Klinik 2026 feature with TDD and modular architecture."

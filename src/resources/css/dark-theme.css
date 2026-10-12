@@ -1,0 +1,101 @@
+:root {
+    --on-primary: #FFFFFF;
+    --overlay: rgba(15, 23, 42, .48);
+    --shadow-strength: rgba(15, 23, 42, .1);
+}
+
+html.dark {
+    --on-primary: #F8FAFC;
+    --overlay: rgba(2, 6, 16, .72);
+    --shadow-strength: rgba(0, 0, 0, .36);
+    --shadow-soft: 0 2px 4px rgba(0, 0, 0, .16), 0 4px 12px rgba(0, 0, 0, .22);
+    --shadow: 0 10px 15px -3px rgba(0, 0, 0, .24), 0 4px 6px -2px rgba(0, 0, 0, .16);
+    --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, .28), 0 10px 10px -5px rgba(0, 0, 0, .18);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, .3), 0 8px 10px -6px rgba(0, 0, 0, .2);
+}
+
+html.dark .dashboard-shell,
+html.dark [class*="dashboard"] {
+    color: var(--lv-ink);
+}
+
+html.dark .stat-card,
+html.dark .btn-primary,
+html.dark .btn-danger,
+html.dark .sidebar-logo,
+html.dark .nav-item.active,
+html.dark .user-avatar,
+html.dark .pg-btn.active {
+    color: var(--on-primary);
+}
+
+html.dark [style*="background:#fff"],
+html.dark [style*="background: #fff"],
+html.dark [style*="background:#ffffff"],
+html.dark [style*="background: #ffffff"] {
+    background-color: var(--lv-surface) !important;
+}
+
+html.dark [style*="color:#1e293b"],
+html.dark [style*="color: #1e293b"],
+html.dark [style*="color:#0f172a"],
+html.dark [style*="color: #0f172a"],
+html.dark [style*="color:#334155"],
+html.dark [style*="color: #334155"],
+html.dark [style*="color:#475569"],
+html.dark [style*="color: #475569"],
+html.dark [style*="color:#64748b"],
+html.dark [style*="color: #64748b"],
+html.dark [style*="color:#94a3b8"],
+html.dark [style*="color: #94a3b8"] {
+    color: var(--lv-ink) !important;
+}
+
+html.dark .bg-white {
+    background-color: var(--lv-surface) !important;
+}
+
+html.dark .text-gray-900,
+html.dark .text-gray-800,
+html.dark .text-gray-700,
+html.dark .text-gray-600 {
+    color: var(--lv-ink) !important;
+}
+
+html.dark .text-gray-500,
+html.dark .text-gray-400 {
+    color: var(--lv-neutral) !important;
+}
+
+html.dark .border-gray-200,
+html.dark .border-gray-300 {
+    border-color: var(--lv-border) !important;
+}
+
+html.dark input:not([type="checkbox"]):not([type="radio"]),
+html.dark select,
+html.dark textarea {
+    background-color: var(--lv-surface);
+    border-color: var(--lv-border);
+    color: var(--lv-ink);
+}
+
+html.dark input::placeholder,
+html.dark textarea::placeholder {
+    color: color-mix(in srgb, var(--lv-neutral) 84%, transparent);
+}
+
+html.dark ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+html.dark ::-webkit-scrollbar-track {
+    background: var(--lv-background);
+}
+
+html.dark ::-webkit-scrollbar-thumb {
+    background: color-mix(in srgb, var(--lv-neutral) 44%, transparent);
+    border: 3px solid var(--lv-background);
+    border-radius: 999px;
+}

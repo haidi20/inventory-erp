@@ -1,0 +1,2822 @@
+[
+  {
+    "code": "PRD-BHP-001",
+    "name": "ALKOHOL SWABSMALL",
+    "category": "BHP",
+    "unit": "pcs",
+    "price_buy": 144.0,
+    "price_sell": 180.0,
+    "min_stock": 5,
+    "stock": 961
+  },
+  {
+    "code": "PRD-BHP-002",
+    "name": "ALTAMED UNDERPADS 60 x 90 cm",
+    "category": "BHP",
+    "unit": "pcs",
+    "price_buy": 5550.0,
+    "price_sell": 6938.0,
+    "min_stock": 5,
+    "stock": 11
+  },
+  {
+    "code": "PRD-BHP-003",
+    "name": "BESMED Guedel Airway 90 mm",
+    "category": "BHP",
+    "unit": "pc",
+    "price_buy": 18870.0,
+    "price_sell": 23588.0,
+    "min_stock": 5,
+    "stock": 5
+  },
+  {
+    "code": "PRD-BHP-004",
+    "name": "DARYANT-TULLE",
+    "category": "BHP",
+    "unit": "pcs",
+    "price_buy": 24776.0,
+    "price_sell": 30970.0,
+    "min_stock": 5,
+    "stock": 7
+  },
+  {
+    "code": "PRD-BHP-005",
+    "name": "DOUBLE SPIKE",
+    "category": "BHP",
+    "unit": "pc",
+    "price_buy": 6660.0,
+    "price_sell": 8325.0,
+    "min_stock": 5,
+    "stock": 3
+  },
+  {
+    "code": "PRD-BHP-006",
+    "name": "GEA Catgut Plain No 2",
+    "category": "BHP",
+    "unit": "pc",
+    "price_buy": 9990.0,
+    "price_sell": 12488.0,
+    "min_stock": 5,
+    "stock": 10
+  },
+  {
+    "code": "PRD-BHP-007",
+    "name": "GEA Infuset Anak",
+    "category": "BHP",
+    "unit": "pc",
+    "price_buy": 4440.0,
+    "price_sell": 5550.0,
+    "min_stock": 5,
+    "stock": 10
+  },
+  {
+    "code": "PRD-BHP-008",
+    "name": "GEA Infuset Dewasa",
+    "category": "BHP",
+    "unit": "pc",
+    "price_buy": 4551.0,
+    "price_sell": 5689.0,
+    "min_stock": 5,
+    "stock": 10
+  },
+  {
+    "code": "PRD-BHP-009",
+    "name": "GEA Nasal Kanula Size L",
+    "category": "BHP",
+    "unit": "pc",
+    "price_buy": 16650.0,
+    "price_sell": 20812.0,
+    "min_stock": 5,
+    "stock": 5
+  },
+  {
+    "code": "PRD-BHP-010",
+    "name": "GEA Nasal Kanula Size M",
+    "category": "BHP",
+    "unit": "pc",
+    "price_buy": 16650.0,
+    "price_sell": 20812.0,
+    "min_stock": 5,
+    "stock": 10
+  },
+  {
+    "code": "PRD-BHP-011",
+    "name": "HANDSCOON STERIL 6,5",
+    "category": "BHP",
+    "unit": "pcs",
+    "price_buy": 15540.0,
+    "price_sell": 19425.0,
+    "min_stock": 5,
+    "stock": 100
+  },
+  {
+    "code": "PRD-BHP-012",
+    "name": "HECTING SET",
+    "category": "BHP",
+    "unit": "pcs",
+    "price_buy": 5200.0,
+    "price_sell": 6500.0,
+    "min_stock": 5,
+    "stock": 100
+  },
+  {
+    "code": "PRD-BHP-013",
+    "name": "HIDROGEN PEROKSIDA100 ML",
+    "category": "BHP",
+    "unit": "pcs",
+    "price_buy": 6438.0,
+    "price_sell": 8048.0,
+    "min_stock": 5,
+    "stock": 1
+  },
+  {
+    "code": "PRD-BHP-014",
+    "name": "Handscoon S/M Non Steril",
+    "category": "BHP",
+    "unit": "pcs",
+    "price_buy": 1066.0,
+    "price_sell": 1332.0,
+    "min_stock": 5,
+    "stock": 852
+  },
+  {
+    "code": "PRD-BHP-015",
+    "name": "Hansaplast Roll4,5 CM",
+    "category": "BHP",
+    "unit": "pcs",
+    "price_buy": 555.0,
+    "price_sell": 694.0,
+    "min_stock": 5,
+    "stock": 50
+  },
+  {
+    "code": "PRD-BHP-016",
+    "name": "INFLO IV CATHETER NO.18 G",
+    "category": "BHP",
+    "unit": "pc",
+    "price_buy": 28721.0,
+    "price_sell": 35901.0,
+    "min_stock": 5,
+    "stock": 10
+  },
+  {
+    "code": "PRD-BHP-017",
+    "name": "INFLO IV Catheter No.24 G",
+    "category": "BHP",
+    "unit": "pcs",
+    "price_buy": 5550.0,
+    "price_sell": 6938.0,
+    "min_stock": 5,
+    "stock": 25
+  },
+  {
+    "code": "PRD-BHP-018",
+    "name": "INFLO IV Catheter No.20 G",
+    "category": "BHP",
+    "unit": "pcs",
+    "price_buy": 5550.0,
+    "price_sell": 6938.0,
+    "min_stock": 5,
+    "stock": 15
+  },
+  {
+    "code": "PRD-BHP-019",
+    "name": "INFLO IV Catheter No.22G",
+    "category": "BHP",
+    "unit": "pcs",
+    "price_buy": 4840.0,
+    "price_sell": 6050.0,
+    "min_stock": 5,
+    "stock": 41
+  },
+  {
+    "code": "PRD-BHP-020",
+    "name": "INSULIN PEN NEEDLE 32 G",
+    "category": "BHP",
+    "unit": "pc",
+    "price_buy": 1776.0,
+    "price_sell": 6252.0,
+    "min_stock": 5,
+    "stock": 89
+  },
+  {
+    "code": "PRD-BHP-021",
+    "name": "JARUM VACUTAINER(NEEDLE)",
+    "category": "BHP",
+    "unit": "pcs",
+    "price_buy": 3190.0,
+    "price_sell": 3988.0,
+    "min_stock": 5,
+    "stock": 46
+  },
+  {
+    "code": "PRD-BHP-022",
+    "name": "KAPAS 500 GR500 GR",
+    "category": "BHP",
+    "unit": "pcs",
+    "price_buy": 910.0,
+    "price_sell": 1138.0,
+    "min_stock": 5,
+    "stock": 150
+  },
+  {
+    "code": "PRD-BHP-023",
+    "name": "Kasa Steril/Kasa Gulung-",
+    "category": "BHP",
+    "unit": "pc",
+    "price_buy": 1600.0,
+    "price_sell": 2000.0,
+    "min_stock": 5,
+    "stock": 998
+  },
+  {
+    "code": "PRD-BHP-024",
+    "name": "Masker Earloop",
+    "category": "BHP",
+    "unit": "pcs",
+    "price_buy": 555.0,
+    "price_sell": 694.0,
+    "min_stock": 5,
+    "stock": 450
+  },
+  {
+    "code": "PRD-BHP-025",
+    "name": "MASKER HIJAB",
+    "category": "BHP",
+    "unit": "pcs",
+    "price_buy": 400.0,
+    "price_sell": 500.0,
+    "min_stock": 5,
+    "stock": 12
+  },
+  {
+    "code": "PRD-BHP-026",
+    "name": "Masker Nebulizer Size L",
+    "category": "BHP",
+    "unit": "pcs",
+    "price_buy": 22200.0,
+    "price_sell": 27750.0,
+    "min_stock": 5,
+    "stock": 10
+  },
+  {
+    "code": "PRD-BHP-027",
+    "name": "Masker Nebulizer Size M",
+    "category": "BHP",
+    "unit": "pcs",
+    "price_buy": 22200.0,
+    "price_sell": 27750.0,
+    "min_stock": 5,
+    "stock": 4
+  },
+  {
+    "code": "PRD-BHP-028",
+    "name": "Micropore1 inch",
+    "category": "BHP",
+    "unit": "pc",
+    "price_buy": 925.0,
+    "price_sell": 1156.0,
+    "min_stock": 5,
+    "stock": 136
+  },
+  {
+    "code": "PRD-BHP-029",
+    "name": "ONEMED Latex Foley Catheter 16Fr (2 way)",
+    "category": "BHP",
+    "unit": "pcs",
+    "price_buy": 18870.0,
+    "price_sell": 23588.0,
+    "min_stock": 5,
+    "stock": 10
+  },
+  {
+    "code": "PRD-BHP-030",
+    "name": "ONEMED Spuid Syringe 0.5 ml",
+    "category": "BHP",
+    "unit": "pc",
+    "price_buy": 999.0,
+    "price_sell": 1249.0,
+    "min_stock": 5,
+    "stock": 99
+  },
+  {
+    "code": "PRD-BHP-031",
+    "name": "ONEMED Spuid Syringe 1 ml",
+    "category": "BHP",
+    "unit": "pcs",
+    "price_buy": 932.0,
+    "price_sell": 1165.0,
+    "min_stock": 5,
+    "stock": 72
+  },
+  {
+    "code": "PRD-BHP-032",
+    "name": "ONEMED Spuid Syringe 3 ml",
+    "category": "BHP",
+    "unit": "pcs",
+    "price_buy": 833.0,
+    "price_sell": 1041.0,
+    "min_stock": 5,
+    "stock": 125
+  },
+  {
+    "code": "PRD-BHP-033",
+    "name": "ONEMED Spuid Syringe 5 ml",
+    "category": "BHP",
+    "unit": "pcs",
+    "price_buy": 999.0,
+    "price_sell": 1249.0,
+    "min_stock": 5,
+    "stock": 83
+  },
+  {
+    "code": "PRD-BHP-034",
+    "name": "ONEMED Spuid Syringe 10 ml",
+    "category": "BHP",
+    "unit": "pcs",
+    "price_buy": 1332.0,
+    "price_sell": 1665.0,
+    "min_stock": 5,
+    "stock": 89
+  },
+  {
+    "code": "PRD-BHP-035",
+    "name": "TERUMO Spuid Syringe 50 ml TIP",
+    "category": "BHP",
+    "unit": "pc",
+    "price_buy": 39960.0,
+    "price_sell": 49950.0,
+    "min_stock": 5,
+    "stock": 5
+  },
+  {
+    "code": "PRD-BHP-036",
+    "name": "PERBAN ELASTIS AVICO 3 INCH",
+    "category": "BHP",
+    "unit": "pcs",
+    "price_buy": 28860.0,
+    "price_sell": 36075.0,
+    "min_stock": 5,
+    "stock": 2
+  },
+  {
+    "code": "PRD-BHP-037",
+    "name": "PLASTIK RACIKAN",
+    "category": "BHP",
+    "unit": "pcs",
+    "price_buy": 2666.0,
+    "price_sell": 8000.0,
+    "min_stock": 5,
+    "stock": 1953
+  },
+  {
+    "code": "PRD-BHP-038",
+    "name": "PLASTIK NON RACIKAN",
+    "category": "BHP",
+    "unit": "pcs",
+    "price_buy": 1333.0,
+    "price_sell": 4000.0,
+    "min_stock": 5,
+    "stock": 1579
+  },
+  {
+    "code": "PRD-BHP-039",
+    "name": "PLESTERIN",
+    "category": "BHP",
+    "unit": "pcs",
+    "price_buy": 228.0,
+    "price_sell": 285.0,
+    "min_stock": 5,
+    "stock": 1383
+  },
+  {
+    "code": "PRD-BHP-040",
+    "name": "POT SALEP",
+    "category": "BHP",
+    "unit": "pcs",
+    "price_buy": 3500.0,
+    "price_sell": 4375.0,
+    "min_stock": 5,
+    "stock": 14
+  },
+  {
+    "code": "PRD-BHP-041",
+    "name": "POT URIN STERILE60 ML",
+    "category": "BHP",
+    "unit": "pcs",
+    "price_buy": 3330.0,
+    "price_sell": 4163.0,
+    "min_stock": 5,
+    "stock": 71
+  },
+  {
+    "code": "PRD-BHP-042",
+    "name": "POVIDONE IODINE 5 ML",
+    "category": "BHP",
+    "unit": "pcs",
+    "price_buy": 625.0,
+    "price_sell": 687.0,
+    "min_stock": 5,
+    "stock": 1000
+  },
+  {
+    "code": "PRD-BHP-043",
+    "name": "Perban elastis 4,5 x 6 cm",
+    "category": "BHP",
+    "unit": "pcs",
+    "price_buy": 14319.0,
+    "price_sell": 17899.0,
+    "min_stock": 5,
+    "stock": 2
+  },
+  {
+    "code": "PRD-BHP-045",
+    "name": "SPALK ANAK 5X15 CM",
+    "category": "BHP",
+    "unit": "pcs",
+    "price_buy": 19092.0,
+    "price_sell": 23865.0,
+    "min_stock": 5,
+    "stock": 2
+  },
+  {
+    "code": "PRD-BHP-046",
+    "name": "SPALK TANGAN DEWASA 7X40 CM",
+    "category": "BHP",
+    "unit": "pcs",
+    "price_buy": 66000.0,
+    "price_sell": 82500.0,
+    "min_stock": 5,
+    "stock": 2
+  },
+  {
+    "code": "PRD-BHP-047",
+    "name": "SPALK KAKI DEWAS 8X40 CM",
+    "category": "BHP",
+    "unit": "pcs",
+    "price_buy": 102000.0,
+    "price_sell": 127500.0,
+    "min_stock": 5,
+    "stock": 2
+  },
+  {
+    "code": "PRD-BHP-048",
+    "name": "SPATEL KAYU-",
+    "category": "BHP",
+    "unit": "pcs",
+    "price_buy": 1110.0,
+    "price_sell": 1388.0,
+    "min_stock": 5,
+    "stock": 200
+  },
+  {
+    "code": "PRD-BHP-049",
+    "name": "ONEMED Spuid Syringe 20 ml",
+    "category": "BHP",
+    "unit": "pcs",
+    "price_buy": 4000.0,
+    "price_sell": 5000.0,
+    "min_stock": 5,
+    "stock": 50
+  },
+  {
+    "code": "PRD-BHP-050",
+    "name": "Silk Suture With Needle No 3",
+    "category": "BHP",
+    "unit": "pcs",
+    "price_buy": 6660.0,
+    "price_sell": 8325.0,
+    "min_stock": 5,
+    "stock": 4
+  },
+  {
+    "code": "PRD-BHP-051",
+    "name": "TABUNG KUNING 3 ML",
+    "category": "BHP",
+    "unit": "pcs",
+    "price_buy": 2142.0,
+    "price_sell": 2678.0,
+    "min_stock": 5,
+    "stock": 95
+  },
+  {
+    "code": "PRD-BHP-052",
+    "name": "TABUNG MERAH 3 ML",
+    "category": "BHP",
+    "unit": "pcs",
+    "price_buy": 1277.0,
+    "price_sell": 1596.0,
+    "min_stock": 5,
+    "stock": 2
+  },
+  {
+    "code": "PRD-BHP-053",
+    "name": "TABUNG OKSIGEN 1000 L",
+    "category": "BHP",
+    "unit": "pcs",
+    "price_buy": 25000.0,
+    "price_sell": 31250.0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-BHP-054",
+    "name": "TABUNG UNGU 3 ML",
+    "category": "BHP",
+    "unit": "pcs",
+    "price_buy": 1277.0,
+    "price_sell": 1596.0,
+    "min_stock": 5,
+    "stock": 83
+  },
+  {
+    "code": "PRD-BHP-055",
+    "name": "TERUMO Stomatch Tube Fr.165,3 mm",
+    "category": "BHP",
+    "unit": "pcs",
+    "price_buy": 49950.0,
+    "price_sell": 62438.0,
+    "min_stock": 5,
+    "stock": 2
+  },
+  {
+    "code": "PRD-BHP-056",
+    "name": "THT SET",
+    "category": "BHP",
+    "unit": "pcs",
+    "price_buy": 5273.0,
+    "price_sell": 6591.0,
+    "min_stock": 5,
+    "stock": 1
+  },
+  {
+    "code": "PRD-BHP-0599",
+    "name": "ULTRAFIX 10CMX1M 3 X 10 KOTAK",
+    "category": "BHP",
+    "unit": "pcs",
+    "price_buy": 7770.0,
+    "price_sell": 9713.0,
+    "min_stock": 5,
+    "stock": 18
+  },
+  {
+    "code": "PRD-BHP-058",
+    "name": "URINE BAG",
+    "category": "BHP",
+    "unit": "pcs",
+    "price_buy": 7770.0,
+    "price_sell": 9712.0,
+    "min_stock": 5,
+    "stock": 3
+  },
+  {
+    "code": "PRD-BHP-059",
+    "name": "WING NEEDLE 23 G",
+    "category": "BHP",
+    "unit": "pcs",
+    "price_buy": 2310.0,
+    "price_sell": 2888.0,
+    "min_stock": 5,
+    "stock": 80
+  },
+  {
+    "code": "PRD-BHP-060",
+    "name": "WING NEEDLE 25 G",
+    "category": "BHP",
+    "unit": "pcs",
+    "price_buy": 2129.0,
+    "price_sell": 2661.0,
+    "min_stock": 5,
+    "stock": 87
+  },
+  {
+    "code": "PRD-BHP-061",
+    "name": "ALKOHOL 70% 100 ML",
+    "category": "BHP",
+    "unit": "pcs",
+    "price_buy": 4884.0,
+    "price_sell": 6105.0,
+    "min_stock": 5,
+    "stock": 3
+  },
+  {
+    "code": "PRD-BHP-057",
+    "name": "ULTRAFIX/HYPAFIX 3 X 10 KOTAK",
+    "category": "BHP",
+    "unit": "pcs",
+    "price_buy": 1000.0,
+    "price_sell": 2000.0,
+    "min_stock": 5,
+    "stock": 61
+  },
+  {
+    "code": "PRD-BHP-062",
+    "name": "ELASTOMULL HAFT 10CMX4M",
+    "category": "BHP",
+    "unit": "pc",
+    "price_buy": 8800.0,
+    "price_sell": 11000.0,
+    "min_stock": 5,
+    "stock": 10
+  },
+  {
+    "code": "PRD-BHP-063",
+    "name": "SURGICAL BLADE NO.10",
+    "category": "BHP",
+    "unit": "pcs",
+    "price_buy": 980.0,
+    "price_sell": 1225.0,
+    "min_stock": 5,
+    "stock": 100
+  },
+  {
+    "code": "PRD-BHP-067",
+    "name": "LEUKOMED IV FILM 6X8",
+    "category": "BHP",
+    "unit": "pcs",
+    "price_buy": 7500.0,
+    "price_sell": 9375.0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-BHP-068",
+    "name": "MITELA PEMBALUT SIKU",
+    "category": "BHP",
+    "unit": "pcs",
+    "price_buy": 16800.0,
+    "price_sell": 21000.0,
+    "min_stock": 5,
+    "stock": 1
+  },
+  {
+    "code": "PRD-BHP-069",
+    "name": "MASKER NEBU BAYI",
+    "category": "BHP",
+    "unit": "pcs",
+    "price_buy": 18000.0,
+    "price_sell": 22500.0,
+    "min_stock": 5,
+    "stock": 5
+  },
+  {
+    "code": "PRD-BHP-073",
+    "name": "IV Catheter No.26 G",
+    "category": "BHP",
+    "unit": "pc",
+    "price_buy": 8325.0,
+    "price_sell": 10406.0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-BHP-074",
+    "name": "Foley Catheter 14Fr",
+    "category": "BHP",
+    "unit": "pc",
+    "price_buy": 22200.0,
+    "price_sell": 27750.0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-175",
+    "name": "Canderin 16",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 10656.0,
+    "price_sell": 13320,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-463",
+    "name": "VEPROLIN 500",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 8159.0,
+    "price_sell": 10199,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-073",
+    "name": "Atorvastatin 20 mg",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-069",
+    "name": "Simvastatin 10 mg",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-350",
+    "name": "HEPARLIC",
+    "category": "suplemen",
+    "unit": "tablet",
+    "price_buy": 5589.0,
+    "price_sell": 6986,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-292",
+    "name": "LANSOPRAZOLE 30 MG",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-196",
+    "name": "Rostin 20",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 15818.0,
+    "price_sell": 19772,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-025",
+    "name": "Salbutamol 4 mg",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-027",
+    "name": "Methylprednisolon 8",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-451",
+    "name": "ESTAZOR KAPSUL",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 9990.0,
+    "price_sell": 12488,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-076",
+    "name": "Metformin 500 mg",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-414",
+    "name": "FENOLIP SUPRA 160",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 9740.0,
+    "price_sell": 12175,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-074",
+    "name": "Fenofibrat 100 mg",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-200",
+    "name": "Glucophage XR 750 mg",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 3202.0,
+    "price_sell": 4002,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-042",
+    "name": "Allopurinol 100 mg",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-264",
+    "name": "Max D 1000IU",
+    "category": "suplemen",
+    "unit": "tablet",
+    "price_buy": 2373.0,
+    "price_sell": 2966,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-340",
+    "name": "CEFADROXIL 500 MG",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-075",
+    "name": "Fenofibrat 300 mg",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-040",
+    "name": "Loratadine 10 mg",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-367",
+    "name": "FESTARIC 80 MG",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 11722.0,
+    "price_sell": 14652,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-170",
+    "name": "Concor AM 5mg/10mg",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 12107.0,
+    "price_sell": 15134,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-043",
+    "name": "Allopurinol 300 mg",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 734.0,
+    "price_sell": 918,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-048",
+    "name": "Candesartan 8 mg",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-049",
+    "name": "Candesartan 16 mg",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-399",
+    "name": "IMUNZET",
+    "category": "suplemen",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-004",
+    "name": "Cefixime 100 mg",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-382",
+    "name": "MECOLA FORTE 600 mg",
+    "category": "suplemen",
+    "unit": "tablet",
+    "price_buy": 9912.0,
+    "price_sell": 12390,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-211",
+    "name": "Histigo 6 mg",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-304",
+    "name": "ISORIC 300mg",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 5606.0,
+    "price_sell": 7008,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-206",
+    "name": "Prorenal",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 5950.0,
+    "price_sell": 7438,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-368",
+    "name": "FESTARIC 40 MG",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 5594.0,
+    "price_sell": 6992,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-328",
+    "name": "NEUROSANBE TABLET",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 1632.0,
+    "price_sell": 2040,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-260",
+    "name": "Furosemid 40 mg Tab",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-288",
+    "name": "DOMPERIDONE 10 mg",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 387.0,
+    "price_sell": 484,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-430",
+    "name": "OAT 2FDC",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-034",
+    "name": "Meloxicam 15 mg",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-132",
+    "name": "Lasal 4 mg",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-164",
+    "name": "Isoric 100",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 2973.0,
+    "price_sell": 3716,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-003",
+    "name": "Co-amoxiclav 500 mg/125 mg",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 3515.0,
+    "price_sell": 4394,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-195",
+    "name": "Rostin 10",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 14236.0,
+    "price_sell": 17795,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-202",
+    "name": "Velacom Plus 2/500",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 4440.0,
+    "price_sell": 5550,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-154",
+    "name": "Sumagesic 600 mg",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 613.0,
+    "price_sell": 766,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-070",
+    "name": "Simvastatin 20 mg",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-171",
+    "name": "Simvask 5",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-285",
+    "name": "SCOPMA PLUS 10 mg/500mg",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-169",
+    "name": "Concor 5",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-353",
+    "name": "ZEGAVIT",
+    "category": "suplemen",
+    "unit": "tablet",
+    "price_buy": 4482.0,
+    "price_sell": 5602,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-299",
+    "name": "CONCOR 2,5 MG",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-197",
+    "name": "Trolip 300",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 14918.0,
+    "price_sell": 18648,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-172",
+    "name": "Simvask 10",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 11600.0,
+    "price_sell": 14500,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-291",
+    "name": "EPERISONE 50 MG",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 1516.0,
+    "price_sell": 1895,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-046",
+    "name": "Amlodipine 5 mg",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 197.0,
+    "price_sell": 246,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-464",
+    "name": "HEVIT C",
+    "category": "suplemen",
+    "unit": "tablet",
+    "price_buy": 611.0,
+    "price_sell": 764,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-020",
+    "name": "Acyclovir 400 mg",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-280",
+    "name": "Curvit",
+    "category": "suplemen",
+    "unit": "tablet",
+    "price_buy": 2120.0,
+    "price_sell": 2650,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-072",
+    "name": "Rosuvastatin 20 mg",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 3996.0,
+    "price_sell": 4995,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-029",
+    "name": "Asam Mefenamat 500 mg",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-347",
+    "name": "ZINC TABLET 20 MG",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 611.0,
+    "price_sell": 764,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-461",
+    "name": "SIMFLOX 500",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 15818.0,
+    "price_sell": 19772,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-397",
+    "name": "AMBROXOL TAB 30 mg",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 189.0,
+    "price_sell": 236,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-028",
+    "name": "Prednisone 5 mg",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-031",
+    "name": "Piroxicam 10 mg",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-287",
+    "name": "MELOXICAM 7,5 MG",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-319",
+    "name": "LOPERAMID HCL 2 MG",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-321",
+    "name": "RECOLFAR 0,5 MG",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 7215.0,
+    "price_sell": 9019,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-324",
+    "name": "FARSORBID 10",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-364",
+    "name": "PIROXICAM 20 MG",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-266",
+    "name": "L-BIO Capsul 10^9 cfu/gram",
+    "category": "suplemen",
+    "unit": "tablet",
+    "price_buy": 10440.0,
+    "price_sell": 13050,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-302",
+    "name": "SIMDROL 4 mg",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 3954.0,
+    "price_sell": 4942,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-015",
+    "name": "Cotrimoxazole tab 80 mg/400 mg",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-318",
+    "name": "TABLET TAMBAH DARAH 0,4mg/60 mg",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-306",
+    "name": "NEW ENZYPLEX",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 2752.0,
+    "price_sell": 3440,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-201",
+    "name": "Glucophage XR 1 g",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-323",
+    "name": "FARSORBID 5",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-329",
+    "name": "NEUROSANBE PLUS TAB",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 1499.0,
+    "price_sell": 1874,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-270",
+    "name": "Analtram 37,5mg/325mg",
+    "category": "lain",
+    "unit": "tablet",
+    "price_buy": 11072.0,
+    "price_sell": 13840,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-365",
+    "name": "GLICAZIDE MR 60 MG",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-184",
+    "name": "Rebamid 100 mg",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-276",
+    "name": "FG Troches",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-401",
+    "name": "HYPERIL 5",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-092",
+    "name": "Sertraline 50 mg",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-335",
+    "name": "RANITIDINE INJ 15MG/ML",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-311",
+    "name": "New Diatabs 600 mg",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 656.0,
+    "price_sell": 820,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-275",
+    "name": "NACL PIGGYBAG 0,9% 100 ML",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 10878.0,
+    "price_sell": 13598,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-014",
+    "name": "Clindamicin 300 mg",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-052",
+    "name": "Aspilet 100 mg",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-078",
+    "name": "Glimepiride 2 mg",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-366",
+    "name": "DHAEPA",
+    "category": "suplemen",
+    "unit": "tablet",
+    "price_buy": 14717.0,
+    "price_sell": 18396,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-005",
+    "name": "Cefixime 200 mg",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 3197.0,
+    "price_sell": 3996,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-267",
+    "name": "L-BIO SACHET",
+    "category": "suplemen",
+    "unit": "tablet",
+    "price_buy": 10440.0,
+    "price_sell": 13050,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-084",
+    "name": "Diphenhydramine Injeksi 10 mg/ml",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-019",
+    "name": "Acyclovir 200 mg",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-021",
+    "name": "Ketokonazol 200 mg",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-045",
+    "name": "Bisoprolol 5 mg",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-053",
+    "name": "Clopidogrel 75 mg",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-067",
+    "name": "Oralit",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-307",
+    "name": "ISDN 5 mg",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-320",
+    "name": "BISOPROLOL 2,5 MG",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-361",
+    "name": "PRIMPERAN 10 MG",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-473",
+    "name": "ARSITAM",
+    "category": "lain",
+    "unit": "tablet",
+    "price_buy": 1160.0,
+    "price_sell": 1450,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-023",
+    "name": "Albendazol 400 mg",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-374",
+    "name": "LIDOCAIN INJ 2%",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-037",
+    "name": "Ketorolac inj 30 mg",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 1554.0,
+    "price_sell": 1942,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-407",
+    "name": "SITAZIT-M 50/1000 MG",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 7001.0,
+    "price_sell": 8751,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-035",
+    "name": "Etoricoxib 60 mg",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 3596.0,
+    "price_sell": 4495,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-041",
+    "name": "cholchicine 0.5 mg",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-058",
+    "name": "Asam Tranexamat 500 mg",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-341",
+    "name": "PROPYLTHIOURACIL (PTU) 100 MG",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-376",
+    "name": "ALPRAZOLAM 0,5 MG",
+    "category": "lain",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-403",
+    "name": "CIFLON",
+    "category": "lain",
+    "unit": "tablet",
+    "price_buy": 12127.0,
+    "price_sell": 15159,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-406",
+    "name": "DAPAZOX 10 MG",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-060",
+    "name": "Omeprazole 20mg",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 344.0,
+    "price_sell": 430,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-300",
+    "name": "FONYLIN MR 60 mg",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 5589.0,
+    "price_sell": 6986,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-444",
+    "name": "SIMPRAZOL 40",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 17399.0,
+    "price_sell": 21749,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-012",
+    "name": "Azitromicin 500 mg",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 9990.0,
+    "price_sell": 12488,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-277",
+    "name": "CARBIDU 0.5",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 179.0,
+    "price_sell": 224,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-415",
+    "name": "PROLEVOX 500 MG",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 32690.0,
+    "price_sell": 40862,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-085",
+    "name": "Gabapentin 100 mg",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-149",
+    "name": "Orinox 60",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-150",
+    "name": "Orinox 90",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 10496.0,
+    "price_sell": 13120,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-402",
+    "name": "TENOFOVIR 300 MG",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-428",
+    "name": "OAT 4FDC",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-309",
+    "name": "Otsu Water For Injection 25 ml",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 7726.0,
+    "price_sell": 9658,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-024",
+    "name": "Salbutamol 2 mg",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-091",
+    "name": "Fluoxetine 20 mg",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-098",
+    "name": "Acyclovir krim 5%",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-182",
+    "name": "Pantopump 40 mg",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-261",
+    "name": "Combivent 2,5 ml UDV",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-038",
+    "name": "CTM 4 mg",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-298",
+    "name": "REMOVCHOL 20",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 10656.0,
+    "price_sell": 13320,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-345",
+    "name": "CODEIN 10 MG",
+    "category": "lain",
+    "unit": "tablet",
+    "price_buy": 829.0,
+    "price_sell": 1036,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-055",
+    "name": "Epinefrin Injeksi 1mg/ml",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-116",
+    "name": "Zycin 500",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 62382.0,
+    "price_sell": 77978,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-086",
+    "name": "Gabapentin 300 mg",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-111",
+    "name": "Ceptik 100",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-494",
+    "name": "PROVE D3 5000",
+    "category": "lain",
+    "unit": "tablet",
+    "price_buy": 4718.0,
+    "price_sell": 5898,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-008",
+    "name": "Ciprofloxacin 500 mg",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-185",
+    "name": "Famocid 40 mg",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-372",
+    "name": "XIGDUO XR 10/1000 MG",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 29205.0,
+    "price_sell": 36506,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-378",
+    "name": "AMITRIPTYLLINE 25 MG",
+    "category": "lain",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-343",
+    "name": "NACL 0,9% 500 ML",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 9435.0,
+    "price_sell": 11794,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-358",
+    "name": "ONDANSENTRON 8 MG",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-155",
+    "name": "Apetic Drop 100mg/ml",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 31635.0,
+    "price_sell": 39544,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-346",
+    "name": "CODEIN 20 MG",
+    "category": "lain",
+    "unit": "tablet",
+    "price_buy": 1966.0,
+    "price_sell": 2458,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-157",
+    "name": "Apetic Suspensi Forte 250mg/5ml",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 43235.0,
+    "price_sell": 54044,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-410",
+    "name": "ONDANSENTRON INJ 4MG/2ML",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 6993.0,
+    "price_sell": 8741,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-466",
+    "name": "ISONIAZID 300 MG",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 611.0,
+    "price_sell": 764,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-064",
+    "name": "Sucralfat 500 mg/5ml",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 17399.0,
+    "price_sell": 21749,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-087",
+    "name": "Pregabalin 75 mg",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 4440.0,
+    "price_sell": 5550,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-383",
+    "name": "L-ACYS 600 mg",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 12654.0,
+    "price_sell": 15818,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-388",
+    "name": "FORXIGA 10 MG",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 24761.0,
+    "price_sell": 30951,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-392",
+    "name": "NEUROSANBE INJ",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 13320.0,
+    "price_sell": 16650,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-458",
+    "name": "FARSIFEN PLUS",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 511.0,
+    "price_sell": 639,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-263",
+    "name": "LASAL NEBU 2,5 mg/2,5 ml",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-183",
+    "name": "Episan syr 500 mg/5 ml",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 64452.0,
+    "price_sell": 80565,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-316",
+    "name": "PULMICORT BUDESONIDE 0,5 MG/ML",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-393",
+    "name": "SCABIMITE 10 G",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-278",
+    "name": "Carbidu 0,75 mg",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-268",
+    "name": "Apialys Drop",
+    "category": "suplemen",
+    "unit": "tablet",
+    "price_buy": 55361.0,
+    "price_sell": 69201,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-294",
+    "name": "ANTASIDA DOEN TAB 200mg",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-007",
+    "name": "Ceftriaxone inj 1 g",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-036",
+    "name": "Etoricoxib 90 mg",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-065",
+    "name": "Ranitidine 150mg",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-088",
+    "name": "Pregabalin 150 mg",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-297",
+    "name": "VENTASAL 2,5 MG/2,5 ML",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-310",
+    "name": "Vitamin B Complex",
+    "category": "suplemen",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-354",
+    "name": "ZIRKUM KID SIRUP 20mg/5ml",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 31635.0,
+    "price_sell": 39544,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-360",
+    "name": "DOMPERIDONE SUSPENSI 5mg/5ml",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 5994.0,
+    "price_sell": 7492,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-054",
+    "name": "ISDN Injeksi 1mg/ml",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 58275.0,
+    "price_sell": 72844,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-135",
+    "name": "Ataroc Sirup 25 mcg",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-369",
+    "name": "KALNEX INJEKSI 100MG/ML",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-395",
+    "name": "GENTAMICIN SALEP 0,1%",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-093",
+    "name": "Cendo xitrol eye drop",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-281",
+    "name": "Sirplus Sirup Strawberry",
+    "category": "lain",
+    "unit": "tablet",
+    "price_buy": 15540.0,
+    "price_sell": 19425,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-331",
+    "name": "SIMTROBAN KRIM 2%",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-336",
+    "name": "OMEPRAZOLE INJ 40 MG",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-057",
+    "name": "Amiodarone Injeksi 50 mg/ ml",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-156",
+    "name": "Apetic Suspensi 120mg/5ml",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 36908.0,
+    "price_sell": 46135,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-161",
+    "name": "Lerzin Drop 10mg/ml",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-162",
+    "name": "Lerzin Sirup 5mg/5ml",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-269",
+    "name": "Apialys syr",
+    "category": "suplemen",
+    "unit": "tablet",
+    "price_buy": 45871.0,
+    "price_sell": 57339,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-355",
+    "name": "ZIRKUM KID DROP 20mg/5ml",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-373",
+    "name": "RHINOS DROP 7,5 mg/ 0,8 ml",
+    "category": "lain",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-404",
+    "name": "SKARDIVAS",
+    "category": "suplemen",
+    "unit": "tablet",
+    "price_buy": 159840.0,
+    "price_sell": 199800,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-006",
+    "name": "Cefixime Suspensi 100 mg/5 ml",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 26862.0,
+    "price_sell": 33578,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-016",
+    "name": "Cotrimoxazole syr 40 mg/200 mg per 5 ml",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-301",
+    "name": "ALCO FLU PLUS BATUK SIRUP 100 ml",
+    "category": "lain",
+    "unit": "tablet",
+    "price_buy": 63825.0,
+    "price_sell": 79781,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-418",
+    "name": "ESOMEPRAZOLE INJ 40 MG",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 64582.0,
+    "price_sell": 80728,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-419",
+    "name": "HYOSCINE BUTYLBROMID 20MG/ML INJ",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 13986.0,
+    "price_sell": 17482,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-479",
+    "name": "PROVE VIT INJ",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 222000.0,
+    "price_sell": 277500,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-220",
+    "name": "Cendo Lyteers 4,4mg/0,8mg",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 24975.0,
+    "price_sell": 31219,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-233",
+    "name": "Lapifed DM Sirup",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-244",
+    "name": "Flamar Emulgel 10mg/g",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-284",
+    "name": "BIOPLACENTON GEL 15 gr",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-312",
+    "name": "Dumin Rectal Tube 125mg/2,5ml",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-315",
+    "name": "LACTULOSE SIRUP 3,335gr/5ml",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-370",
+    "name": "TRILAC INJEKSI 10 MG/ML",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-381",
+    "name": "ODR SIRUP 4mg/5ml",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 126540.0,
+    "price_sell": 158175,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-002",
+    "name": "Amoxicillin Dry Sirup 125 mg/5 ml",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-219",
+    "name": "Genoint Salep Mata 1 mg",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-227",
+    "name": "Erlamycetin EAR DROP 1%",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-283",
+    "name": "Imboost Force Kids Sirup 60 ml",
+    "category": "suplemen",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-286",
+    "name": "Thrombophob Gel 20 gr",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-332",
+    "name": "IALUSET PLUS CREAM 100 GR",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-359",
+    "name": "PARACETAMOL INFUS 10MG/ML",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 46620.0,
+    "price_sell": 58275,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-482",
+    "name": "LACTULAX SIRUP",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 56610.0,
+    "price_sell": 70762,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-099",
+    "name": "Ketoconazole krim 2%",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 7437.0,
+    "price_sell": 9296,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-192",
+    "name": "MICROLAX ENEMA",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-242",
+    "name": "Noroid Shooting krim 80 ml",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-262",
+    "name": "Interlac Oil Drop 5 ml",
+    "category": "suplemen",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-295",
+    "name": "AMBROXOL SIRUP 15mg/5ml",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-327",
+    "name": "NOROID RASH CREAM",
+    "category": "lain",
+    "unit": "tablet",
+    "price_buy": 184241.0,
+    "price_sell": 230301,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-375",
+    "name": "NYSTATIN DROP 100.000IU/ML",
+    "category": "obat",
+    "unit": "tablet",
+    "price_buy": 20085.0,
+    "price_sell": 25106,
+    "min_stock": 5,
+    "stock": 0
+  },
+  {
+    "code": "PRD-OBT-405",
+    "name": "GENSEHAT",
+    "category": "lain",
+    "unit": "tablet",
+    "price_buy": 0,
+    "price_sell": 0,
+    "min_stock": 5,
+    "stock": 0
+  }
+]

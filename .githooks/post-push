@@ -1,0 +1,34 @@
+#!/usr/bin/env sh
+set -eu
+
+JENKINS_BASE_URL="${JENKINS_BASE_URL:-http://127.0.0.1:8081/cicd}"
+DEV_TOKEN="${JENKINS_DEV_WEBHOOK_TOKEN:-app-dev-delivery}"
+PROD_TOKEN="${JENKINS_PROD_WEBHOOK_TOKEN:-app-prod-delivery}"
+ZERO_SHA="0000000000000000000000000000000000000000"
+
+trigger_job() {
+  branch="$1"
+  sha="$2"
+  token="$3"
+  payload=$(printf '{"ref":"refs/heads/%s","after":"%s"}' "$branch" "$sha")
+
+  curl -fsS -X POST \
+    -H "Content-Type: application/json" \
+    -d "$payload" \
+    "${JENKINS_BASE_URL}/generic-webhook-trigger/invoke?token=${token}" \
+    >/dev/null || true
+}
+
+while read -r local_ref local_sha remote_ref remote_sha; do
+  [ -n "${remote_ref:-}" ] || continue
+  [ "${local_sha:-$ZERO_SHA}" != "$ZERO_SHA" ] || continue
+
+  case "$remote_ref" in
+    refs/heads/dev)
+      trigger_job "dev" "$local_sha" "$DEV_TOKEN"
+      ;;
+    refs/heads/main)
+      trigger_job "main" "$local_sha" "$PROD_TOKEN"
+      ;;
+  esac
+done

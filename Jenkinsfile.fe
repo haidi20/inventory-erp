@@ -1,0 +1,55 @@
+pipeline {
+    agent {
+        docker {
+            image 'node:20-alpine'
+        }
+    }
+
+    environment {
+        PROJECT_REPO = '/repo/klinik-starter'
+        DEPLOY_PATH = '/deploy'
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                script {
+                    // Pull from the local repo mount inside the container
+                    sh "git clone -b haidi ${PROJECT_REPO} ."
+                }
+            }
+        }
+
+        stage('Install Dependencies') {
+            steps {
+                dir('fe') {
+                    sh 'npm install'
+                }
+            }
+        }
+
+        stage('Build') {
+            steps {
+                dir('fe') {
+                    sh 'npm run build'
+                }
+            }
+        }
+
+        stage('Deploy') {
+            agent { label 'built-in' } // Switch to built-in agent (the Jenkins container itself) for Docker commands
+            steps {
+                script {
+                    // Use the mounted docker socket to trigger deployment on the host
+                    sh "cd ${DEPLOY_PATH} && docker compose up -d --build fe_dev"
+                }
+            }
+        }
+    }
+
+    post {
+        always {
+            cleanWs()
+        }
+    }
+}

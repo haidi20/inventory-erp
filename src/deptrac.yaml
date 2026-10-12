@@ -1,0 +1,38 @@
+deptrac:
+    paths:
+        - modules/Operational/Master
+    exclude_files:
+        - '#.*tests/.*#'
+    layers:
+        - name: CoreShared
+          collectors:
+              - type: directory
+                value: .*modules/Core/shared/.*
+        - name: CoreIdentity
+          collectors:
+              - type: directory
+                value: .*modules/Core/Identity/.*
+        - name: CoreAuthorization
+          collectors:
+              - type: directory
+                value: .*modules/Core/Authorization/.*
+        - name: CoreOrganization
+          collectors:
+              - type: directory
+                value: .*modules/Core/Organization/.*
+        - name: OperationalMaster
+          collectors:
+              - type: directory
+                value: .*modules/Operational/Master/.*
+    ruleset:
+        CoreIdentity:
+            - CoreShared
+        CoreAuthorization:
+            - CoreShared
+        CoreOrganization:
+            - CoreShared
+        OperationalMaster:
+            - CoreShared
+            - CoreIdentity
+            - CoreAuthorization
+            - CoreOrganization

@@ -1,0 +1,23 @@
+{
+  "name": "klinik-starter-monorepo",
+  "private": true,
+  "description": "Monorepo aplikasi klinik untuk backend Go Gin dan frontend Vue",
+  "workspaces": [
+    "be",
+    "fe"
+  ],
+  "scripts": {
+    "fe:install": "cd fe && npm ci",
+    "fe:dev": "cd fe && npm run dev",
+    "fe:type-check": "cd fe && npm run type-check",
+    "fe:test": "cd fe && npm run test -- --run",
+    "be:install": "cd be && npm ci",
+    "be:compile": "cd be && go test ./app/... ./routes/... -run '^$'",
+    "dev:be": "powershell -NoProfile -ExecutionPolicy Bypass -File .\\scripts\\dev-be.ps1",
+    "dev:fe": "powershell -NoProfile -ExecutionPolicy Bypass -File .\\scripts\\dev-fe.ps1",
+    "dev": "powershell -NoProfile -ExecutionPolicy Bypass -File .\\scripts\\dev-all.ps1",
+    "docker:up": "docker compose up -d --build",
+    "docker:down": "docker compose down",
+    "docker:logs": "docker compose logs -f --tail=100"
+  }
+}

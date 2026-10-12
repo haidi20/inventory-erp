@@ -1,0 +1,4 @@
+interface:
+  display_name: "Klinik BE"
+  short_description: "Standar backend Laravel Klinik"
+  default_prompt: "Use $klinikbe to build a new Klinik 2026 backend feature with TDD, entities, services, and repositories."

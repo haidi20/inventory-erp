@@ -1,0 +1,2634 @@
+[
+  {
+    "code": "10001",
+    "name": "KAS KANTOR",
+    "parent": "10000",
+    "sal_d": 13012564,
+    "sal_k": 0
+  },
+  {
+    "code": "10002",
+    "name": "KAS CAFE",
+    "parent": "10000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "10003",
+    "name": "KAS APOTEK & LABORATORUIM",
+    "parent": "10000",
+    "sal_d": 200000,
+    "sal_k": 0
+  },
+  {
+    "code": "11001",
+    "name": "BANK BCA GIRO 027-183.5051",
+    "parent": "11000",
+    "sal_d": 316097534,
+    "sal_k": 0
+  },
+  {
+    "code": "11002",
+    "name": "BANK BRI Rek. 0671-0107-3343-313",
+    "parent": "11000",
+    "sal_d": 149897172,
+    "sal_k": 0
+  },
+  {
+    "code": "11003",
+    "name": "BANK COMMONWEALTH Rek. 278-000-4952",
+    "parent": "11000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "11005",
+    "name": "BANK DBS Rek. 209-033-883",
+    "parent": "11000",
+    "sal_d": 78455788,
+    "sal_k": 0
+  },
+  {
+    "code": "12001",
+    "name": "PIUTANG BI",
+    "parent": "12000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "12003",
+    "name": "PIUTANG ASKES",
+    "parent": "12000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "12004",
+    "name": "HBS",
+    "parent": "12000",
+    "sal_d": 452260,
+    "sal_k": 0
+  },
+  {
+    "code": "12006",
+    "name": "CC BCA",
+    "parent": "12000",
+    "sal_d": 12617400,
+    "sal_k": 0
+  },
+  {
+    "code": "12007",
+    "name": "AGE",
+    "parent": "12000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "12008",
+    "name": "LAIN-LAIN",
+    "parent": "12000",
+    "sal_d": 5646700,
+    "sal_k": 0
+  },
+  {
+    "code": "12009",
+    "name": "NISSAN",
+    "parent": "12000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "12010",
+    "name": "SRM",
+    "parent": "12000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "12012",
+    "name": "BPPOM",
+    "parent": "12000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "12014",
+    "name": "KTC",
+    "parent": "12000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "12020",
+    "name": "PIUTANG BPJS",
+    "parent": "12000",
+    "sal_d": 1036000,
+    "sal_k": 0
+  },
+  {
+    "code": "12021",
+    "name": "PIUTANG ASKES JOSEPHIEN",
+    "parent": "12000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "12023",
+    "name": "AUTO 2000",
+    "parent": "12000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "12024",
+    "name": "PIUTANG INHEALTH",
+    "parent": "12000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "12025",
+    "name": "PIUTANG JOS SOETOMO",
+    "parent": "12000",
+    "sal_d": 690685300,
+    "sal_k": 0
+  },
+  {
+    "code": "12027",
+    "name": "PRODIA",
+    "parent": "12000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "12029",
+    "name": "PRUDENTIAL",
+    "parent": "12000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "12030",
+    "name": "3 RAKSA",
+    "parent": "12000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "12031",
+    "name": "NISP",
+    "parent": "12000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "12032",
+    "name": "WAHANA TATA",
+    "parent": "12000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "12036",
+    "name": "ALTRAK",
+    "parent": "12000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "12037",
+    "name": "RICOBANA",
+    "parent": "12000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "12100",
+    "name": "PIUTANG KARYAWAN",
+    "parent": "12000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "13001",
+    "name": "BANK COMONWEALTH",
+    "parent": "13000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "13002",
+    "name": "EMAS BATANG 500 GRAM",
+    "parent": "13000",
+    "sal_d": 1174000000,
+    "sal_k": 0
+  },
+  {
+    "code": "13003",
+    "name": "SAHAM PT. METTA KARYA HUTAMA",
+    "parent": "13000",
+    "sal_d": 100000000,
+    "sal_k": 0
+  },
+  {
+    "code": "13004",
+    "name": "BANK BRI DANAREKSA (0671-0107-3343-313)",
+    "parent": "13000",
+    "sal_d": 498042499,
+    "sal_k": 0
+  },
+  {
+    "code": "13005",
+    "name": "BANK DBS USD Rek. 209-033-883",
+    "parent": "13000",
+    "sal_d": 789150000,
+    "sal_k": 0
+  },
+  {
+    "code": "14001",
+    "name": "ASURANSI MOBIL",
+    "parent": "14000",
+    "sal_d": 752340,
+    "sal_k": 0
+  },
+  {
+    "code": "14002",
+    "name": "ASURANSI KEBAKARAN",
+    "parent": "14000",
+    "sal_d": 2033200,
+    "sal_k": 0
+  },
+  {
+    "code": "15001",
+    "name": "OBAT",
+    "parent": "15000",
+    "sal_d": 503957378,
+    "sal_k": 0
+  },
+  {
+    "code": "15003",
+    "name": "BARANG CETAKAN",
+    "parent": "15000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "15018",
+    "name": "OBYEK GLASS",
+    "parent": "15000",
+    "sal_d": 2612,
+    "sal_k": 0
+  },
+  {
+    "code": "15019",
+    "name": "COVER GLASS",
+    "parent": "15000",
+    "sal_d": 4700,
+    "sal_k": 0
+  },
+  {
+    "code": "15020",
+    "name": "BLOOD CELL CONTER",
+    "parent": "15000",
+    "sal_d": 2200000,
+    "sal_k": 0
+  },
+  {
+    "code": "15044",
+    "name": "MULTISTIX",
+    "parent": "15000",
+    "sal_d": 306788,
+    "sal_k": 0
+  },
+  {
+    "code": "15054",
+    "name": "ALKOHOL 70 %",
+    "parent": "15000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "15063",
+    "name": "OIL EMERSI 100ML",
+    "parent": "15000",
+    "sal_d": 46000,
+    "sal_k": 0
+  },
+  {
+    "code": "15064",
+    "name": "TABUNG K3 EDTA (UNGU 3ML)",
+    "parent": "15000",
+    "sal_d": 2006880,
+    "sal_k": 0
+  },
+  {
+    "code": "15066",
+    "name": "EXTRAN NEUTRAL 2,5ML",
+    "parent": "15000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "15067",
+    "name": "AQUADEST 20LTR",
+    "parent": "15000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "15068",
+    "name": "TOURNIQUET",
+    "parent": "15000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "15071",
+    "name": "YELLOW TIP",
+    "parent": "15000",
+    "sal_d": 27500,
+    "sal_k": 0
+  },
+  {
+    "code": "15072",
+    "name": "BLUE TIP",
+    "parent": "15000",
+    "sal_d": 74469,
+    "sal_k": 0
+  },
+  {
+    "code": "15074",
+    "name": "WHITE TIPS",
+    "parent": "15000",
+    "sal_d": 15900,
+    "sal_k": 0
+  },
+  {
+    "code": "15079",
+    "name": "SARUNG TANGAN",
+    "parent": "15000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "15081",
+    "name": "KERTAS ECG",
+    "parent": "15000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "15098",
+    "name": "SGPT",
+    "parent": "15000",
+    "sal_d": 24285,
+    "sal_k": 0
+  },
+  {
+    "code": "15099",
+    "name": "SGOT",
+    "parent": "15000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "15100",
+    "name": "CHOLESTROL",
+    "parent": "15000",
+    "sal_d": 1384614,
+    "sal_k": 0
+  },
+  {
+    "code": "15101",
+    "name": "TRIGLYCERID",
+    "parent": "15000",
+    "sal_d": 2118391,
+    "sal_k": 0
+  },
+  {
+    "code": "15102",
+    "name": "CREATININE",
+    "parent": "15000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "15103",
+    "name": "BILLIRUBIN TOTAL",
+    "parent": "15000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "15104",
+    "name": "BILLIRUBIN DIRECT",
+    "parent": "15000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "15106",
+    "name": "ALBUMIN",
+    "parent": "15000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "15107",
+    "name": "GAMMA GT",
+    "parent": "15000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "15108",
+    "name": "UREA",
+    "parent": "15000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "15109",
+    "name": "HDL",
+    "parent": "15000",
+    "sal_d": 543900,
+    "sal_k": 0
+  },
+  {
+    "code": "15110",
+    "name": "WIDAL O",
+    "parent": "15000",
+    "sal_d": 377844,
+    "sal_k": 0
+  },
+  {
+    "code": "15111",
+    "name": "WIDAL H",
+    "parent": "15000",
+    "sal_d": 377844,
+    "sal_k": 0
+  },
+  {
+    "code": "15112",
+    "name": "WIDAL A",
+    "parent": "15000",
+    "sal_d": 311244,
+    "sal_k": 0
+  },
+  {
+    "code": "15113",
+    "name": "WIDAL B",
+    "parent": "15000",
+    "sal_d": 377844,
+    "sal_k": 0
+  },
+  {
+    "code": "15114",
+    "name": "GLUCOSE",
+    "parent": "15000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "15117",
+    "name": "KARTU GOL DARAH",
+    "parent": "15000",
+    "sal_d": 1650,
+    "sal_k": 0
+  },
+  {
+    "code": "15118",
+    "name": "ANTI A",
+    "parent": "15000",
+    "sal_d": 266400,
+    "sal_k": 0
+  },
+  {
+    "code": "15119",
+    "name": "ANTI B",
+    "parent": "15000",
+    "sal_d": 266400,
+    "sal_k": 0
+  },
+  {
+    "code": "15120",
+    "name": "ANTI AB",
+    "parent": "15000",
+    "sal_d": 266400,
+    "sal_k": 0
+  },
+  {
+    "code": "15121",
+    "name": "ANTI D",
+    "parent": "15000",
+    "sal_d": 369630,
+    "sal_k": 0
+  },
+  {
+    "code": "15124",
+    "name": "TEST PAC",
+    "parent": "15000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "15125",
+    "name": "NEEDLE 24",
+    "parent": "15000",
+    "sal_d": 945755,
+    "sal_k": 0
+  },
+  {
+    "code": "15126",
+    "name": "DISP 3CC",
+    "parent": "15000",
+    "sal_d": 5171679,
+    "sal_k": 0
+  },
+  {
+    "code": "15129",
+    "name": "URIC ACID",
+    "parent": "15000",
+    "sal_d": 1849551,
+    "sal_k": 0
+  },
+  {
+    "code": "15133",
+    "name": "HBD AG ACON",
+    "parent": "15000",
+    "sal_d": 194530,
+    "sal_k": 0
+  },
+  {
+    "code": "15134",
+    "name": "HBS AB ACON",
+    "parent": "15000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "15138",
+    "name": "GEL USG 250GR",
+    "parent": "15000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "15139",
+    "name": "GEL ECG",
+    "parent": "15000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "15148",
+    "name": "STERILE WATER",
+    "parent": "15000",
+    "sal_d": 16000,
+    "sal_k": 0
+  },
+  {
+    "code": "15150",
+    "name": "ACCU CHECK",
+    "parent": "15000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "15155",
+    "name": "ALT/GPT",
+    "parent": "15000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "15156",
+    "name": "MICROPORE 0.5CM",
+    "parent": "15000",
+    "sal_d": 460352,
+    "sal_k": 0
+  },
+  {
+    "code": "15164",
+    "name": "ALKALINE PHOSPHATASE",
+    "parent": "15000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "15167",
+    "name": "ALKOHOL SWAB",
+    "parent": "15000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "15169",
+    "name": "POT SALEP 50GR",
+    "parent": "15000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "15174",
+    "name": "TENSI MOBILE",
+    "parent": "15000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "15177",
+    "name": "TABUNG OKSIGEN",
+    "parent": "15000",
+    "sal_d": 500000,
+    "sal_k": 0
+  },
+  {
+    "code": "15178",
+    "name": "TROLLY OKSIGEN",
+    "parent": "15000",
+    "sal_d": 100000,
+    "sal_k": 0
+  },
+  {
+    "code": "15186",
+    "name": "MASKER KARET TELINGA",
+    "parent": "15000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "15188",
+    "name": "KERTACU LOGO",
+    "parent": "15000",
+    "sal_d": 21990250,
+    "sal_k": 0
+  },
+  {
+    "code": "15190",
+    "name": "TABUNG VACULAB 7ML",
+    "parent": "15000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "15193",
+    "name": "HEMO DILUENT LMG 20LT",
+    "parent": "15000",
+    "sal_d": 11446875,
+    "sal_k": 0
+  },
+  {
+    "code": "15194",
+    "name": "AMP HEMO LYSE",
+    "parent": "15000",
+    "sal_d": 6914280,
+    "sal_k": 0
+  },
+  {
+    "code": "15197",
+    "name": "WING NEEDLE TERUMO",
+    "parent": "15000",
+    "sal_d": 3837201,
+    "sal_k": 0
+  },
+  {
+    "code": "15198",
+    "name": "TABUNG VACULAB 5ML",
+    "parent": "15000",
+    "sal_d": 322344,
+    "sal_k": 0
+  },
+  {
+    "code": "15200",
+    "name": "BLUE SENSOR R-OO-S",
+    "parent": "15000",
+    "sal_d": 126806,
+    "sal_k": 0
+  },
+  {
+    "code": "15204",
+    "name": "NEEDLE FLASH 22G",
+    "parent": "15000",
+    "sal_d": 153651,
+    "sal_k": 0
+  },
+  {
+    "code": "15205",
+    "name": "HOLDER VACUTAINER STD",
+    "parent": "15000",
+    "sal_d": 3000,
+    "sal_k": 0
+  },
+  {
+    "code": "15206",
+    "name": "CONTROL NORMAL HEMAMINDRAY",
+    "parent": "15000",
+    "sal_d": 3196200,
+    "sal_k": 0
+  },
+  {
+    "code": "15207",
+    "name": "RINSE 20L",
+    "parent": "15000",
+    "sal_d": 3052500,
+    "sal_k": 0
+  },
+  {
+    "code": "15208",
+    "name": "PROBE CLENASER 17ML",
+    "parent": "15000",
+    "sal_d": 84615,
+    "sal_k": 0
+  },
+  {
+    "code": "15209",
+    "name": "EZ CLENASER 100ML",
+    "parent": "15000",
+    "sal_d": 5936503,
+    "sal_k": 0
+  },
+  {
+    "code": "15210",
+    "name": "RIGHT SIHN DENGUEN IGG & IGM",
+    "parent": "15000",
+    "sal_d": 54867674,
+    "sal_k": 0
+  },
+  {
+    "code": "15211",
+    "name": "RIGHT SIGN DENGUEN NS-1 ANTIGEN",
+    "parent": "15000",
+    "sal_d": 81601525,
+    "sal_k": 0
+  },
+  {
+    "code": "15212",
+    "name": "CONTROL NORMA SERT-F-Y",
+    "parent": "15000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "15213",
+    "name": "MICROCENTRIFUGE 1,5ML",
+    "parent": "15000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "15214",
+    "name": "RIGHT SIGN TYPHOID IGG/IGM DEVICE",
+    "parent": "15000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "15215",
+    "name": "AMP (amphethamine)",
+    "parent": "15000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "15216",
+    "name": "MET (methamphetamine)",
+    "parent": "15000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "15217",
+    "name": "BIOHERMES A1C EZ TEST 25 TRIP (Diabetes)",
+    "parent": "15000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "15218",
+    "name": "MULTI DRUG 6P MONOTEST 25 TEST",
+    "parent": "15000",
+    "sal_d": 1076000,
+    "sal_k": 0
+  },
+  {
+    "code": "15219",
+    "name": "RIGHT SIGN COVID-19 IGG/IGM DEVICE",
+    "parent": "15000",
+    "sal_d": 178000,
+    "sal_k": 0
+  },
+  {
+    "code": "15220",
+    "name": "DIACON 1X5ML DIALAB",
+    "parent": "15000",
+    "sal_d": 693528,
+    "sal_k": 0
+  },
+  {
+    "code": "16015",
+    "name": "PT. METTA KARYA HUTAMA",
+    "parent": "16000",
+    "sal_d": 50000000,
+    "sal_k": 0
+  },
+  {
+    "code": "17001",
+    "name": "PERJALANAN DINAS",
+    "parent": "17000",
+    "sal_d": 2880000,
+    "sal_k": 0
+  },
+  {
+    "code": "17002",
+    "name": "KEPERLUAN KANTOR",
+    "parent": "17000",
+    "sal_d": 4278150,
+    "sal_k": 0
+  },
+  {
+    "code": "17008",
+    "name": "PERIJINAN",
+    "parent": "17000",
+    "sal_d": 14441600,
+    "sal_k": 0
+  },
+  {
+    "code": "17010",
+    "name": "BAHAN BAKAR",
+    "parent": "17000",
+    "sal_d": 342000,
+    "sal_k": 0
+  },
+  {
+    "code": "17011",
+    "name": "PBB",
+    "parent": "17000",
+    "sal_d": 496468,
+    "sal_k": 0
+  },
+  {
+    "code": "17012",
+    "name": "UKL/UPL",
+    "parent": "17000",
+    "sal_d": 19000000,
+    "sal_k": 0
+  },
+  {
+    "code": "17014",
+    "name": "IKLAN/PROMOSI",
+    "parent": "17000",
+    "sal_d": 1500000,
+    "sal_k": 0
+  },
+  {
+    "code": "17028",
+    "name": "MINUM JAGA MLM",
+    "parent": "17000",
+    "sal_d": 76338,
+    "sal_k": 0
+  },
+  {
+    "code": "17050",
+    "name": "FOTOCOPY",
+    "parent": "17000",
+    "sal_d": 426155,
+    "sal_k": 0
+  },
+  {
+    "code": "17051",
+    "name": "AIR GALON",
+    "parent": "17000",
+    "sal_d": 977602,
+    "sal_k": 0
+  },
+  {
+    "code": "17056",
+    "name": "OIL MESIN",
+    "parent": "17000",
+    "sal_d": 30000,
+    "sal_k": 0
+  },
+  {
+    "code": "20001",
+    "name": "BANGUNAN APOTEK",
+    "parent": "20000",
+    "sal_d": 826351733,
+    "sal_k": 0
+  },
+  {
+    "code": "20002",
+    "name": "BANGUNAN CABANG APOTEK",
+    "parent": "20000",
+    "sal_d": 21705980,
+    "sal_k": 0
+  },
+  {
+    "code": "21001",
+    "name": "MEJA TULIS",
+    "parent": "21000",
+    "sal_d": 1360700,
+    "sal_k": 0
+  },
+  {
+    "code": "21002",
+    "name": "MEJA DOKTER",
+    "parent": "21000",
+    "sal_d": 2124100,
+    "sal_k": 0
+  },
+  {
+    "code": "21003",
+    "name": "KURSI DONAT",
+    "parent": "21000",
+    "sal_d": 20721215,
+    "sal_k": 0
+  },
+  {
+    "code": "21004",
+    "name": "RANJANG PERIKSA",
+    "parent": "21000",
+    "sal_d": 6784000,
+    "sal_k": 0
+  },
+  {
+    "code": "21005",
+    "name": "LEMARI OBAT",
+    "parent": "21000",
+    "sal_d": 8038300,
+    "sal_k": 0
+  },
+  {
+    "code": "21006",
+    "name": "MEJA BUNDAR",
+    "parent": "21000",
+    "sal_d": 1504800,
+    "sal_k": 0
+  },
+  {
+    "code": "21007",
+    "name": "MEJA BUNDAR KAKI TIGA",
+    "parent": "21000",
+    "sal_d": 621500,
+    "sal_k": 0
+  },
+  {
+    "code": "21008",
+    "name": "LOCKER (SET)",
+    "parent": "21000",
+    "sal_d": 2032800,
+    "sal_k": 0
+  },
+  {
+    "code": "21009",
+    "name": "KURSI ANAK",
+    "parent": "21000",
+    "sal_d": 514800,
+    "sal_k": 0
+  },
+  {
+    "code": "21011",
+    "name": "KURSI MAKAN",
+    "parent": "21000",
+    "sal_d": 3115200,
+    "sal_k": 0
+  },
+  {
+    "code": "21012",
+    "name": "RAK BUKU",
+    "parent": "21000",
+    "sal_d": 2476100,
+    "sal_k": 0
+  },
+  {
+    "code": "21013",
+    "name": "LEMARI ETALASE",
+    "parent": "21000",
+    "sal_d": 107855000,
+    "sal_k": 0
+  },
+  {
+    "code": "21014",
+    "name": "MEJA TREADMILL",
+    "parent": "21000",
+    "sal_d": 265000,
+    "sal_k": 0
+  },
+  {
+    "code": "21016",
+    "name": "LUKISAN",
+    "parent": "21000",
+    "sal_d": 3500000,
+    "sal_k": 0
+  },
+  {
+    "code": "21017",
+    "name": "KURSI PUBLIC GANGCHAIR",
+    "parent": "21000",
+    "sal_d": 18520000,
+    "sal_k": 0
+  },
+  {
+    "code": "21019",
+    "name": "KACA RIBEN 5MM BULAT",
+    "parent": "21000",
+    "sal_d": 3206000,
+    "sal_k": 0
+  },
+  {
+    "code": "21020",
+    "name": "PINTU FRAMPLIS (KACA)",
+    "parent": "21000",
+    "sal_d": 12350000,
+    "sal_k": 0
+  },
+  {
+    "code": "21021",
+    "name": "WASTAFEL (DILUAR)",
+    "parent": "21000",
+    "sal_d": 500000,
+    "sal_k": 0
+  },
+  {
+    "code": "21022",
+    "name": "FOLDING GAZEBO 2X2M GREEN",
+    "parent": "21000",
+    "sal_d": 819000,
+    "sal_k": 0
+  },
+  {
+    "code": "22001",
+    "name": "COMPUTER",
+    "parent": "22000",
+    "sal_d": 133738159,
+    "sal_k": 0
+  },
+  {
+    "code": "22002",
+    "name": "KULKAS",
+    "parent": "22000",
+    "sal_d": 10379000,
+    "sal_k": 0
+  },
+  {
+    "code": "22003",
+    "name": "PRINTER",
+    "parent": "22000",
+    "sal_d": 15250000,
+    "sal_k": 0
+  },
+  {
+    "code": "22005",
+    "name": "AC",
+    "parent": "22000",
+    "sal_d": 85572000,
+    "sal_k": 0
+  },
+  {
+    "code": "22006",
+    "name": "BARCODE SCANNER PQS 1000",
+    "parent": "22000",
+    "sal_d": 3490000,
+    "sal_k": 0
+  },
+  {
+    "code": "22007",
+    "name": "CDRW",
+    "parent": "22000",
+    "sal_d": 270000,
+    "sal_k": 0
+  },
+  {
+    "code": "22008",
+    "name": "UPS AC 1000VA",
+    "parent": "22000",
+    "sal_d": 6870850,
+    "sal_k": 0
+  },
+  {
+    "code": "22009",
+    "name": "UPS APC 1500 VA",
+    "parent": "22000",
+    "sal_d": 2565000,
+    "sal_k": 0
+  },
+  {
+    "code": "22010",
+    "name": "VACUUM",
+    "parent": "22000",
+    "sal_d": 3108300,
+    "sal_k": 0
+  },
+  {
+    "code": "22011",
+    "name": "MESIN FAX",
+    "parent": "22000",
+    "sal_d": 1000000,
+    "sal_k": 0
+  },
+  {
+    "code": "22012",
+    "name": "POMPA AIR",
+    "parent": "22000",
+    "sal_d": 925000,
+    "sal_k": 0
+  },
+  {
+    "code": "22013",
+    "name": "MESIN GENSET",
+    "parent": "22000",
+    "sal_d": 18645000,
+    "sal_k": 0
+  },
+  {
+    "code": "22014",
+    "name": "KIPAS ANGIN",
+    "parent": "22000",
+    "sal_d": 5100000,
+    "sal_k": 0
+  },
+  {
+    "code": "22015",
+    "name": "SOFTWARE LAB",
+    "parent": "22000",
+    "sal_d": 61800000,
+    "sal_k": 0
+  },
+  {
+    "code": "22016",
+    "name": "TABUNG API",
+    "parent": "22000",
+    "sal_d": 950000,
+    "sal_k": 0
+  },
+  {
+    "code": "22017",
+    "name": "MESIN CHECK LOCK",
+    "parent": "22000",
+    "sal_d": 2948000,
+    "sal_k": 0
+  },
+  {
+    "code": "22018",
+    "name": "FALSH DISK",
+    "parent": "22000",
+    "sal_d": 480000,
+    "sal_k": 0
+  },
+  {
+    "code": "22019",
+    "name": "UPS ENLIGHT 60VA",
+    "parent": "22000",
+    "sal_d": 2465000,
+    "sal_k": 0
+  },
+  {
+    "code": "22020",
+    "name": "BLENDER SANKEN",
+    "parent": "22000",
+    "sal_d": 235000,
+    "sal_k": 0
+  },
+  {
+    "code": "22021",
+    "name": "UPS ENLIGHT 450W",
+    "parent": "22000",
+    "sal_d": 490000,
+    "sal_k": 0
+  },
+  {
+    "code": "22024",
+    "name": "PULVERISER",
+    "parent": "22000",
+    "sal_d": 1400000,
+    "sal_k": 0
+  },
+  {
+    "code": "22025",
+    "name": "SOFTWARE 89 APOTEK",
+    "parent": "22000",
+    "sal_d": 16050000,
+    "sal_k": 0
+  },
+  {
+    "code": "22026",
+    "name": "MESIN ABSEN FINGER PRINT",
+    "parent": "22000",
+    "sal_d": 7000000,
+    "sal_k": 0
+  },
+  {
+    "code": "22027",
+    "name": "UPS ICA CT-1082B",
+    "parent": "22000",
+    "sal_d": 12364994,
+    "sal_k": 0
+  },
+  {
+    "code": "22028",
+    "name": "SHOW CASE MODENA",
+    "parent": "22000",
+    "sal_d": 4125000,
+    "sal_k": 0
+  },
+  {
+    "code": "22029",
+    "name": "UPS PROLINK",
+    "parent": "22000",
+    "sal_d": 3910000,
+    "sal_k": 0
+  },
+  {
+    "code": "22030",
+    "name": "CCTV",
+    "parent": "22000",
+    "sal_d": 13724000,
+    "sal_k": 0
+  },
+  {
+    "code": "22031",
+    "name": "MESIN PRES PUYER",
+    "parent": "22000",
+    "sal_d": 1030000,
+    "sal_k": 0
+  },
+  {
+    "code": "22032",
+    "name": "TV PLASMA SAMSUNG 43 INCH",
+    "parent": "22000",
+    "sal_d": 20046000,
+    "sal_k": 0
+  },
+  {
+    "code": "22033",
+    "name": "CPU AOC CASTELLO",
+    "parent": "22000",
+    "sal_d": 11920000,
+    "sal_k": 0
+  },
+  {
+    "code": "22034",
+    "name": "APLIKASI LAB",
+    "parent": "22000",
+    "sal_d": 6800000,
+    "sal_k": 0
+  },
+  {
+    "code": "22035",
+    "name": "HARDIKS SAMSUNG 850 PRO 256 GB",
+    "parent": "22000",
+    "sal_d": 1850000,
+    "sal_k": 0
+  },
+  {
+    "code": "22036",
+    "name": "APLIKASI AKUNTING",
+    "parent": "22000",
+    "sal_d": 8500000,
+    "sal_k": 0
+  },
+  {
+    "code": "22037",
+    "name": "SERVER CCTV",
+    "parent": "22000",
+    "sal_d": 3959000,
+    "sal_k": 0
+  },
+  {
+    "code": "22038",
+    "name": "ACCU GS PRIMIO N 702",
+    "parent": "22000",
+    "sal_d": 3410000,
+    "sal_k": 0
+  },
+  {
+    "code": "22039",
+    "name": "IWARA BATTERY CHARGER 40A",
+    "parent": "22000",
+    "sal_d": 1570000,
+    "sal_k": 0
+  },
+  {
+    "code": "22040",
+    "name": "DIFFUSER",
+    "parent": "22000",
+    "sal_d": 600000,
+    "sal_k": 0
+  },
+  {
+    "code": "22041",
+    "name": "VOLTAGE REGULATOR SMC 3500 N MENTERO",
+    "parent": "22000",
+    "sal_d": 1600000,
+    "sal_k": 0
+  },
+  {
+    "code": "22042",
+    "name": "HP REALME C12",
+    "parent": "22000",
+    "sal_d": 1900000,
+    "sal_k": 0
+  },
+  {
+    "code": "22043",
+    "name": "YUASA NP7-12 (6 UNIT)",
+    "parent": "22000",
+    "sal_d": 1600000,
+    "sal_k": 0
+  },
+  {
+    "code": "22044",
+    "name": "LAPTOP LENOVO",
+    "parent": "22000",
+    "sal_d": 15115900,
+    "sal_k": 0
+  },
+  {
+    "code": "22045",
+    "name": "TOILET DUDUK",
+    "parent": "22000",
+    "sal_d": 11121696,
+    "sal_k": 0
+  },
+  {
+    "code": "24001",
+    "name": "PABX&SOUND",
+    "parent": "24000",
+    "sal_d": 9032500,
+    "sal_k": 0
+  },
+  {
+    "code": "25001",
+    "name": "VERTICAL & SLIM BLIND",
+    "parent": "25000",
+    "sal_d": 6145000,
+    "sal_k": 0
+  },
+  {
+    "code": "26010",
+    "name": "PLATELET AGGREGOMETER ANGRAM",
+    "parent": "26000",
+    "sal_d": 23305710,
+    "sal_k": 0
+  },
+  {
+    "code": "26011",
+    "name": "COAGULOMETER COADATE 501",
+    "parent": "26000",
+    "sal_d": 59580060,
+    "sal_k": 0
+  },
+  {
+    "code": "26016",
+    "name": "TWNSI HG RIESTER",
+    "parent": "26000",
+    "sal_d": 862500,
+    "sal_k": 0
+  },
+  {
+    "code": "26033",
+    "name": "MIKROSCOP OLYMPUS CX21",
+    "parent": "26000",
+    "sal_d": 12000000,
+    "sal_k": 0
+  },
+  {
+    "code": "26040",
+    "name": "MICROPIPET 5",
+    "parent": "26000",
+    "sal_d": 2868750,
+    "sal_k": 0
+  },
+  {
+    "code": "26041",
+    "name": "MICROPIPET 10",
+    "parent": "26000",
+    "sal_d": 1803500,
+    "sal_k": 0
+  },
+  {
+    "code": "26042",
+    "name": "MICROPIPET 50",
+    "parent": "26000",
+    "sal_d": 1803500,
+    "sal_k": 0
+  },
+  {
+    "code": "26043",
+    "name": "MICROPIPET 100",
+    "parent": "26000",
+    "sal_d": 1803500,
+    "sal_k": 0
+  },
+  {
+    "code": "26044",
+    "name": "MICROPIPET 500",
+    "parent": "26000",
+    "sal_d": 1803500,
+    "sal_k": 0
+  },
+  {
+    "code": "26050",
+    "name": "ADVIA 60",
+    "parent": "26000",
+    "sal_d": 110000000,
+    "sal_k": 0
+  },
+  {
+    "code": "26051",
+    "name": "CLINIPET STATUS",
+    "parent": "26000",
+    "sal_d": 15000000,
+    "sal_k": 0
+  },
+  {
+    "code": "26052",
+    "name": "MICROLAB 300",
+    "parent": "26000",
+    "sal_d": 40000000,
+    "sal_k": 0
+  },
+  {
+    "code": "26053",
+    "name": "TIMBANGAN UKURAN",
+    "parent": "26000",
+    "sal_d": 593750,
+    "sal_k": 0
+  },
+  {
+    "code": "26073",
+    "name": "LOGIQ 100 PRO",
+    "parent": "26000",
+    "sal_d": 112500000,
+    "sal_k": 0
+  },
+  {
+    "code": "26077",
+    "name": "ECG FUKUDA",
+    "parent": "26000",
+    "sal_d": 12810000,
+    "sal_k": 0
+  },
+  {
+    "code": "26104",
+    "name": "GRID 6:1 35X35 CM",
+    "parent": "26000",
+    "sal_d": 3802500,
+    "sal_k": 0
+  },
+  {
+    "code": "26105",
+    "name": "X-RAY SY-31-100P",
+    "parent": "26000",
+    "sal_d": 68562000,
+    "sal_k": 0
+  },
+  {
+    "code": "26146",
+    "name": "VITALAB SELECTA E",
+    "parent": "26000",
+    "sal_d": 324557861,
+    "sal_k": 0
+  },
+  {
+    "code": "26155",
+    "name": "ALAT GLUCOTEST TERUMO",
+    "parent": "26000",
+    "sal_d": 1400000,
+    "sal_k": 0
+  },
+  {
+    "code": "26161",
+    "name": "ROMPI TIMBAL",
+    "parent": "26000",
+    "sal_d": 2800000,
+    "sal_k": 0
+  },
+  {
+    "code": "26163",
+    "name": "CENTRIFUGE",
+    "parent": "26000",
+    "sal_d": 7681608,
+    "sal_k": 0
+  },
+  {
+    "code": "26165",
+    "name": "EKG 3 CHANNEL BIOCARE",
+    "parent": "26000",
+    "sal_d": 9657000,
+    "sal_k": 0
+  },
+  {
+    "code": "26166",
+    "name": "SILVERTRACE ELECTRODA",
+    "parent": "26000",
+    "sal_d": 1178100,
+    "sal_k": 0
+  },
+  {
+    "code": "26167",
+    "name": "TUBE ASSY REAGENT",
+    "parent": "26000",
+    "sal_d": 1661220,
+    "sal_k": 0
+  },
+  {
+    "code": "26168",
+    "name": "TUBE ASSY SAMPLE",
+    "parent": "26000",
+    "sal_d": 803385,
+    "sal_k": 0
+  },
+  {
+    "code": "26169",
+    "name": "CUVET SELECTA E",
+    "parent": "26000",
+    "sal_d": 679250,
+    "sal_k": 0
+  },
+  {
+    "code": "26175",
+    "name": "MICROMAT II CONTROL",
+    "parent": "26000",
+    "sal_d": 11400000,
+    "sal_k": 0
+  },
+  {
+    "code": "26176",
+    "name": "UPS LAPLACE 2000",
+    "parent": "26000",
+    "sal_d": 176000000,
+    "sal_k": 0
+  },
+  {
+    "code": "26177",
+    "name": "UPS LAPLACE 2000",
+    "parent": "26000",
+    "sal_d": 2457000,
+    "sal_k": 0
+  },
+  {
+    "code": "26178",
+    "name": "SILVERTRACE SOFT STRESS",
+    "parent": "26000",
+    "sal_d": 792000,
+    "sal_k": 0
+  },
+  {
+    "code": "27001",
+    "name": "PT. ORIX INDONESIA",
+    "parent": "27000",
+    "sal_d": 53376000,
+    "sal_k": 0
+  },
+  {
+    "code": "27002",
+    "name": "SEPEDA MOTOR REVO",
+    "parent": "27000",
+    "sal_d": 29460000,
+    "sal_k": 0
+  },
+  {
+    "code": "27003",
+    "name": "MOBIL AVANZA",
+    "parent": "27000",
+    "sal_d": 177478000,
+    "sal_k": 0
+  },
+  {
+    "code": "27004",
+    "name": "MOBIL INNOVA KT 1580 BM",
+    "parent": "27000",
+    "sal_d": 300000000,
+    "sal_k": 0
+  },
+  {
+    "code": "28001",
+    "name": "AP. BANGUNAN",
+    "parent": "28000",
+    "sal_d": 0,
+    "sal_k": 816887123
+  },
+  {
+    "code": "28002",
+    "name": "AP. MEUBLE",
+    "parent": "28000",
+    "sal_d": 0,
+    "sal_k": 189789920
+  },
+  {
+    "code": "28003",
+    "name": "AP. MESIN & PERALATAN",
+    "parent": "28000",
+    "sal_d": 0,
+    "sal_k": 457473077
+  },
+  {
+    "code": "28004",
+    "name": "AP. SOUND SYSTEM",
+    "parent": "28000",
+    "sal_d": 0,
+    "sal_k": 9032500
+  },
+  {
+    "code": "28005",
+    "name": "AP. PERLENGKAPAN LAIN",
+    "parent": "28000",
+    "sal_d": 0,
+    "sal_k": 6145000
+  },
+  {
+    "code": "28006",
+    "name": "AP. PERALATAN LAB.",
+    "parent": "28000",
+    "sal_d": 0,
+    "sal_k": 1010166706
+  },
+  {
+    "code": "28007",
+    "name": "AP. KENDARAAN",
+    "parent": "28000",
+    "sal_d": 0,
+    "sal_k": 384705219
+  },
+  {
+    "code": "29001",
+    "name": "AA.PRA OPERASI",
+    "parent": "29000",
+    "sal_d": 0,
+    "sal_k": 44448313
+  },
+  {
+    "code": "40001",
+    "name": "CV LABTRI MEDIKA SEJAHTERA",
+    "parent": "40000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "40002",
+    "name": "CV SUMBER REZEKI",
+    "parent": "40000",
+    "sal_d": 0,
+    "sal_k": 2683517
+  },
+  {
+    "code": "40003",
+    "name": "PT. KEBAYORAN PHARMA",
+    "parent": "40000",
+    "sal_d": 0,
+    "sal_k": 654053
+  },
+  {
+    "code": "40004",
+    "name": "PT. IGM",
+    "parent": "40000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "40005",
+    "name": "PT. KALLISTA PRIMA",
+    "parent": "40000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "40006",
+    "name": "PT. TEMPO",
+    "parent": "40000",
+    "sal_d": 0,
+    "sal_k": 113302
+  },
+  {
+    "code": "40007",
+    "name": "PT. APL",
+    "parent": "40000",
+    "sal_d": 0,
+    "sal_k": 4301725
+  },
+  {
+    "code": "40008",
+    "name": "PT. ANUGRAH ARGON MEDICA",
+    "parent": "40000",
+    "sal_d": 0,
+    "sal_k": 5174264
+  },
+  {
+    "code": "40009",
+    "name": "PT. PARIT PADANG",
+    "parent": "40000",
+    "sal_d": 0,
+    "sal_k": 198005
+  },
+  {
+    "code": "40010",
+    "name": "PT. KIMIA FARMA",
+    "parent": "40000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "40012",
+    "name": "PT. BINA SAN PRIMA",
+    "parent": "40000",
+    "sal_d": 0,
+    "sal_k": 192943398
+  },
+  {
+    "code": "40013",
+    "name": "PT. MERAPI UTAMA PHARMA",
+    "parent": "40000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "40014",
+    "name": "PT. ENSEVAL",
+    "parent": "40000",
+    "sal_d": 0,
+    "sal_k": 182191927
+  },
+  {
+    "code": "40016",
+    "name": "PT. DOS NI ROHA",
+    "parent": "40000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "40018",
+    "name": "PT. ANTAR MITRA SEMBADA",
+    "parent": "40000",
+    "sal_d": 0,
+    "sal_k": 266394
+  },
+  {
+    "code": "40019",
+    "name": "PT. MENSA BINA SUKSES",
+    "parent": "40000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "40021",
+    "name": "PT. MPI",
+    "parent": "40000",
+    "sal_d": 0,
+    "sal_k": 9516863
+  },
+  {
+    "code": "40022",
+    "name": "PT. FERTOMULIA PRATAMA",
+    "parent": "40000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "40027",
+    "name": "PT. UNITED DICO CITAS",
+    "parent": "40000",
+    "sal_d": 0,
+    "sal_k": 334950
+  },
+  {
+    "code": "40028",
+    "name": "PT. MARGA NUSANTARA",
+    "parent": "40000",
+    "sal_d": 0,
+    "sal_k": 1111151
+  },
+  {
+    "code": "40029",
+    "name": "PT. TRI SAPTA JAYA",
+    "parent": "40000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "40035",
+    "name": "PT. PENTA VALENT",
+    "parent": "40000",
+    "sal_d": 0,
+    "sal_k": 11214040
+  },
+  {
+    "code": "40036",
+    "name": "PT. RAJAWALI NUSINDO",
+    "parent": "40000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "40037",
+    "name": "CV. MENTARI MEGAH PERKASA",
+    "parent": "40000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "40039",
+    "name": "KERTACU WINES ABADI",
+    "parent": "40000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "40042",
+    "name": "PT. MULTIJAYA",
+    "parent": "40000",
+    "sal_d": 0,
+    "sal_k": 1003760
+  },
+  {
+    "code": "40049",
+    "name": "PT. SURAINDA PANJI JAYA",
+    "parent": "40000",
+    "sal_d": 0,
+    "sal_k": 4956743
+  },
+  {
+    "code": "40050",
+    "name": "PT. INDOMARCO ADIPRIMA",
+    "parent": "40000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "40052",
+    "name": "PT. CITRA SURYA PRATAMA",
+    "parent": "40000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "40053",
+    "name": "CV. SAC BERSAUDARA",
+    "parent": "40000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "40054",
+    "name": "CV. GEMILANG SURYA MAS",
+    "parent": "40000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "40055",
+    "name": "PT. RASANI",
+    "parent": "40000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "40056",
+    "name": "PULAU BARU MANDIRI",
+    "parent": "40000",
+    "sal_d": 0,
+    "sal_k": 1969476
+  },
+  {
+    "code": "40057",
+    "name": "PT. ANUGERAH DISTRINDOJAYA",
+    "parent": "40000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "40058",
+    "name": "PT. MITRA HIJAU",
+    "parent": "40000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "40059",
+    "name": "CV.  PULAU MAS",
+    "parent": "40000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "40064",
+    "name": "SAPTA SARI TAMA",
+    "parent": "40000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "40067",
+    "name": "CV TUNGGAL JAYA",
+    "parent": "40000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "40069",
+    "name": "PULAU MAS SEJAHTERA",
+    "parent": "40000",
+    "sal_d": 0,
+    "sal_k": 252501
+  },
+  {
+    "code": "40072",
+    "name": "PERSONA PRIMA UTAMA (OUTSOURCING)",
+    "parent": "40000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "40073",
+    "name": "REKLAMINDO",
+    "parent": "40000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "40076",
+    "name": "DUTA SILKA MANDIRI",
+    "parent": "40000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "40079",
+    "name": "PT. SINAR TERANG MULIA",
+    "parent": "40000",
+    "sal_d": 0,
+    "sal_k": 3799101
+  },
+  {
+    "code": "40080",
+    "name": "PT. SEJAHTERA MULIA FARMA",
+    "parent": "40000",
+    "sal_d": 0,
+    "sal_k": 3852779
+  },
+  {
+    "code": "40081",
+    "name": "PT. METTA KARYA HUTAMA",
+    "parent": "40000",
+    "sal_d": 0,
+    "sal_k": 17393864
+  },
+  {
+    "code": "41001",
+    "name": "PPN",
+    "parent": "41000",
+    "sal_d": 0,
+    "sal_k": 24018646
+  },
+  {
+    "code": "41002",
+    "name": "PPH PASAL 21",
+    "parent": "41000",
+    "sal_d": 0,
+    "sal_k": 1658253
+  },
+  {
+    "code": "41003",
+    "name": "PPH PASAL 23",
+    "parent": "41000",
+    "sal_d": 0,
+    "sal_k": 310168
+  },
+  {
+    "code": "41005",
+    "name": "PPH PASAL 4 AYAT 2",
+    "parent": "41000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "41007",
+    "name": "PPH PASAL 25",
+    "parent": "41000",
+    "sal_d": 0,
+    "sal_k": -65401364
+  },
+  {
+    "code": "42001",
+    "name": "AIR",
+    "parent": "42000",
+    "sal_d": 0,
+    "sal_k": 1075373
+  },
+  {
+    "code": "42002",
+    "name": "LISTRIK",
+    "parent": "42000",
+    "sal_d": 0,
+    "sal_k": 6453084
+  },
+  {
+    "code": "42003",
+    "name": "TELEPON",
+    "parent": "42000",
+    "sal_d": 0,
+    "sal_k": 1088018
+  },
+  {
+    "code": "42004",
+    "name": "GAJI",
+    "parent": "42000",
+    "sal_d": 0,
+    "sal_k": 83239948
+  },
+  {
+    "code": "42005",
+    "name": "JAMSOSTEK",
+    "parent": "42000",
+    "sal_d": 0,
+    "sal_k": 3301375
+  },
+  {
+    "code": "42006",
+    "name": "INSENTIF",
+    "parent": "42000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "42007",
+    "name": "DOKTER",
+    "parent": "42000",
+    "sal_d": 0,
+    "sal_k": 47005039
+  },
+  {
+    "code": "42010",
+    "name": "LAIN-LAIN",
+    "parent": "42000",
+    "sal_d": 0,
+    "sal_k": 4246250
+  },
+  {
+    "code": "42011",
+    "name": "HONOR KOMISARIS",
+    "parent": "42000",
+    "sal_d": 0,
+    "sal_k": 19000000
+  },
+  {
+    "code": "50001",
+    "name": "MODAL USAHA",
+    "parent": "50000",
+    "sal_d": 0,
+    "sal_k": 199608745
+  },
+  {
+    "code": "50002",
+    "name": "MODAL DISETOR NURHAYATI",
+    "parent": "50000",
+    "sal_d": 0,
+    "sal_k": 187500000
+  },
+  {
+    "code": "55001",
+    "name": "LABA/(RUGI)",
+    "parent": "55000",
+    "sal_d": 0,
+    "sal_k": 3259052258
+  },
+  {
+    "code": "60001",
+    "name": "PENDAPATAN APOTIK",
+    "parent": "60000",
+    "sal_d": 0,
+    "sal_k": 9150147781
+  },
+  {
+    "code": "60002",
+    "name": "PENDAPATAN LABORATORIUM",
+    "parent": "60000",
+    "sal_d": 0,
+    "sal_k": 634707875
+  },
+  {
+    "code": "60008",
+    "name": "DOKTER",
+    "parent": "60000",
+    "sal_d": 0,
+    "sal_k": 160504000
+  },
+  {
+    "code": "70001",
+    "name": "GAJI APOTEK",
+    "parent": "70000",
+    "sal_d": 242473564,
+    "sal_k": 0
+  },
+  {
+    "code": "70003",
+    "name": "KEPERLUAN KANTOR",
+    "parent": "70000",
+    "sal_d": 52746250,
+    "sal_k": 0
+  },
+  {
+    "code": "70008",
+    "name": "HPP",
+    "parent": "70000",
+    "sal_d": 6693279764,
+    "sal_k": 0
+  },
+  {
+    "code": "70011",
+    "name": "BY KEPERLUAN BPJS",
+    "parent": "70000",
+    "sal_d": 58000,
+    "sal_k": 0
+  },
+  {
+    "code": "71001",
+    "name": "GAJI LABORATORIUM",
+    "parent": "71000",
+    "sal_d": 258558790,
+    "sal_k": 0
+  },
+  {
+    "code": "71002",
+    "name": "PENGOBATAN",
+    "parent": "71000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "71003",
+    "name": "KEPERLUAN KANTOR",
+    "parent": "71000",
+    "sal_d": 25711100,
+    "sal_k": 0
+  },
+  {
+    "code": "71008",
+    "name": "HPP",
+    "parent": "71000",
+    "sal_d": 113056965,
+    "sal_k": 0
+  },
+  {
+    "code": "71011",
+    "name": "RUJUKAN LAB",
+    "parent": "71000",
+    "sal_d": 27861650,
+    "sal_k": 0
+  },
+  {
+    "code": "71012",
+    "name": "FEE DR PENGIRIM PASIEN",
+    "parent": "71000",
+    "sal_d": 330986360,
+    "sal_k": 0
+  },
+  {
+    "code": "71013",
+    "name": "FEE PEMERIKSAAN USG & RONTGEN",
+    "parent": "71000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "71014",
+    "name": "FEE PEMERIKSAAN ECG",
+    "parent": "71000",
+    "sal_d": 660000,
+    "sal_k": 0
+  },
+  {
+    "code": "71016",
+    "name": "FEE DR PEMERIKSA",
+    "parent": "71000",
+    "sal_d": 128403200,
+    "sal_k": 0
+  },
+  {
+    "code": "71019",
+    "name": "FEE DR CEK FISIK",
+    "parent": "71000",
+    "sal_d": 3400271,
+    "sal_k": 0
+  },
+  {
+    "code": "71021",
+    "name": "BY. TREADMILL",
+    "parent": "71000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "71022",
+    "name": "ONGKOS KIRIM",
+    "parent": "71000",
+    "sal_d": 5400400,
+    "sal_k": 0
+  },
+  {
+    "code": "71024",
+    "name": "UANG SERVICE DOKTER UMUM",
+    "parent": "71000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "71025",
+    "name": "SPIROMETRI & AUDIOMETRI",
+    "parent": "71000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "72001",
+    "name": "KEPERLUAN CAFE",
+    "parent": "72000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "79001",
+    "name": "B. GAJI UMUM & ADM",
+    "parent": "79000",
+    "sal_d": 617211983,
+    "sal_k": 0
+  },
+  {
+    "code": "79003",
+    "name": "B. KEPERLUAN KANTOR",
+    "parent": "79000",
+    "sal_d": 219841342,
+    "sal_k": 0
+  },
+  {
+    "code": "79004",
+    "name": "B. TELEPON",
+    "parent": "79000",
+    "sal_d": 14001693,
+    "sal_k": 0
+  },
+  {
+    "code": "79005",
+    "name": "B. LISTRIK",
+    "parent": "79000",
+    "sal_d": 79304287,
+    "sal_k": 0
+  },
+  {
+    "code": "79006",
+    "name": "B. AIR",
+    "parent": "79000",
+    "sal_d": 10170091,
+    "sal_k": 0
+  },
+  {
+    "code": "79008",
+    "name": "B. MAKAN",
+    "parent": "79000",
+    "sal_d": 7330500,
+    "sal_k": 0
+  },
+  {
+    "code": "79009",
+    "name": "B. BAHAN BAKAR",
+    "parent": "79000",
+    "sal_d": 11290700,
+    "sal_k": 0
+  },
+  {
+    "code": "79010",
+    "name": "B. SERAGAM",
+    "parent": "79000",
+    "sal_d": 15729500,
+    "sal_k": 0
+  },
+  {
+    "code": "79011",
+    "name": "B. PERJALANAN DINAS",
+    "parent": "79000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "79014",
+    "name": "B. TV KABEL",
+    "parent": "79000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "79015",
+    "name": "B. SUMBANGAN",
+    "parent": "79000",
+    "sal_d": 4213000,
+    "sal_k": 0
+  },
+  {
+    "code": "79017",
+    "name": "B. ASURANSI KENDARAAN",
+    "parent": "79000",
+    "sal_d": 2985839,
+    "sal_k": 0
+  },
+  {
+    "code": "79018",
+    "name": "B. MATERAI",
+    "parent": "79000",
+    "sal_d": 300000,
+    "sal_k": 0
+  },
+  {
+    "code": "79019",
+    "name": "B. KORAN",
+    "parent": "79000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "79020",
+    "name": "B. PERPANJANG SURAT KENDARAAN",
+    "parent": "79000",
+    "sal_d": 5002656,
+    "sal_k": 0
+  },
+  {
+    "code": "79023",
+    "name": "THR",
+    "parent": "79000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "79024",
+    "name": "B. UANG INSENTIF",
+    "parent": "79000",
+    "sal_d": 213600000,
+    "sal_k": 0
+  },
+  {
+    "code": "79025",
+    "name": "B. PPH BADAN",
+    "parent": "79000",
+    "sal_d": 112147126,
+    "sal_k": 0
+  },
+  {
+    "code": "79028",
+    "name": "B. BUKU CEK/BG",
+    "parent": "79000",
+    "sal_d": 550000,
+    "sal_k": 0
+  },
+  {
+    "code": "79029",
+    "name": "B. ADM BANK",
+    "parent": "79000",
+    "sal_d": 37610661,
+    "sal_k": 0
+  },
+  {
+    "code": "79030",
+    "name": "B. PAJAK BUNGA BANK",
+    "parent": "79000",
+    "sal_d": 32257,
+    "sal_k": 0
+  },
+  {
+    "code": "79032",
+    "name": "B. KLIRING",
+    "parent": "79000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "79033",
+    "name": "B. PPH PASAL 21",
+    "parent": "79000",
+    "sal_d": 4023222,
+    "sal_k": 0
+  },
+  {
+    "code": "79034",
+    "name": "B. PAJAK REKLAME",
+    "parent": "79000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "79036",
+    "name": "B. PEMELIHARAAN",
+    "parent": "79000",
+    "sal_d": 6586000,
+    "sal_k": 0
+  },
+  {
+    "code": "79038",
+    "name": "B. LIMBAH MEDIS",
+    "parent": "79000",
+    "sal_d": 2403438,
+    "sal_k": 0
+  },
+  {
+    "code": "79039",
+    "name": "B. TRAINING KARYAWAN",
+    "parent": "79000",
+    "sal_d": 18750000,
+    "sal_k": 0
+  },
+  {
+    "code": "79043",
+    "name": "B. PBB",
+    "parent": "79000",
+    "sal_d": 4476523,
+    "sal_k": 0
+  },
+  {
+    "code": "79044",
+    "name": "B. PENYUSUTAN",
+    "parent": "79000",
+    "sal_d": 133198409,
+    "sal_k": 0
+  },
+  {
+    "code": "79046",
+    "name": "B. TRANSPORTASI",
+    "parent": "79000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "79047",
+    "name": "B. PAKET LEBARAN",
+    "parent": "79000",
+    "sal_d": 2090000,
+    "sal_k": 0
+  },
+  {
+    "code": "79048",
+    "name": "B. MESIN EDC",
+    "parent": "79000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "79050",
+    "name": "B. JAMSOSTEK",
+    "parent": "79000",
+    "sal_d": 39616500,
+    "sal_k": 0
+  },
+  {
+    "code": "79053",
+    "name": "B. SEWA GEDUNG",
+    "parent": "79000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "79054",
+    "name": "B. ASURANSI KEBAKARAN",
+    "parent": "79000",
+    "sal_d": 3049800,
+    "sal_k": 0
+  },
+  {
+    "code": "79055",
+    "name": "B. PPH PSL 23",
+    "parent": "79000",
+    "sal_d": 1125560,
+    "sal_k": 0
+  },
+  {
+    "code": "79056",
+    "name": "B. TUNJANGAN NIKAH",
+    "parent": "79000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "79065",
+    "name": "B. SAMPAH LINGKUNGAN",
+    "parent": "79000",
+    "sal_d": 1800000,
+    "sal_k": 0
+  },
+  {
+    "code": "79070",
+    "name": "B. KARANGAN BUNGA",
+    "parent": "79000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "79071",
+    "name": "B. BPJS",
+    "parent": "79000",
+    "sal_d": 36127464,
+    "sal_k": 0
+  },
+  {
+    "code": "79072",
+    "name": "B. PPN",
+    "parent": "79000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "79073",
+    "name": "B. AIR GALON",
+    "parent": "79000",
+    "sal_d": 2400000,
+    "sal_k": 0
+  },
+  {
+    "code": "79074",
+    "name": "B.JASA ACCOUNTING",
+    "parent": "79000",
+    "sal_d": 7500000,
+    "sal_k": 0
+  },
+  {
+    "code": "79075",
+    "name": "B.SPAREPART KENDARAAN",
+    "parent": "79000",
+    "sal_d": 53750574,
+    "sal_k": 0
+  },
+  {
+    "code": "79076",
+    "name": "B.SPAREPART AC & GENSET",
+    "parent": "79000",
+    "sal_d": 7813000,
+    "sal_k": 0
+  },
+  {
+    "code": "79077",
+    "name": "B. PEMBUATAN AKTA SAHAM",
+    "parent": "79000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "80001",
+    "name": "BUNGA BCA NO.0271835051",
+    "parent": "80000",
+    "sal_d": 0,
+    "sal_k": 161300
+  },
+  {
+    "code": "80003",
+    "name": "SEWA RUANGAN",
+    "parent": "80000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "80004",
+    "name": "BUNGA BANK BRI Rek. 0671-0107-3343-313",
+    "parent": "80000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "80005",
+    "name": "BUNGA BRI DANAREKSA (0671-0107-3343-313)",
+    "parent": "80000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "80006",
+    "name": "BUNGA BANK COMMONWEALTH Rek. 278-000-4952",
+    "parent": "80000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "80007",
+    "name": "BUNGA DEPOSITO BANK COMMONWEALTH (278-0004-952 )",
+    "parent": "80000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "80008",
+    "name": "BUNGA BANK DBS Rek. 209-033-883",
+    "parent": "80000",
+    "sal_d": 0,
+    "sal_k": 0
+  },
+  {
+    "code": "80009",
+    "name": "PENDAPATAN BPJS",
+    "parent": "80000",
+    "sal_d": 0,
+    "sal_k": 251118352
+  },
+  {
+    "code": "80010",
+    "name": "PENDAPATAN LAIN-LAIN",
+    "parent": "80000",
+    "sal_d": 0,
+    "sal_k": 9730550
+  }
+]

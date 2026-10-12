@@ -1,0 +1,12 @@
+# Runtime data - MySQL, Redis, MinIO data files
+runtime/
+
+# Docker env file (contains secrets)
+.env
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log

@@ -1,0 +1,136 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main, dev ]
+  pull_request:
+    branches: [ main, dev ]
+
+env:
+  REGISTRY: ghcr.io
+  BACKEND_IMAGE: ghcr.io/${{ github.repository }}/be
+  FRONTEND_IMAGE_DEV: ghcr.io/${{ github.repository }}/fe-dev
+  FRONTEND_IMAGE_MAIN: ghcr.io/${{ github.repository }}/fe-main
+
+jobs:
+  test:
+    name: Verification (TDD)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      # Backend Test
+      - name: Setup Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: '1.24'
+      - name: Run Backend Tests
+        run: go test -v ./...
+        working-directory: ./be
+        
+      # Frontend Test
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: 'npm'
+          cache-dependency-path: ./fe/package-lock.json
+      - name: Install Frontend Deps
+        run: npm ci
+        working-directory: ./fe
+      - name: Run Frontend Tests
+        run: npm test
+        working-directory: ./fe
+
+  sync-to-prod:
+    name: Sync Dev to Prod
+    needs: test
+    if: github.event_name == 'push' && github.ref == 'refs/heads/dev'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Push dev to prod
+        run: |
+          git push origin refs/heads/dev:refs/heads/prod --force
+
+  build-and-push:
+    name: Build & Push Images
+    needs: test
+    if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/dev')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Log in to the Container registry
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      # Build Backend
+      - name: Build and push Backend
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: docker/be/Dockerfile
+          push: true
+          tags: ${{ env.BACKEND_IMAGE }}:latest
+          target: prod
+
+      # Build Frontend Dev
+      - name: Build and push Frontend (Dev)
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: docker/fe/Dockerfile
+          push: true
+          tags: ${{ env.FRONTEND_IMAGE_DEV }}:latest
+          target: prod
+          build-args: |
+            VITE_API_URL=/dev/api
+
+      # Build Frontend Main
+      - name: Build and push Frontend (Main)
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: docker/fe/Dockerfile
+          push: true
+          tags: ${{ env.FRONTEND_IMAGE_MAIN }}:latest
+          target: prod
+          build-args: |
+            VITE_API_URL=/main/api
+
+  deploy:
+    name: Production Deployment
+    needs: [sync-to-prod, build-and-push]
+    # Deploy triggers on push to main or dev (after sync)
+    if: |
+      always() &&
+      github.event_name == 'push' &&
+      (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/dev') &&
+      (needs.sync-to-prod.result == 'success' || needs.sync-to-prod.result == 'skipped')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Deploy to Server
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            cd /path/to/your/app
+            git fetch origin
+            git checkout prod || git checkout -b prod origin/prod
+            git pull origin prod
+            docker compose -f docker-compose.dev-main.yml config -q
+            docker compose -f docker-compose.dev-main.yml up -d --build --remove-orphans

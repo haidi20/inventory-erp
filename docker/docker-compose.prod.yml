@@ -1,0 +1,199 @@
+services:
+  redis:
+    image: redis:7-alpine
+    container_name: klinik_redis_prod
+    restart: unless-stopped
+    command: >
+      sh -lc "if [ -n \"$REDIS_PASSWORD\" ];
+      then redis-server --appendonly yes --requirepass \"$REDIS_PASSWORD\";
+      else redis-server --appendonly yes; fi"
+    environment:
+      REDIS_PASSWORD: ${REDIS_PASSWORD:-redispass}
+    ports:
+      - "${REDIS_PORT:-6380}:6379"
+    volumes:
+      - ./runtime/prod/redis:/data
+    healthcheck:
+      test: ["CMD-SHELL", "if [ -n \"$REDIS_PASSWORD\" ]; then redis-cli -a \"$REDIS_PASSWORD\" ping | grep PONG; else redis-cli ping | grep PONG; fi"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    networks:
+      - klinik_prod_network
+
+  postgres:
+    image: postgres:18.3
+    container_name: klinik_pgsql_prod
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-app_db_prod}
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+      PGDATA: /var/lib/postgresql/data/pgdata
+    ports:
+      - "${POSTGRES_PORT:-15433}:5432"
+    volumes:
+      - ./runtime/prod/pgsql:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres} -d ${POSTGRES_DB:-app_db_prod}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - klinik_prod_network
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: klinik_pgadmin_prod
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-admin@example.com}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-admin123}
+    ports:
+      - "${PGADMIN_PORT:-5051}:80"
+    volumes:
+      - pgadmin_prod_data:/var/lib/pgadmin
+    networks:
+      - klinik_prod_network
+
+  minio:
+    image: minio/minio:latest
+    container_name: klinik_minio_prod
+    restart: unless-stopped
+    command: server /data --console-address ":9001"
+    ports:
+      - "${MINIO_API_PORT:-9010}:9000"
+      - "${MINIO_CONSOLE_PORT:-9011}:9001"
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER:-minioadmin}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:-minioadmin}
+    volumes:
+      - minio_prod_data:/data
+    networks:
+      - klinik_prod_network
+
+  netdata:
+    image: netdata/netdata:stable
+    container_name: klinik_netdata_prod
+    restart: unless-stopped
+    ports:
+      - "${NETDATA_PORT:-20000}:19999"
+    cap_add:
+      - SYS_PTRACE
+    security_opt:
+      - apparmor=unconfined
+    volumes:
+      - netdata_prod_config:/etc/netdata
+      - netdata_prod_lib:/var/lib/netdata
+      - netdata_prod_cache:/var/cache/netdata
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+      - /etc/os-release:/host/etc/os-release:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://127.0.0.1:19999/api/v1/info >/dev/null || exit 1"]
+      interval: 15s
+      timeout: 5s
+      retries: 10
+    networks:
+      - klinik_prod_network
+
+  app:
+    build:
+      context: ..
+      dockerfile: docker/app/Dockerfile
+      target: prod
+    container_name: klinik_app_prod
+    init: true
+    restart: unless-stopped
+    environment:
+      APP_ENV: production
+      APP_DEBUG: "false"
+      APP_URL: ${APP_URL:-http://localhost:8089}
+      LOG_CHANNEL: stack
+      DB_CONNECTION: pgsql
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_DATABASE: ${POSTGRES_DB:-app_db_prod}
+      DB_USERNAME: ${POSTGRES_USER:-postgres}
+      DB_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      REDIS_PASSWORD: ${REDIS_PASSWORD:-redispass}
+      CACHE_STORE: file
+      SESSION_DRIVER: file
+      QUEUE_CONNECTION: sync
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "php -v >/dev/null || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    networks:
+      - klinik_prod_network
+
+  nginx:
+    image: nginx:alpine
+    container_name: klinik_nginx_prod
+    restart: unless-stopped
+    depends_on:
+      app:
+        condition: service_healthy
+    ports:
+      - "${NGINX_HTTP_PORT:-8089}:80"
+    volumes:
+      - ../src:/var/www/html:ro
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+    healthcheck:
+      test: ["CMD-SHELL", "wget --no-verbose --tries=1 --spider http://127.0.0.1/ || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    networks:
+      - klinik_prod_network
+
+  jenkins:
+    build:
+      context: ./jenkins
+      dockerfile: Dockerfile
+    image: klinik_jenkins:prod
+    container_name: klinik_jenkins_prod
+    restart: unless-stopped
+    user: root
+    environment:
+      JENKINS_OPTS: --prefix=/cicd
+      JENKINS_ADMIN_USER: ${JENKINS_ADMIN_USER:-admin}
+      JENKINS_ADMIN_PASSWORD: ${JENKINS_ADMIN_PASSWORD:-qwerty123}
+      JENKINS_WORKSPACE_ROOT: /workspace/klinik-starter
+      JENKINS_DEV_BRANCH: ${JENKINS_DEV_BRANCH:-dev}
+      JENKINS_PROD_BRANCH: ${JENKINS_PROD_BRANCH:-main}
+      JENKINS_DEV_WEBHOOK_TOKEN: ${JENKINS_DEV_WEBHOOK_TOKEN:-app-dev-delivery}
+      JENKINS_PROD_WEBHOOK_TOKEN: ${JENKINS_PROD_WEBHOOK_TOKEN:-app-prod-delivery}
+    ports:
+      - "${JENKINS_PORT:-8082}:8080"
+      - "${JENKINS_AGENT_PORT:-50011}:50000"
+    volumes:
+      - ./runtime/prod/jenkins:/var/jenkins_home
+      - ./jenkins/init.groovy.d:/var/jenkins_home/init.groovy.d:ro
+      - ../:/workspace/klinik-starter
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      - klinik_prod_network
+
+volumes:
+  pgadmin_prod_data:
+  minio_prod_data:
+  netdata_prod_config:
+  netdata_prod_lib:
+  netdata_prod_cache:
+
+networks:
+  klinik_prod_network:
+    driver: bridge

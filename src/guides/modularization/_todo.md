@@ -1,0 +1,1574 @@
+# TODO Parity Ninesoft ERP
+
+> Dokumen ini adalah backlog fitur yang belum dibuat atau belum terbukti sama 100% dengan Ninesoft pada `2026-09-24`. Target parity mencakup menu, sub-menu, URL behavior, urutan/posisi field, tabel, filter, tombol aksi, validasi, modal, tab, import/export, dan response state.
+
+## Sumber dan Metode
+- Referensi utama: `https://web.ninesoft.id/site/home/dashboard` (login demo dilakukan melalui scraper repo; dashboard mengarah ke halaman login bila sesi belum aktif).
+- Scraper Python yang dipakai: `scraping/scrape_ninesoft_login.py`, `scraping/scrape_ninesoft_all.py`, dan crawler HTTP Python untuk mengekstrak kontrak DOM (artefak crawl bersifat sementara).
+- Hasil live: 7 modul utama, 57 submenu, seluruh endpoint terakses HTTP `200` setelah login demo.
+- Urutan field di bawah adalah urutan DOM aktual (dibaca atas-ke-bawah; dalam satu row mengikuti urutan markup). `form-0`, `form-1`, dst. adalah urutan form di halaman; jangan menggabungkan filter list dengan modal create/edit.
+- Header tabel mengikuti urutan `<thead>`/baris header aktual. Elemen `hidden`, metadata, dan field audit tetap dicatat agar payload 100% kompatibel.
+
+## Temuan Gap Utama
+- Sidebar aktif lokal saat ini belum mereplikasi top-level Ninesoft `Master`, `Inventory`, `Pembelian`, `Penjualan`, `Kas/Bank`, `GL`, `Analisa`; struktur lokal masih memakai `Dashboard`, `Inventory`, `Laporan`, `Pengaturan`.
+- Beberapa domain lokal sudah memiliki API/view ekuivalen, tetapi belum terbukti parity UI Ninesoft. Karena itu setiap halaman tetap memiliki TODO parity.
+- Prioritas P0: shell/sidebar + master data + transaksi stok/pembelian/penjualan; P1: kas/bank dan GL; P2: laporan, cetakan, WhatsApp, dan detail administrasi.
+
+## Checklist Global (Wajib per Halaman)
+- [ ] Route/menu/sub-menu dan active state sama dengan Ninesoft.
+- [ ] Layout shell, breadcrumb/judul, card, posisi filter, tombol, tabel, modal, tab, dan pagination sama.
+- [ ] Nama field, `name`, `id`, tipe, urutan DOM, opsi dropdown, default, format angka/tanggal, dan required sama.
+- [ ] Filter server-side, sorting, search, reset, pagination, total record, dan empty/loading/error state sama.
+- [ ] Tombol aksi dan izin: New, Edit, Delete, Detail, Save, Cancel, Import, Export, Print, Refresh, Close/Posting/Undo sesuai halaman.
+- [ ] Validasi client/server, duplicate check, confirm dialog, toast, dan response error sama.
+- [ ] API payload/endpoint, audit field, branch/company scope, dan transaksi atomic sama.
+
+## Peta Menu Live
+### Master
+- [ ] **Daftar Nilai** ? `/site/master/nilai`
+- [ ] **Barang dan Jasa** ? `/site/master/item`
+- [ ] **Formula (BOM)** ? `/site/master/formula`
+- [ ] **Satuan** ? `/site/master/satuan`
+- [ ] **Saldo Awal** ? `/site/master/saldo`
+- [ ] **Konversi Item** ? `/site/master/konversi`
+- [ ] **Gudang** ? `/site/master/gudang`
+- [ ] **Jangka Waktu Kredit** ? `/site/master/termin`
+- [ ] **Pajak** ? `/site/master/pajak`
+- [ ] **Customer** ? `/site/master/customer`
+- [ ] **Supplier** ? `/site/master/supplier`
+- [ ] **Alamat** ? `/site/master/alamat`
+- [ ] **Sales** ? `/site/master/karyawan`
+- [ ] **Daftar Harga** ? `/site/master/harga`
+- [ ] **Asset** ? `/site/master/asset`
+- [ ] **Account** ? `/site/master/account`
+- [ ] **Saldo Awal COA** ? `/site/master/saldocoa`
+- [ ] **Setting COA** ? `/site/master/coa`
+- [ ] **User Group** ? `/site/master/user`
+- [ ] **Setting Menu** ? `/site/master/menu`
+- [ ] **Cetakan** ? `/site/master/cetakan`
+- [ ] **List Laporan** ? `/site/master/report`
+- [ ] **Cetak Barcode** ? `/site/master/cetak_barcode`
+- [ ] **Info Whatsapp** ? `/site/master/whatsapp`
+### Inventory
+- [ ] **Info Barang Stok** ? `/site/inventory/info`
+- [ ] **Pindah Antar Gudang** ? `/site/inventory/pag`
+- [ ] **Stok Adjusment** ? `/site/inventory/stok`
+- [ ] **Stok Opname** ? `/site/inventory/opname`
+- [ ] **Adjusment Nilai** ? `/site/inventory/nilai`
+- [ ] **Perakitan** ? `/site/inventory/perakitan`
+- [ ] **Laporan Persediaan** ? `/site/inventory/report`
+### Pembelian
+- [ ] **Info Pembelian** ? `/site/purchasing/info`
+- [ ] **Order Pembelian** ? `/site/purchasing/order`
+- [ ] **Barang Datang** ? `/site/purchasing/receipt`
+- [ ] **Faktur Pembelian** ? `/site/purchasing/faktur`
+- [ ] **Faktur Retur Beli** ? `/site/purchasing/retur`
+- [ ] **Laporan Pembelian** ? `/site/purchasing/report`
+### Penjualan
+- [ ] **Info Penjualan** ? `/site/sales/info`
+- [ ] **Sales Order** ? `/site/sales/order`
+- [ ] **Surat Jalan** ? `/site/sales/delivery`
+- [ ] **Penjualan Cash** ? `/site/sales/cash`
+- [ ] **Penjualan Barcode (POS)** ? `/site/sales/barcode`
+- [ ] **Faktur Penjualan** ? `/site/sales/faktur`
+- [ ] **Faktur Retur Jual** ? `/site/sales/retur`
+- [ ] **Laporan Penjualan** ? `/site/sales/report`
+### Kas/Bank
+- [ ] **Info Kas Bank** ? `/site/finance/info`
+- [ ] **Bukti Kas Masuk** ? `/site/finance/bkm`
+- [ ] **Bukti Kas Keluar** ? `/site/finance/bkk`
+- [ ] **Pencarian BG Masuk** ? `/site/finance/chequein`
+- [ ] **Pencarian BG Keluar** ? `/site/finance/chequeout`
+- [ ] **Laporan Kas/Bank** ? `/site/finance/report`
+### GL
+- [ ] **Info Accounting** ? `/site/gl/info`
+- [ ] **Transaksi Jurnal** ? `/site/gl/jurnal`
+- [ ] **Closing Periode Akuntansi** ? `/site/gl/closing`
+- [ ] **Laporan Accounting** ? `/site/gl/report`
+### Analisa
+- [ ] **Laporan Keuangan** ? `/site/analysis/keuangan`
+- [ ] **Laporan Manajerial** ? `/site/analysis/manajerial`
+
+## Detail Kontrak per Sub-menu
+> Setiap item di bawah adalah TODO implementasi parity; catatan ekuivalen lokal hanya menunjukkan area yang bisa dipakai ulang, bukan bukti selesai.
+
+### [ ] Master / Daftar Nilai
+- **Endpoint:** `/site/master/nilai`
+- **Status lokal:** ada ekuivalen `/inventory/master/daftar-nilai`
+- **Tabel:**
+  - `table` ? STATUS | NAMA MASTER | KETERANGAN | AKSI
+- **Filter/form dan posisi field (urutan DOM):**
+  - `form-0` `POST` `/site/master/nilai`:
+    - 1. `dtNamaMaster` ? type=`text`
+    - 2. `dtNote` ? type=`text`
+    - 3. `dtCreatedBy`
+    - 4. `dtUpdateBy`
+    - 5. `dtCreatedDate` ? type=`text`
+    - 6. `dtUpdateDate` ? type=`text`
+    - 7. `dtPeriode`
+- **Tombol/aksi terdeteksi:** `Toggle navigation`, `Filter`, `Reset`, `Filter Data`, `×`
+- **Endpoint AJAX/behavior terdeteksi:** `/site/home/dashboard/UpdateDB`, `/site/master/user/modal_chpass`, `/site/search/filter/createdby`, `/site/search/filter/periode`, `/site/search/filter/updateby`
+- **TODO parity:**
+  - [ ] Replikasi layout dan posisi form sesuai urutan di atas; validasi dengan screenshot/browser comparison.
+  - [ ] Implementasikan tabel, filter, sorting, pagination, aksi row, modal/detail, validasi, permission, dan state response sesuai kontrak.
+
+### [ ] Master / Barang dan Jasa
+- **Endpoint:** `/site/master/item`
+- **Status lokal:** ada ekuivalen `/master/products`
+- **Tabel:**
+  - `table` ? KODE ITEM | NAMA ITEM | SATUAN | HARGA BELI TERAKHIR | HARGA JUAL TERAKHIR | HARGA BELI | HARGA JUAL | AKTIF | ITEM_ID | AKSI
+- **Filter/form dan posisi field (urutan DOM):**
+  - `form-0` `POST` `/site/master/item`:
+    - 1. `dtBarcodeItem` ? type=`text`
+    - 2. `dtKodeItem` ? type=`text`
+    - 3. `dtNamaItem` ? type=`text`
+    - 4. `dtSatuan` ? type=`text`
+    - 5. `dtKelompok` ? type=`text`
+    - 6. `dtNote` ? type=`text`
+    - 7. `dtJenis` ? type=`text`
+    - 8. `dtTipeItem` ? type=`text`
+    - 9. `dtMerek` ? type=`text`
+    - 10. `dtMadeIn` ? type=`text`
+    - 11. `dtGrade` ? type=`text`
+    - 12. `dtCreatedBy`
+    - 13. `dtUpdateBy`
+    - 14. `dtCreatedDate` ? type=`text`
+    - 15. `dtUpdateDate` ? type=`text`
+    - 16. `dtPeriode`
+- **Tombol/aksi terdeteksi:** `Toggle navigation`, `New`, `Filter`, `Reset`, `Import`, `Filter Data`, `×`
+- **Endpoint AJAX/behavior terdeteksi:** `/site/feature/info_harga_beli_item`, `/site/feature/info_harga_jual_item`, `/site/home/dashboard/UpdateDB`, `/site/master/user/modal_chpass`, `/site/search/filter/createdby`, `/site/search/filter/periode`, `/site/search/filter/updateby`
+- **TODO parity:**
+  - [ ] Replikasi layout dan posisi form sesuai urutan di atas; validasi dengan screenshot/browser comparison.
+  - [ ] Implementasikan tabel, filter, sorting, pagination, aksi row, modal/detail, validasi, permission, dan state response sesuai kontrak.
+
+### [ ] Master / Formula (BOM)
+- **Endpoint:** `/site/master/formula`
+- **Status lokal:** ada API/view inventory BOM; parity halaman belum diverifikasi
+- **Tabel:**
+  - `table` ? NO FORMULA | NAMA ITEM | KODE ITEM | SATUAN | BERLAKU MULAI | BERLAKU SAMPAI | AKTIF | AKSI
+- **Filter/form dan posisi field (urutan DOM):**
+  - `form-0` `POST` `/site/master/formula`:
+    - 1. `file_import_csv` ? type=`file` ? placeholder=File
+  - `form-1` `POST` `/site/master/formula`:
+    - 1. `dtNoFormula` ? type=`text`
+    - 2. `dtNamaItem` ? type=`text`
+    - 3. `dtKodeItem` ? type=`text`
+    - 4. `dtBerlakuMulai` ? type=`text`
+    - 5. `dtBerlakuSampai` ? type=`text`
+    - 6. `dtNoRef` ? type=`text`
+    - 7. `dtNote` ? type=`text`
+    - 8. `dtCreatedBy`
+    - 9. `dtUpdateBy`
+    - 10. `dtCreatedDate` ? type=`text`
+    - 11. `dtUpdateDate` ? type=`text`
+    - 12. `dtPeriode`
+- **Tombol/aksi terdeteksi:** `Toggle navigation`, `New`, `Filter`, `Reset`, `Import`, `×`, `Download Template`, `Save`, `Cancel`, `Filter Data`
+- **Endpoint AJAX/behavior terdeteksi:** `/site/home/dashboard/UpdateDB`, `/site/import/csv/data?note=formula`, `/site/import/csv?note=formula`, `/site/master/formula/debug/`, `/site/master/user/modal_chpass`, `/site/search/filter/createdby`, `/site/search/filter/periode`, `/site/search/filter/updateby`
+- **TODO parity:**
+  - [ ] Replikasi layout dan posisi form sesuai urutan di atas; validasi dengan screenshot/browser comparison.
+  - [ ] Implementasikan tabel, filter, sorting, pagination, aksi row, modal/detail, validasi, permission, dan state response sesuai kontrak.
+
+### [ ] Master / Satuan
+- **Endpoint:** `/site/master/satuan`
+- **Status lokal:** ada ekuivalen `/master/units`
+- **Tabel:**
+  - `table` ? SATUAN | KETERANGAN | AKTIF | DEFAULT | AKSI
+- **Filter/form dan posisi field (urutan DOM):**
+  - `form-0` `GET` `/site/master/satuan`:
+    - 1. `id` ? type=`hidden` ? label=Satuan Tidak bisa input tanda baca selain titik(.), koma(,) dan garis bawah(_) Keterangan Aktif Default
+    - 2. `uom_code_old` ? type=`hidden` ? label=Tidak bisa input tanda baca selain titik(.), koma(,) dan garis bawah(_)
+    - 3. `uom_code` ? type=`text` ? label=Tidak bisa input tanda baca selain titik(.), koma(,) dan garis bawah(_)
+    - 4. `description` ? type=`text`
+    - 5. `active_flag` ? type=`checkbox` ? label=Aktif
+    - 6. `primary_flag` ? type=`checkbox` ? label=Default
+- **Tombol/aksi terdeteksi:** `Toggle navigation`, `×`, `OK`, `Cancel`
+- **Endpoint AJAX/behavior terdeteksi:** `/site/home/dashboard/UpdateDB`, `/site/master/satuan/ajax_add/`, `/site/master/satuan/ajax_delete//`, `/site/master/satuan/ajax_edit/`, `/site/master/satuan/ajax_update/`, `/site/master/user/modal_chpass`
+- **TODO parity:**
+  - [ ] Replikasi layout dan posisi form sesuai urutan di atas; validasi dengan screenshot/browser comparison.
+  - [ ] Implementasikan tabel, filter, sorting, pagination, aksi row, modal/detail, validasi, permission, dan state response sesuai kontrak.
+
+### [ ] Master / Saldo Awal
+- **Endpoint:** `/site/master/saldo`
+- **Status lokal:** ada API opening balance; parity halaman belum diverifikasi
+- **Tabel:**
+  - `table` ? ITEM ID | NAMA ITEM | KODE ITEM | STOK AWAL | SATUAN | HPP AWAL | SUBTOTAL | AKSI
+- **Filter/form dan posisi field (urutan DOM):**
+  - `form-0` `GET` `/site/master/saldo`:
+    - 1. `id` ? type=`hidden` ? label=Nama Item Kode Item Stok Awal Satuan HPP Awal Subtotal
+    - 2. `item_id` ? type=`hidden`
+    - 3. `item_description` ? type=`text`
+    - 4. `item_code` ? type=`text`
+    - 5. `stock_awal` ? type=`number`
+    - 6. `uom_code` ? type=`text`
+    - 7. `hpp`
+    - 8. `subtotal`
+- **Tombol/aksi terdeteksi:** `Toggle navigation`, `×`, `Save`, `Cancel`
+- **Endpoint AJAX/behavior terdeteksi:** `/site/auto/item_uom/`, `/site/home/dashboard/UpdateDB`, `/site/master/Saldo/ajax_edit//`, `/site/master/saldo/ajax_add/`, `/site/master/saldo/ajax_update/`, `/site/master/user/modal_chpass`
+- **TODO parity:**
+  - [ ] Replikasi layout dan posisi form sesuai urutan di atas; validasi dengan screenshot/browser comparison.
+  - [ ] Implementasikan tabel, filter, sorting, pagination, aksi row, modal/detail, validasi, permission, dan state response sesuai kontrak.
+
+### [ ] Master / Konversi Item
+- **Endpoint:** `/site/master/konversi`
+- **Status lokal:** ada ekuivalen `/masters/item-conversions`
+- **Tabel:**
+  - `table` ? SATUAN | NILAI KONVERSI | KETERANGAN | AKTIF | AKSI | LAIN-lAIN | UTAMA
+- **Filter/form dan posisi field (urutan DOM):**
+  - `form-0` `GET` `/site/master/konversi`:
+    - 1. `id` ? type=`hidden` ? label=Satuan lain-lain Satuan Utama Nilai Konversi Aktif
+    - 2. `from_uom` ? type=`text`
+    - 3. `to_uom` ? type=`text`
+    - 4. `to_qty` ? type=`text`
+    - 5. `active_flag` ? type=`checkbox` ? label=Aktif
+- **Tombol/aksi terdeteksi:** `Toggle navigation`, `×`, `OK`, `Cancel`
+- **Endpoint AJAX/behavior terdeteksi:** `/site/auto/dropdown/drop_uom/`, `/site/home/dashboard/UpdateDB`, `/site/master/konversi/ajax_add/`, `/site/master/konversi/ajax_delete//`, `/site/master/konversi/ajax_edit//`, `/site/master/konversi/ajax_update/`, `/site/master/user/modal_chpass`
+- **TODO parity:**
+  - [ ] Replikasi layout dan posisi form sesuai urutan di atas; validasi dengan screenshot/browser comparison.
+  - [ ] Implementasikan tabel, filter, sorting, pagination, aksi row, modal/detail, validasi, permission, dan state response sesuai kontrak.
+
+### [ ] Master / Gudang
+- **Endpoint:** `/site/master/gudang`
+- **Status lokal:** ada ekuivalen `/master/warehouses`
+- **Tabel:**
+  - `table` ? GUDANG | KETERANGAN | DEFAULT | PENJUALAN | AKTIF | ALAMAT | AKSI | KODE LOKASI | DETAIL
+- **Filter/form dan posisi field (urutan DOM):**
+  - `form-0` `GET` `/site/master/gudang`:
+    - 1. `id` ? type=`hidden` ? label=Gudang* Keterangan Default Penjualan Aktif Kode Lokasi Detail
+    - 2. `warehouse_name` ? type=`text`
+    - 3. `description` ? type=`text`
+    - 4. `primary_flag` ? type=`checkbox` ? label=Default
+    - 5. `sales_flag` ? type=`checkbox` ? label=Penjualan
+    - 6. `active_flag` ? type=`checkbox` ? label=Aktif
+    - 7. `address_code` ? type=`text`
+    - 8. `address1` ? type=`text`
+- **Tombol/aksi terdeteksi:** `Toggle navigation`, `×`, `OK`, `Cancel`
+- **Endpoint AJAX/behavior terdeteksi:** `/site/auto/dropdown/drop_address/`, `/site/home/dashboard/UpdateDB`, `/site/master/gudang/ajax_add/`, `/site/master/gudang/ajax_delete//`, `/site/master/gudang/ajax_edit//`, `/site/master/gudang/ajax_update/`, `/site/master/user/modal_chpass`
+- **TODO parity:**
+  - [ ] Replikasi layout dan posisi form sesuai urutan di atas; validasi dengan screenshot/browser comparison.
+  - [ ] Implementasikan tabel, filter, sorting, pagination, aksi row, modal/detail, validasi, permission, dan state response sesuai kontrak.
+
+### [ ] Master / Jangka Waktu Kredit
+- **Endpoint:** `/site/master/termin`
+- **Status lokal:** ada API payment terms; parity halaman belum diverifikasi
+- **Tabel:**
+  - `table` ? NAMA/KODE | KETERANGAN | JANGKA WAKTU(HARI) | DEFAULT | AKTIF | AKSI
+- **Filter/form dan posisi field (urutan DOM):**
+  - `form-0` `GET` `/site/master/termin`:
+    - 1. `id` ? type=`hidden` ? label=Nama/Kode Keterangan Jangka Waktu(Hari) Default Aktif
+    - 2. `payment_term_name` ? type=`text`
+    - 3. `description` ? type=`text`
+    - 4. `number_days` ? type=`number`
+    - 5. `primary_flag` ? type=`checkbox` ? label=Default
+    - 6. `active_flag` ? type=`checkbox` ? label=Aktif
+- **Tombol/aksi terdeteksi:** `Toggle navigation`, `×`, `OK`, `Cancel`
+- **Endpoint AJAX/behavior terdeteksi:** `/site/home/dashboard/UpdateDB`, `/site/master/termin/ajax_add/`, `/site/master/termin/ajax_delete//`, `/site/master/termin/ajax_edit//`, `/site/master/termin/ajax_update/`, `/site/master/user/modal_chpass`
+- **TODO parity:**
+  - [ ] Replikasi layout dan posisi form sesuai urutan di atas; validasi dengan screenshot/browser comparison.
+  - [ ] Implementasikan tabel, filter, sorting, pagination, aksi row, modal/detail, validasi, permission, dan state response sesuai kontrak.
+
+### [ ] Master / Pajak
+- **Endpoint:** `/site/master/pajak`
+- **Status lokal:** ada API `/master/taxes`; parity halaman belum diverifikasi
+- **Tabel:**
+  - `table` ? KODE PAJAK | PERSEN | DEFAULT | AKSI
+- **Filter/form dan posisi field (urutan DOM):**
+  - `form-0` `GET` `/site/master/pajak`:
+    - 1. `id` ? type=`hidden` ? label=Kode Persen Default
+    - 2. `ppn_code_old` ? type=`hidden`
+    - 3. `ppn_code` ? type=`text`
+    - 4. `percentage` ? type=`number`
+    - 5. `primary_flag` ? type=`checkbox` ? label=Default
+- **Tombol/aksi terdeteksi:** `Toggle navigation`, `×`, `OK`, `Cancel`
+- **Endpoint AJAX/behavior terdeteksi:** `/site/home/dashboard/UpdateDB`, `/site/master/pajak/ajax_add/`, `/site/master/pajak/ajax_delete//`, `/site/master/pajak/ajax_edit/`, `/site/master/pajak/ajax_update/`, `/site/master/user/modal_chpass`
+- **TODO parity:**
+  - [ ] Replikasi layout dan posisi form sesuai urutan di atas; validasi dengan screenshot/browser comparison.
+  - [ ] Implementasikan tabel, filter, sorting, pagination, aksi row, modal/detail, validasi, permission, dan state response sesuai kontrak.
+
+### [ ] Master / Customer
+- **Endpoint:** `/site/master/customer`
+- **Status lokal:** ada API customer/patient; parity halaman belum diverifikasi
+- **Tabel:**
+  - `table` ? KODE CUSTOMER | NAMA CUSTOMER | JANGKA WAKTU | BATAS PIUTANG | RAYON | AKSI
+- **Filter/form dan posisi field (urutan DOM):**
+  - `form-0` `POST` `/site/master/customer`:
+    - 1. `file_import_csv` ? type=`file` ? placeholder=File
+  - `form-1` `POST` `/site/master/customer`:
+    - 1. `dtKodeCust` ? type=`text`
+    - 2. `dtNamaCust` ? type=`text`
+    - 3. `dtTermin`
+    - 4. `dtJTempo` ? type=`text`
+    - 5. `dtBatasPiutang` ? type=`text`
+    - 6. `dtNote` ? type=`text`
+    - 7. `dtRayon` ? type=`text`
+    - 8. `dtSales` ? type=`text`
+    - 9. `dtNoNPWP` ? type=`text`
+    - 10. `dtTipeHarga` ? type=`text`
+    - 11. `dtCreatedBy`
+    - 12. `dtUpdateBy`
+    - 13. `dtCreatedDate` ? type=`text`
+    - 14. `dtUpdateDate` ? type=`text`
+    - 15. `dtPeriode`
+- **Tombol/aksi terdeteksi:** `Toggle navigation`, `New`, `Filter`, `Reset`, `Import`, `×`, `Download Template`, `Save`, `Cancel`, `Filter Data`
+- **Endpoint AJAX/behavior terdeteksi:** `/site/auto/dropdown/`, `/site/home/dashboard/UpdateDB`, `/site/import/csv/data?note=customer`, `/site/import/csv?note=customer`, `/site/master/user/modal_chpass`, `/site/search/filter/createdby`, `/site/search/filter/periode`, `/site/search/filter/termin`, `/site/search/filter/updateby`
+- **TODO parity:**
+  - [ ] Replikasi layout dan posisi form sesuai urutan di atas; validasi dengan screenshot/browser comparison.
+  - [ ] Implementasikan tabel, filter, sorting, pagination, aksi row, modal/detail, validasi, permission, dan state response sesuai kontrak.
+
+### [ ] Master / Supplier
+- **Endpoint:** `/site/master/supplier`
+- **Status lokal:** ada API `/master/suppliers`; parity halaman belum diverifikasi
+- **Tabel:**
+  - `table` ? KODE SUPPLIER | NAMA SUPPLIER | JANGKA WAKTU | BATAS HUTANG | AKSI
+- **Filter/form dan posisi field (urutan DOM):**
+  - `form-0` `POST` `/site/master/supplier`:
+    - 1. `file_import_csv` ? type=`file` ? placeholder=File
+  - `form-1` `POST` `/site/master/supplier`:
+    - 1. `dtKodeSupp` ? type=`text`
+    - 2. `dtNamaSupp` ? type=`text`
+    - 3. `dtTermin`
+    - 4. `dtBatasHutang` ? type=`text`
+    - 5. `dtNoNPWP` ? type=`text`
+    - 6. `dtNote` ? type=`text`
+    - 7. `dtCreatedBy`
+    - 8. `dtUpdateBy`
+    - 9. `dtCreatedDate` ? type=`text`
+    - 10. `dtUpdateDate` ? type=`text`
+- **Tombol/aksi terdeteksi:** `Toggle navigation`, `New`, `Filter`, `Reset`, `Import`, `×`, `Download Template`, `Save`, `Cancel`, `Filter Data`
+- **Endpoint AJAX/behavior terdeteksi:** `/site/auto/dropdown/`, `/site/home/dashboard/UpdateDB`, `/site/import/csv/data?note=supplier`, `/site/import/csv?note=supplier`, `/site/master/user/modal_chpass`, `/site/search/filter/createdby`, `/site/search/filter/termin`, `/site/search/filter/updateby`
+- **TODO parity:**
+  - [ ] Replikasi layout dan posisi form sesuai urutan di atas; validasi dengan screenshot/browser comparison.
+  - [ ] Implementasikan tabel, filter, sorting, pagination, aksi row, modal/detail, validasi, permission, dan state response sesuai kontrak.
+
+### [ ] Master / Alamat
+- **Endpoint:** `/site/master/alamat`
+- **Status lokal:** belum ditemukan route/view ekuivalen yang jelas
+- **Tabel:**
+  - `table` ? KODE | ALAMAT | TELP | FAX | BISA KIRIM | AKTIF | AKSI
+- **Filter/form dan posisi field (urutan DOM):**
+  - `form-0` `GET` `/site/master/alamat`:
+    - 1. `id` ? type=`hidden` ? label=Code* Alamat1/Baris1* Alamat2/Baris2 Kota Provinsi Negara Phone Fax Bisa Kirim Aktif
+    - 2. `address_code` ? type=`text`
+    - 3. `address1` ? type=`text`
+    - 4. `address2` ? type=`text`
+    - 5. `city` ? type=`text`
+    - 6. `province` ? type=`text`
+    - 7. `country` ? type=`text`
+    - 8. `phone` ? type=`number`
+    - 9. `fax` ? type=`number`
+    - 10. `ship_flag` ? type=`checkbox` ? label=Bisa Kirim
+    - 11. `active_flag` ? type=`checkbox` ? label=Aktif
+- **Tombol/aksi terdeteksi:** `Toggle navigation`, `×`, `OK`, `Cancel`
+- **Endpoint AJAX/behavior terdeteksi:** `/site/home/dashboard/UpdateDB`, `/site/master/alamat/ajax_add/`, `/site/master/alamat/ajax_delete//`, `/site/master/alamat/ajax_edit//`, `/site/master/alamat/ajax_update/`, `/site/master/user/modal_chpass`
+- **TODO parity:**
+  - [ ] Replikasi layout dan posisi form sesuai urutan di atas; validasi dengan screenshot/browser comparison.
+  - [ ] Implementasikan tabel, filter, sorting, pagination, aksi row, modal/detail, validasi, permission, dan state response sesuai kontrak.
+
+### [ ] Master / Sales
+- **Endpoint:** `/site/master/karyawan`
+- **Status lokal:** ada data employee/sales; parity halaman belum diverifikasi
+- **Tabel:**
+  - `table` ? NAMA | NAMA LENGKAP | KETERANGAN | BAGIAN | MASA KERJA | MULAI | AKHIR
+- **Filter/form dan posisi field (urutan DOM):**
+  - `form-0` `GET` `/site/master/karyawan`:
+    - 1. `id` ? type=`hidden` ? label=Nama* Nama Lengkap Bagian Masa Kerja Start End Keterangan
+    - 2. `first_name` ? type=`text`
+    - 3. `last_name` ? type=`text`
+    - 4. `bagian` ? type=`text`
+    - 5. `start_date` ? type=`text` ? label=Start
+    - 6. `end_date` ? type=`text` ? label=End
+    - 7. `description` ? type=`text`
+- **Tombol/aksi terdeteksi:** `Toggle navigation`, `×`, `OK`, `Cancel`
+- **Endpoint AJAX/behavior terdeteksi:** `/site/auto/dropdown/drop_bagian/`, `/site/home/dashboard/UpdateDB`, `/site/master/karyawan/ajax_add/`, `/site/master/karyawan/ajax_delete//`, `/site/master/karyawan/ajax_edit//`, `/site/master/karyawan/ajax_update/`, `/site/master/user/modal_chpass`
+- **TODO parity:**
+  - [ ] Replikasi layout dan posisi form sesuai urutan di atas; validasi dengan screenshot/browser comparison.
+  - [ ] Implementasikan tabel, filter, sorting, pagination, aksi row, modal/detail, validasi, permission, dan state response sesuai kontrak.
+
+### [ ] Master / Daftar Harga
+- **Endpoint:** `/site/master/harga`
+- **Status lokal:** ada API price/price-level; parity halaman belum diverifikasi
+- **Tab:** `Item`, `Harga`, `Diskon`
+- **Tabel:**
+  - `table` ? KODE ITEM | NAMA ITEM | SATUAN | BELI | HARGA 1 | DISKON | KELOMPOK | AKSI | Rp | %
+- **Filter/form dan posisi field (urutan DOM):**
+  - `form-0` `POST` `/site/master/harga`:
+    - 1. `file_import_csv` ? type=`file` ? placeholder=File
+  - `form-1` `GET` `/site/master/harga`:
+    - 1. `(tanpa name/id)` ? type=`button` ? label=× ajax Form
+    - 2. `id` ? type=`hidden` ? label=Kode Item Nama Item Satuan
+    - 3. `item_code` ? type=`text`
+    - 4. `item_id` ? type=`hidden`
+    - 5. `display_name` ? type=`text`
+    - 6. `uom` ? type=`text`
+    - 7. `entered_qty` ? type=`hidden`
+    - 8. `base_qty` ? type=`hidden`
+    - 9. `beli`
+    - 10. `1` ? label=1
+    - 11. `2` ? label=2
+    - 12. `3` ? label=3
+    - 13. `4` ? label=4
+    - 14. `5` ? label=5
+    - 15. `6` ? label=6
+    - 16. `7` ? label=7
+    - 17. `8` ? label=8
+    - 18. `9` ? label=9
+    - 19. `10` ? label=10
+    - 20. `discount_price`
+    - 21. `discount_percen` ? type=`text`
+    - 22. `btnSave` ? type=`button` ? label=OK
+- **Tombol/aksi terdeteksi:** `Toggle navigation`, `Import`, `×`, `Download Template`, `Save`, `Cancel`, `Add Record`, `OK`
+- **Endpoint AJAX/behavior terdeteksi:** `/site/auto/item_uom/`, `/site/home/dashboard/UpdateDB`, `/site/import/csv/data?note=daftar_harga`, `/site/import/csv?note=daftar_harga`, `/site/master/harga/ajax_add/`, `/site/master/harga/ajax_delete//`, `/site/master/harga/ajax_edit//`, `/site/master/harga/ajax_update/`, `/site/master/user/modal_chpass`
+- **TODO parity:**
+  - [ ] Replikasi layout dan posisi form sesuai urutan di atas; validasi dengan screenshot/browser comparison.
+  - [ ] Implementasikan tabel, filter, sorting, pagination, aksi row, modal/detail, validasi, permission, dan state response sesuai kontrak.
+
+### [ ] Master / Asset
+- **Endpoint:** `/site/master/asset`
+- **Status lokal:** ada controller/service asset; parity halaman belum diverifikasi
+- **Tab:** `Asset`, `Account`
+- **Tabel:**
+  - `table` ? NAMA ASSET | KODE ASSET | JML | NILAI | UMUR | METODE DEPRESIASI | AKTIF | AKSI
+- **Filter/form dan posisi field (urutan DOM):**
+  - `form-0` `GET` `/site/master/asset`:
+    - 1. `(tanpa name/id)` ? type=`button` ? label=× ajax Form
+    - 2. `id` ? type=`hidden` ? label=Kode Asset Nama Asset Jumlah Nilai Asset Nilai Penyusutan Umur Asset Rate Depresiasi Masa Tanggal Start End Keterangan A
+    - 3. `asset_code` ? type=`text`
+    - 4. `asset_name` ? type=`text`
+    - 5. `entered_qty` ? type=`number`
+    - 6. `nilai_asset`
+    - 7. `susut_year`
+    - 8. `umur_asset` ? type=`number`
+    - 9. `rate` ? type=`number`
+    - 10. `buying_date` ? type=`text` ? label=Start ? placeholder=dd-mm-yyyy
+    - 11. `using_date` ? type=`text` ? label=End ? placeholder=dd-mm-yyyy
+    - 12. `note` ? type=`text`
+    - 13. `active_flag` ? type=`checkbox` ? label=Aktif
+    - 14. `coa_asset` ? type=`text`
+    - 15. `coa_asset_id` ? type=`hidden`
+    - 16. `coa_debet` ? type=`text`
+    - 17. `coa_debet_id` ? type=`hidden`
+    - 18. `coa_kredit` ? type=`text`
+    - 19. `coa_kredit_id` ? type=`hidden`
+    - 20. `asset_type` ? type=`text`
+    - 21. `metode_depresiasi` ? type=`text`
+    - 22. `intantangible_asset` ? type=`checkbox` ? label=Intangible Asset
+    - 23. `btnSave` ? type=`button` ? label=Save
+- **Tombol/aksi terdeteksi:** `Toggle navigation`, `×`, `Save`
+- **Endpoint AJAX/behavior terdeteksi:** `/site/auto/dropdown/drop_depresiasi/`, `/site/auto/dropdown/drop_tipe_asset/`, `/site/home/dashboard/UpdateDB`, `/site/master/asset/ajax_add/`, `/site/master/asset/ajax_delete//`, `/site/master/asset/ajax_edit//`, `/site/master/asset/ajax_update/`, `/site/master/user/modal_chpass`
+- **TODO parity:**
+  - [ ] Replikasi layout dan posisi form sesuai urutan di atas; validasi dengan screenshot/browser comparison.
+  - [ ] Implementasikan tabel, filter, sorting, pagination, aksi row, modal/detail, validasi, permission, dan state response sesuai kontrak.
+
+### [ ] Master / Account
+- **Endpoint:** `/site/master/account`
+- **Status lokal:** ada modul accounting account; parity halaman belum diverifikasi
+- **Tabel:**
+  - `table` ? KODE ACC | NAMA ACCOUNT | TIPE ACCOUNT | AKTIF | AKSI
+- **Filter/form dan posisi field (urutan DOM):**
+  - `form-0` `GET` `/site/master/account`:
+    - 1. `(tanpa name/id)` ? type=`button` ? label=× ajax Form
+    - 2. `id` ? type=`hidden` ? label=Kode Account Nama Account Tipe Account Head Account Aktif OK
+    - 3. `parent_id` ? type=`hidden` ? label=Kode Account Nama Account Tipe Account Head Account Aktif OK
+    - 4. `account_code_old` ? type=`hidden`
+    - 5. `account_code` ? type=`text`
+    - 6. `account_name` ? type=`text`
+    - 7. `account_type` ? type=`text`
+    - 8. `parent_acc_name` ? type=`text`
+    - 9. `active_flag` ? type=`checkbox` ? label=Aktif
+    - 10. `btnSave` ? type=`button` ? label=OK
+- **Tombol/aksi terdeteksi:** `Toggle navigation`, `×`, `Add Record`, `Create Coa`, `OK`
+- **Endpoint AJAX/behavior terdeteksi:** `/site/auto/dropdown/drop_tipe_account/`, `/site/home/dashboard/UpdateDB`, `/site/master/account/ajax_add/`, `/site/master/account/ajax_delete//`, `/site/master/account/ajax_edit//`, `/site/master/account/ajax_input`, `/site/master/account/ajax_option`, `/site/master/account/ajax_tree`, `/site/master/account/ajax_update/`, `/site/master/account/create_coa`, `/site/master/user/modal_chpass`
+- **TODO parity:**
+  - [ ] Replikasi layout dan posisi form sesuai urutan di atas; validasi dengan screenshot/browser comparison.
+  - [ ] Implementasikan tabel, filter, sorting, pagination, aksi row, modal/detail, validasi, permission, dan state response sesuai kontrak.
+
+### [ ] Master / Saldo Awal COA
+- **Endpoint:** `/site/master/saldocoa`
+- **Status lokal:** ada API opening balance accounting; parity halaman belum diverifikasi
+- **Tabel:**
+  - `table` ? ACCOUNT | SALDO AWAL | PERIODE | AKSI | KODE | NAMA
+- **Filter/form dan posisi field (urutan DOM):**
+  - `form-0` `GET` `/site/master/saldocoa`:
+    - 1. `id` ? type=`hidden` ? label=Coa Saldo Awal
+    - 2. `coa_code` ? type=`text`
+    - 3. `coa_name` ? type=`text`
+    - 4. `coa_saldo`
+- **Tombol/aksi terdeteksi:** `Toggle navigation`, `×`, `OK`, `Cancel`
+- **Endpoint AJAX/behavior terdeteksi:** `/site/home/dashboard/UpdateDB`, `/site/master/saldocoa/ajax_add/`, `/site/master/saldocoa/ajax_delete//`, `/site/master/saldocoa/ajax_edit//`, `/site/master/saldocoa/ajax_update/`, `/site/master/user/modal_chpass`
+- **TODO parity:**
+  - [ ] Replikasi layout dan posisi form sesuai urutan di atas; validasi dengan screenshot/browser comparison.
+  - [ ] Implementasikan tabel, filter, sorting, pagination, aksi row, modal/detail, validasi, permission, dan state response sesuai kontrak.
+
+### [ ] Master / Setting COA
+- **Endpoint:** `/site/master/coa`
+- **Status lokal:** ada API accounting/COA; parity halaman belum diverifikasi
+- **Tabel:**
+  - `table` ? KETERANGAN | ACCOUNT | AKSI
+- **Filter/form dan posisi field (urutan DOM):**
+  - `form-0` `GET` `/site/master/coa`:
+    - 1. `id` ? type=`hidden` ? label=KETERANGAN Account
+    - 2. `note` ? type=`text`
+    - 3. `account` ? type=`text`
+    - 4. `account_id` ? type=`hidden`
+    - 5. `coa_id` ? type=`hidden`
+- **Tombol/aksi terdeteksi:** `Toggle navigation`, `×`, `OK`, `Cancel`
+- **Endpoint AJAX/behavior terdeteksi:** `/site/home/dashboard/UpdateDB`, `/site/master/coa/ajax_add/`, `/site/master/coa/ajax_edit//`, `/site/master/coa/ajax_update/`, `/site/master/user/modal_chpass`
+- **TODO parity:**
+  - [ ] Replikasi layout dan posisi form sesuai urutan di atas; validasi dengan screenshot/browser comparison.
+  - [ ] Implementasikan tabel, filter, sorting, pagination, aksi row, modal/detail, validasi, permission, dan state response sesuai kontrak.
+
+### [ ] Master / User Group
+- **Endpoint:** `/site/master/user`
+- **Status lokal:** ada `/settings/roles`; parity halaman belum diverifikasi
+- **Tab:** `Detail`, `Menu`
+- **Tabel:**
+  - `table` ? NAMA USER | EMAIL | PASSWORD | AKUN UTAMA | REPORT | KETERANGAN | AKSI | ADMIN | TEMPLATE | EXCEL
+- **Filter/form dan posisi field (urutan DOM):**
+  - `form-0` `GET` `/site/master/user`:
+    - 1. `(tanpa name/id)` ? type=`button` ? label=× Tambah Group
+    - 2. `id` ? type=`hidden` ? label=Nama Group Keterangan Aktif
+    - 3. `parent_id` ? type=`hidden` ? label=Nama Group Keterangan Aktif
+    - 4. `h_nama_group` ? type=`text`
+    - 5. `h_keterangan` ? type=`text`
+    - 6. `h_active_flag` ? type=`checkbox` ? label=Aktif
+  - `form-1` `GET` `/site/master/user`:
+    - 1. `(tanpa name/id)` ? type=`button` ? label=× do User
+    - 2. `id` ? type=`hidden` ? label=User "; Nama User Email Password FullName Jabatan Mulai Tanggal Sampai Tanggal Keterangan Admin Template Excel
+    - 3. `parent_id` ? type=`hidden` ? label=User "; Nama User Email Password FullName Jabatan Mulai Tanggal Sampai Tanggal Keterangan Admin Template Excel
+    - 4. `h_group_id` ? type=`hidden` ? label=User "; Nama User Email Password FullName Jabatan Mulai Tanggal Sampai Tanggal Keterangan Admin Template Excel
+    - 5. `group` ? label="; ? ops=
+    - 6. `h_user` ? type=`text`
+    - 7. `h_email` ? type=`text`
+    - 8. `h_password` ? type=`password`
+    - 9. `h_fullname` ? type=`text`
+    - 10. `h_jabatan` ? type=`text`
+    - 11. `h_mulaitgl` ? type=`text`
+    - 12. `h_sampaitgl` ? type=`text`
+    - 13. `h_ket` ? type=`text`
+    - 14. `h_admin_flag` ? type=`checkbox` ? label=Admin
+    - 15. `h_template_flag` ? type=`checkbox` ? label=Template
+    - 16. `h_excel_flag` ? type=`checkbox` ? label=Excel
+  - `form-2` `GET` `/site/master/user`:
+    - 1. `hd_id` ? type=`hidden` ? label=Nama Keterangan Aktif Simpan Hapus
+    - 2. `hd_nama_group` ? type=`text`
+    - 3. `hd_keterangan` ? type=`text`
+    - 4. `hd_active_flag` ? type=`checkbox` ? label=Aktif
+    - 5. `btnSaveGroup` ? type=`button` ? label=Simpan Hapus
+    - 6. `btnDeleteGroup` ? type=`button` ? label=Simpan Hapus
+- **Tombol/aksi terdeteksi:** `Toggle navigation`, `Tambah Group`, `Buat User`, `×`, `OK`, `Cancel`, `Simpan`, `Hapus`
+- **Endpoint AJAX/behavior terdeteksi:** `/site/home/dashboard/UpdateDB`, `/site/master/user/ajax_add/`, `/site/master/user/ajax_delete//`, `/site/master/user/ajax_edit//`, `/site/master/user/ajax_menu`, `/site/master/user/ajax_tree`, `/site/master/user/ajax_update/`, `/site/master/user/group_add/`, `/site/master/user/group_delete//`, `/site/master/user/group_update/`, `/site/master/user/modal_chpass`, `/site/master/user/record_input`
+- **TODO parity:**
+  - [ ] Replikasi layout dan posisi form sesuai urutan di atas; validasi dengan screenshot/browser comparison.
+  - [ ] Implementasikan tabel, filter, sorting, pagination, aksi row, modal/detail, validasi, permission, dan state response sesuai kontrak.
+
+### [ ] Master / Setting Menu
+- **Endpoint:** `/site/master/menu`
+- **Status lokal:** ada sidebar/menu permission; parity halaman belum diverifikasi
+- **Tab:** `Setting`, `Template`, `SQL`, `Header`, `Detail`, `Other Head`, `Other Detail`
+- **Tabel:**
+  - `table` ? DISPLAY | KODE NOMOR TRANSAKSI | EDIT TANGGAL | AUTO INSERT | BARCODE | CETAKAN | AKSI | 0 | 1 | 2 | 3
+- **Filter/form dan posisi field (urutan DOM):**
+  - `form-0` `GET` `/site/master/menu`:
+    - 1. `(tanpa name/id)` ? type=`button` ? label=× ajax Form
+    - 2. `id` ? type=`hidden` ? label=Menu Display Urutan Urutan Parent Kode Transaksi Sorting By Tanggal No Transaksi Nama Item Kode Item Satuan Nama Custome
+    - 3. `erp_menu_name` ? type=`text`
+    - 4. `prompt` ? type=`text`
+    - 5. `seq` ? type=`text`
+    - 6. `web_parent_id` ? type=`text`
+    - 7. `web_parent_id_old` ? type=`hidden`
+    - 8. `kata` ? type=`text`
+    - 9. `orderby` ? label=Tanggal No Transaksi Nama Item Kode Item Satuan Nama Customer/Supplier Kode Customer/Supplier Gudang Karyawan Nama Group ? ops=, Tanggal, No Transaksi, Nama Item, Kode Item, Satuan, Nama Customer/Supplier, Kode Customer/Supplier, Gudang, Karyawan, Nama Group User, Asset, Kode Asset
+    - 10. `note` ? type=`text`
+    - 11. `tgl_edit` ? type=`checkbox` ? label=Tanggal Bisa Edit
+    - 12. `custom2` ? type=`checkbox` ? label=Auto Insert
+    - 13. `barcode_flag` ? type=`checkbox` ? label=Barcode
+    - 14. `custom3` ? type=`checkbox` ? label=Ganti Nama Item
+    - 15. `nama_template` ? type=`text`
+    - 16. `template_file` ? type=`text`
+    - 17. `nama_template2` ? type=`text`
+    - 18. `template_file2` ? type=`text`
+    - 19. `nama_template3` ? type=`text`
+    - 20. `template_file3` ? type=`text`
+    - 21. `sql_header` ? type=`text`
+    - 22. `sql_detail` ? type=`text`
+    - 23. `sql_other_h` ? type=`text`
+    - 24. `sql_other_d` ? type=`text`
+    - 25. `btnSave` ? type=`button` ? label=Save
+  - `form-1` `GET` `/site/master/menu`:
+    - 1. `erp_no_id` ? type=`hidden` ? label=Periode No
+    - 2. `periode_name` ? type=`text`
+    - 3. `no_trans_id` ? type=`number`
+- **Tombol/aksi terdeteksi:** `Toggle navigation`, `×`, `Save`, `OK`, `Cancel`
+- **Endpoint AJAX/behavior terdeteksi:** `/site/home/dashboard/UpdateDB`, `/site/master/menu/ajax_add/`, `/site/master/menu/ajax_edit//`, `/site/master/menu/ajax_edit_no//`, `/site/master/menu/ajax_update/`, `/site/master/menu/ajax_update_no/`, `/site/master/menu/record`, `/site/master/user/modal_chpass`
+- **TODO parity:**
+  - [ ] Replikasi layout dan posisi form sesuai urutan di atas; validasi dengan screenshot/browser comparison.
+  - [ ] Implementasikan tabel, filter, sorting, pagination, aksi row, modal/detail, validasi, permission, dan state response sesuai kontrak.
+
+### [ ] Master / Cetakan
+- **Endpoint:** `/site/master/cetakan`
+- **Status lokal:** belum ditemukan route/view ekuivalen yang jelas
+- **Tab:** `Info Head`, `Info Detail`, `Info Ext`, `Query`, `Head`, `Detail`
+- **Tabel:**
+  - `(tanpa id)` ? No | Menu | Name | Modul | Cetakan A4 | Layout | Content
+- **Filter/form dan posisi field (urutan DOM):**
+  - `form-0` `GET` `/site/master/cetakan`:
+    - 1. `pv_head` ? placeholder=Query Head
+    - 2. `pv_detail` ? placeholder=Query Detail
+    - 3. `pv_ext` ? placeholder=Query Ext
+    - 4. `sql_ext` ? placeholder=Query
+  - `form-1` `GET` `/site/master/cetakan`:
+    - 1. `sql_header` ? placeholder=Query Head
+    - 2. `sql_detail` ? placeholder=Query Detail
+    - 3. `id` ? type=`hidden` ? label=Head Detail
+- **Tombol/aksi terdeteksi:** `Toggle navigation`, `Ext`, `Edit Layout`, `Edit Content`, `×`, `Save`, `Cancel`, `Test Query`
+- **Endpoint AJAX/behavior terdeteksi:** `development.html`, `/site/home/dashboard/UpdateDB`, `/site/master/cetakan/add_record_ext`, `/site/master/cetakan/get_query//`, `/site/master/cetakan/get_query_ext//`, `/site/master/cetakan/update_record`, `/site/master/cetakan/update_record_ext`, `/site/master/user/modal_chpass`, `/site/testing/query_cetakan`
+- **TODO parity:**
+  - [ ] Replikasi layout dan posisi form sesuai urutan di atas; validasi dengan screenshot/browser comparison.
+  - [ ] Implementasikan tabel, filter, sorting, pagination, aksi row, modal/detail, validasi, permission, dan state response sesuai kontrak.
+
+### [ ] Master / List Laporan
+- **Endpoint:** `/site/master/report`
+- **Status lokal:** belum ditemukan route/view ekuivalen yang jelas
+- **Tabel:**
+  - `table` ? URUTAN | NAMA | DISPLAY | KETERANGAN | MODUL | AKTIF | DESKRIPSI | AKSI
+- **Filter/form dan posisi field (urutan DOM):**
+  - `form-0` `GET` `/site/master/report`:
+    - 1. `id` ? type=`hidden` ? label=Urutan Nama Display Keterangan Modul Inventory Purchasing Sales Finance GL Management Analisa Deskripsi Aktif
+    - 2. `r_seq` ? type=`text`
+    - 3. `r_name` ? type=`text`
+    - 4. `r_display` ? type=`text`
+    - 5. `note` ? type=`text`
+    - 6. `r_group` ? label=Inventory Purchasing Sales Finance GL Management Analisa ? ops=Inventory, Purchasing, Sales, Finance, GL, Management, Analisa
+    - 7. `deskripsi` ? type=`text`
+    - 8. `active_flag` ? type=`checkbox` ? label=Aktif
+- **Tombol/aksi terdeteksi:** `Toggle navigation`, `×`, `Save`, `Cancel`
+- **Endpoint AJAX/behavior terdeteksi:** `/site/home/dashboard/UpdateDB`, `/site/master/report/ajax_edit//`, `/site/master/report/ajax_list`, `/site/master/report/ajax_update/`, `/site/master/user/modal_chpass`
+- **TODO parity:**
+  - [ ] Replikasi layout dan posisi form sesuai urutan di atas; validasi dengan screenshot/browser comparison.
+  - [ ] Implementasikan tabel, filter, sorting, pagination, aksi row, modal/detail, validasi, permission, dan state response sesuai kontrak.
+
+### [ ] Master / Cetak Barcode
+- **Endpoint:** `/site/master/cetak_barcode`
+- **Status lokal:** ada API barcode; parity halaman belum diverifikasi
+- **Tabel:**
+  - `table` ? ITEM_ID | BARCODE | KODE ITEM | NAMA ITEM | SATUAN | JUMLAH
+- **Filter/form dan posisi field (urutan DOM):**
+  - `form-0` `POST` `/site/master/cetak_barcode/excel`:
+    - 1. `(tanpa name/id)` ? type=`submit` ? label=Export Excel
+  - `form-1` `GET` `/site/master/cetak_barcode`:
+    - 1. `id` ? type=`hidden` ? label=Kode Item Barcode Nama Item Satuan Jumlah Harga
+    - 2. `item_code` ? type=`text`
+    - 3. `item_id` ? type=`hidden`
+    - 4. `barcode` ? type=`text`
+    - 5. `display_name` ? type=`text`
+    - 6. `uom` ? type=`text`
+    - 7. `base_qty` ? type=`hidden`
+    - 8. `entered_qty` ? type=`number`
+    - 9. `harga` ? type=`text`
+- **Tombol/aksi terdeteksi:** `Toggle navigation`, `Tambah Cetak Barcode`, `Export Excel`, `×`, `OK`, `Cancel`
+- **Endpoint AJAX/behavior terdeteksi:** `/site/auto/item_konversi/`, `/site/auto/item_uom/`, `/site/home/dashboard/UpdateDB`, `/site/master/cetak_barcode/ajax_add/`, `/site/master/cetak_barcode/ajax_delete//`, `/site/master/cetak_barcode/ajax_edit//`, `/site/master/cetak_barcode/ajax_update/`, `/site/master/user/modal_chpass`
+- **TODO parity:**
+  - [ ] Replikasi layout dan posisi form sesuai urutan di atas; validasi dengan screenshot/browser comparison.
+  - [ ] Implementasikan tabel, filter, sorting, pagination, aksi row, modal/detail, validasi, permission, dan state response sesuai kontrak.
+
+### [ ] Master / Info Whatsapp
+- **Endpoint:** `/site/master/whatsapp`
+- **Status lokal:** belum ditemukan route/view ekuivalen yang jelas
+- **Tabel:**
+  - `tableOK` ? TANGGAL | NAMA | PESAN | STATUS | TIPE
+  - `tableNO` ? TANGGAL | NAMA | PESAN | STATUS | TIPE
+- **Filter/form dan posisi field (urutan DOM):**
+  - `form-0` `POST` `/site/master/whatsapp/search`:
+    - 1. `tanggal` ? type=`date` ? label=Tanggal
+    - 2. `nama` ? type=`text` ? label=Nama
+    - 3. `status` ? label=Status ALL TERKIRIM PROSES GAGAL ? ops=ALL, TERKIRIM, PROSES, GAGAL
+    - 4. `tipe` ? label=Tipe ALL PENGIRIMAN TAGIHAN BELUM JTEMPO TAGIHAN SUDAH JTEMPO THANKS ? ops=ALL, PENGIRIMAN, TAGIHAN BELUM JTEMPO, TAGIHAN SUDAH JTEMPO, THANKS
+    - 5. `pesan` ? type=`text` ? label=Pesan
+    - 6. `(tanpa name/id)` ? type=`submit` ? label=Clear Filter Cari Pesan
+- **Tombol/aksi terdeteksi:** `Toggle navigation`, `Clear Filter`, `Cari Pesan`, `×`
+- **Endpoint AJAX/behavior terdeteksi:** `/site/home/dashboard/UpdateDB`, `/site/master/user/modal_chpass`
+- **TODO parity:**
+  - [ ] Replikasi layout dan posisi form sesuai urutan di atas; validasi dengan screenshot/browser comparison.
+  - [ ] Implementasikan tabel, filter, sorting, pagination, aksi row, modal/detail, validasi, permission, dan state response sesuai kontrak.
+
+### [ ] Inventory / Info Barang Stok
+- **Endpoint:** `/site/inventory/info`
+- **Status lokal:** ada `/inventory/stock-balances`
+- **Tab:** `Stok`, `Summary Stok`, `Kartu Stok`
+- **Tabel:**
+  - `table` ? Kode Item | Nama Item | Stok | Satuan | HPP | Nilai | Analisa Jual | Stok | Order | Sisa | Jumlah | Selisih
+  - `fTable2` ? (header tidak terbaca; verifikasi visual)
+- **Filter/form dan posisi field (urutan DOM):**
+  - (tanpa form pada initial DOM; filter bisa berupa widget/JS dan wajib diuji browser)
+- **Tombol/aksi terdeteksi:** `Toggle navigation`, `×`
+- **Endpoint AJAX/behavior terdeteksi:** `/site/auto/dropdown/`, `/site/home/dashboard/UpdateDB`, `/site/inventory/info/record/stok?warehouse_flag=`, `/site/master/user/modal_chpass`
+- **TODO parity:**
+  - [ ] Replikasi layout dan posisi form sesuai urutan di atas; validasi dengan screenshot/browser comparison.
+  - [ ] Implementasikan tabel, filter, sorting, pagination, aksi row, modal/detail, validasi, permission, dan state response sesuai kontrak.
+
+### [ ] Inventory / Pindah Antar Gudang
+- **Endpoint:** `/site/inventory/pag`
+- **Status lokal:** ada `/inventory/stock-transfers`
+- **Tabel:**
+  - `table` ? STATUS | NO PAG | TANGGAL | GUDANG ASAL | GUDANG TUJUAN | AKSI
+- **Filter/form dan posisi field (urutan DOM):**
+  - `form-0` `POST` `/site/inventory/pag`:
+    - 1. `file_import_csv` ? type=`file` ? placeholder=File
+  - `form-1` `POST` `/site/inventory/pag`:
+    - 1. `dtNoPag` ? type=`text`
+    - 2. `dtTglMulai` ? type=`text`
+    - 3. `dtTglSampai` ? type=`text`
+    - 4. `dtAsal`
+    - 5. `dtTujuan`
+    - 6. `dtNoRef` ? type=`text`
+    - 7. `dtNote` ? type=`text`
+    - 8. `dtCreatedBy`
+    - 9. `dtUpdateBy`
+    - 10. `dtCreatedDate` ? type=`text`
+    - 11. `dtUpdateDate` ? type=`text`
+    - 12. `dtPeriode`
+- **Tombol/aksi terdeteksi:** `Toggle navigation`, `New`, `Filter`, `Reset`, `Import`, `×`, `Download Template`, `Save`, `Cancel`, `Filter Data`
+- **Endpoint AJAX/behavior terdeteksi:** `/site/auto/dropdown/`, `/site/home/dashboard/UpdateDB`, `/site/import/csv/data?note=pag`, `/site/import/csv?note=pag`, `/site/master/user/modal_chpass`, `/site/search/filter/createdby`, `/site/search/filter/periode`, `/site/search/filter/updateby`
+- **TODO parity:**
+  - [ ] Replikasi layout dan posisi form sesuai urutan di atas; validasi dengan screenshot/browser comparison.
+  - [ ] Implementasikan tabel, filter, sorting, pagination, aksi row, modal/detail, validasi, permission, dan state response sesuai kontrak.
+
+### [ ] Inventory / Stok Adjusment
+- **Endpoint:** `/site/inventory/stok`
+- **Status lokal:** ada `/inventory/stock-adjustments`
+- **Tabel:**
+  - `table` ? STATUS | NO ADJUST | NO REFF | TANGGAL | GUDANG | ACCOUNT | TOTAL | AKSI
+- **Filter/form dan posisi field (urutan DOM):**
+  - `form-0` `POST` `/site/inventory/stok`:
+    - 1. `file_import_csv` ? type=`file` ? placeholder=File
+  - `form-1` `POST` `/site/inventory/stok`:
+    - 1. `dtNoAdjust` ? type=`text`
+    - 2. `dtTglMulai` ? type=`text`
+    - 3. `dtTglSampai` ? type=`text`
+    - 4. `dtGudang`
+    - 5. `dtNoRef` ? type=`text`
+    - 6. `dtNote` ? type=`text`
+    - 7. `dtCreatedBy`
+    - 8. `dtUpdateBy`
+    - 9. `dtCreatedDate` ? type=`text`
+    - 10. `dtUpdateDate` ? type=`text`
+    - 11. `dtPeriode`
+- **Tombol/aksi terdeteksi:** `Toggle navigation`, `New`, `Filter`, `Reset`, `Import`, `×`, `Download Template`, `Save`, `Cancel`, `Filter Data`
+- **Endpoint AJAX/behavior terdeteksi:** `/site/auto/dropdown/`, `/site/home/dashboard/UpdateDB`, `/site/import/csv/data?note=adjust`, `/site/import/csv?note=adjust`, `/site/master/user/modal_chpass`, `/site/search/filter/createdby`, `/site/search/filter/gudang`, `/site/search/filter/periode`, `/site/search/filter/updateby`
+- **TODO parity:**
+  - [ ] Replikasi layout dan posisi form sesuai urutan di atas; validasi dengan screenshot/browser comparison.
+  - [ ] Implementasikan tabel, filter, sorting, pagination, aksi row, modal/detail, validasi, permission, dan state response sesuai kontrak.
+
+### [ ] Inventory / Stok Opname
+- **Endpoint:** `/site/inventory/opname`
+- **Status lokal:** ada API stock opname; parity halaman belum diverifikasi
+- **Tabel:**
+  - `table` ? STATUS | NOMOR OPNAME | NO REFF | TANGGAL | GUDANG | ACCOUNT | TOTAL | AKSI
+- **Filter/form dan posisi field (urutan DOM):**
+  - `form-0` `POST` `/site/inventory/opname`:
+    - 1. `dtNomor` ? type=`text`
+    - 2. `dtTglMulai` ? type=`text`
+    - 3. `dtTglSampai` ? type=`text`
+    - 4. `dtGudang`
+    - 5. `dtNoRef` ? type=`text`
+    - 6. `dtNote` ? type=`text`
+    - 7. `dtCreatedBy`
+    - 8. `dtUpdateBy`
+    - 9. `dtCreatedDate` ? type=`text`
+    - 10. `dtUpdateDate` ? type=`text`
+    - 11. `dtPeriode`
+- **Tombol/aksi terdeteksi:** `Toggle navigation`, `New`, `Filter`, `Reset`, `Filter Data`, `×`
+- **Endpoint AJAX/behavior terdeteksi:** `/site/auto/dropdown/`, `/site/home/dashboard/UpdateDB`, `/site/master/user/modal_chpass`, `/site/search/filter/createdby`, `/site/search/filter/gudang`, `/site/search/filter/periode`, `/site/search/filter/updateby`
+- **TODO parity:**
+  - [ ] Replikasi layout dan posisi form sesuai urutan di atas; validasi dengan screenshot/browser comparison.
+  - [ ] Implementasikan tabel, filter, sorting, pagination, aksi row, modal/detail, validasi, permission, dan state response sesuai kontrak.
+
+### [ ] Inventory / Adjusment Nilai
+- **Endpoint:** `/site/inventory/nilai`
+- **Status lokal:** ada API stock value adjustment; parity halaman belum diverifikasi
+- **Tabel:**
+  - `table` ? STATUS | NO ADJUST | TANGGAL | ACCOUNT | TOTAL | AKSI
+- **Filter/form dan posisi field (urutan DOM):**
+  - `form-0` `POST` `/site/inventory/nilai`:
+    - 1. `dtNoAdjust` ? type=`text`
+    - 2. `dtTglMulai` ? type=`text`
+    - 3. `dtTglSampai` ? type=`text`
+    - 4. `dtNoRef` ? type=`text`
+    - 5. `dtNote` ? type=`text`
+    - 6. `dtCreatedBy`
+    - 7. `dtUpdateBy`
+    - 8. `dtCreatedDate` ? type=`text`
+    - 9. `dtUpdateDate` ? type=`text`
+    - 10. `dtPeriode`
+- **Tombol/aksi terdeteksi:** `Toggle navigation`, `New`, `Filter`, `Reset`, `Filter Data`, `×`
+- **Endpoint AJAX/behavior terdeteksi:** `/site/home/dashboard/UpdateDB`, `/site/master/user/modal_chpass`, `/site/search/filter/createdby`, `/site/search/filter/periode`, `/site/search/filter/updateby`
+- **TODO parity:**
+  - [ ] Replikasi layout dan posisi form sesuai urutan di atas; validasi dengan screenshot/browser comparison.
+  - [ ] Implementasikan tabel, filter, sorting, pagination, aksi row, modal/detail, validasi, permission, dan state response sesuai kontrak.
+
+### [ ] Inventory / Perakitan
+- **Endpoint:** `/site/inventory/perakitan`
+- **Status lokal:** ada `/inventory/assemblies`
+- **Tabel:**
+  - `table_auto` ? BOM ID | ITEM ID | BASE QTY | TANGGAL | KODE | MENU | JML | SATUAN
+  - `table` ? STATUS | NO TRANSAKSI | TANGGAL | ITEM | GUDANG | JUMLAH BUAT | HPP | AKSI
+- **Filter/form dan posisi field (urutan DOM):**
+  - `form-0` `GET` `/site/inventory/perakitan`:
+    - 1. `start_date`
+    - 2. `end_date`
+  - `form-1` `POST` `/site/inventory/perakitan`:
+    - 1. `file_import_csv` ? type=`file` ? placeholder=File
+  - `form-2` `POST` `/site/inventory/perakitan`:
+    - 1. `dtNoTrans` ? type=`text`
+    - 2. `dtTglMulai` ? type=`text`
+    - 3. `dtTglSampai` ? type=`text`
+    - 4. `dtGudang`
+    - 5. `dtNamaItem` ? type=`text`
+    - 6. `dtKodeItem` ? type=`text`
+    - 7. `dtJumlah` ? type=`text`
+    - 8. `dtNoRef` ? type=`text`
+    - 9. `dtNote` ? type=`text`
+    - 10. `dtCreatedBy`
+    - 11. `dtUpdateBy`
+    - 12. `dtCreatedDate` ? type=`text`
+    - 13. `dtUpdateDate` ? type=`text`
+    - 14. `dtPeriode`
+- **Tombol/aksi terdeteksi:** `Toggle navigation`, `Auto`, `×`, `Refresh`, `Proses`, `New`, `Filter`, `Reset`, `Import`, `Download Template`, `Save`, `Cancel`, `Filter Data`
+- **Endpoint AJAX/behavior terdeteksi:** `/site/auto/dropdown/`, `/site/home/dashboard/UpdateDB`, `/site/import/csv/data?note=perakitan`, `/site/import/csv?note=perakitan`, `/site/inventory/perakitan/autosave`, `/site/master/user/modal_chpass`, `/site/search/filter/createdby`, `/site/search/filter/gudang`, `/site/search/filter/periode`, `/site/search/filter/updateby`
+- **TODO parity:**
+  - [ ] Replikasi layout dan posisi form sesuai urutan di atas; validasi dengan screenshot/browser comparison.
+  - [ ] Implementasikan tabel, filter, sorting, pagination, aksi row, modal/detail, validasi, permission, dan state response sesuai kontrak.
+
+### [ ] Inventory / Laporan Persediaan
+- **Endpoint:** `/site/inventory/report`
+- **Status lokal:** belum ditemukan route/view parity laporan yang jelas
+- **Tabel:**
+  - `fTable1` ? 1. Laporan Daftar Harga
+  - `fTable2` ? 1. Kartu Stok Semua Gudang
+  - `fTable3` ? 1. Laporan Detail Mutasi Barang (Bulanan)
+  - `fTable4` ? 1. Laporan Adjustment Item Detail Transaksi PAKAI YANG INI, cek barang yg rusak
+  - `fTable5` ? 1. Laporan Bulanan Produksi
+- **Filter/form dan posisi field (urutan DOM):**
+  - `form-0` `GET` `/site/inventory/report`:
+    - 1. `id` ? type=`hidden` ? label=Catatan
+    - 2. `NOTE` ? type=`text`
+- **Tombol/aksi terdeteksi:** `Toggle navigation`, `×`, `OK`, `Cancel`
+- **Endpoint AJAX/behavior terdeteksi:** `/site/home/dashboard/UpdateDB`, `/site/inventory/report/ajax_edit//`, `/site/inventory/report/ajax_update/`, `/site/master/user/modal_chpass`
+- **TODO parity:**
+  - [ ] Replikasi layout dan posisi form sesuai urutan di atas; validasi dengan screenshot/browser comparison.
+  - [ ] Implementasikan tabel, filter, sorting, pagination, aksi row, modal/detail, validasi, permission, dan state response sesuai kontrak.
+
+### [ ] Pembelian / Info Pembelian
+- **Endpoint:** `/site/purchasing/info`
+- **Status lokal:** ada modul procurement; parity halaman belum diverifikasi
+- **Tab:** `PO`, `Pembelian & Retur`, `Pelunasan Hutang`, `Summary Hutang`, `Kartu Hutang`
+- **Tabel:**
+  - `table_po` ? TANGGAL | NO PO | NO REFF | STATUS PO | DIBUTUHKAN | SUPPLIER | GUDANG | PPN | TOTAL | JANGKA | KETERANGAN | PERIODE | NAMA | LOKASI
+  - `table_search` ? PERSON ID | Nama Supplier | Kode Supplier | Lokasi | Alamat | Termin | Aksi | Person Site Id
+- **Filter/form dan posisi field (urutan DOM):**
+  - `form-0` `GET` `/site/purchasing/info`:
+    - 1. `supplier_search` ? type=`text`
+- **Tombol/aksi terdeteksi:** `Toggle navigation`, `Refresh`, `×`
+- **Endpoint AJAX/behavior terdeteksi:** `/site/home/dashboard/UpdateDB`, `/site/master/user/modal_chpass`, `/site/purchasing/info/record/po?person_flag=`
+- **TODO parity:**
+  - [ ] Replikasi layout dan posisi form sesuai urutan di atas; validasi dengan screenshot/browser comparison.
+  - [ ] Implementasikan tabel, filter, sorting, pagination, aksi row, modal/detail, validasi, permission, dan state response sesuai kontrak.
+
+### [ ] Pembelian / Order Pembelian
+- **Endpoint:** `/site/purchasing/order`
+- **Status lokal:** ada API purchase order; parity halaman belum diverifikasi
+- **Tabel:**
+  - `table` ? STATUS | NO PO | NO REFF | TANGGAL | DIBUTUKAN | SUPPLIER | GUDANG | TOTAL | AKSI
+- **Filter/form dan posisi field (urutan DOM):**
+  - `form-0` `POST` `/site/purchasing/order`:
+    - 1. `file_import_csv` ? type=`file` ? placeholder=File
+  - `form-1` `POST` `/site/purchasing/order`:
+    - 1. `dtNoPo` ? type=`text`
+    - 2. `dtTglMulai` ? type=`text`
+    - 3. `dtTglSampai` ? type=`text`
+    - 4. `dtNamaSupp`
+    - 5. `dtKodeSupp`
+    - 6. `dtButuh` ? type=`text`
+    - 7. `dtGudang`
+    - 8. `dtLokKirim`
+    - 9. `dtDiskon` ? type=`text`
+    - 10. `dtNet` ? type=`text`
+    - 11. `dtPPN`
+    - 12. `dtStatus`
+    - 13. `dtNoRef` ? type=`text`
+    - 14. `dtNote` ? type=`text`
+    - 15. `dtCreatedBy`
+    - 16. `dtUpdateBy`
+    - 17. `dtCreatedDate` ? type=`text`
+    - 18. `dtUpdateDate` ? type=`text`
+    - 19. `dtPeriode`
+- **Tombol/aksi terdeteksi:** `Toggle navigation`, `New`, `Filter`, `Reset`, `Import`, `×`, `Download Template`, `Save`, `Cancel`, `Filter Data`
+- **Endpoint AJAX/behavior terdeteksi:** `/site/auto/dropdown/`, `/site/home/dashboard/UpdateDB`, `/site/import/csv/data?note=po`, `/site/import/csv?note=po`, `/site/master/user/modal_chpass`, `/site/search/filter/createdby`, `/site/search/filter/gudang`, `/site/search/filter/lokasi`, `/site/search/filter/periode`, `/site/search/filter/ppn`, `/site/search/filter/status`, `/site/search/filter/suppliercode`, `/site/search/filter/suppliername`, `/site/search/filter/updateby`
+- **TODO parity:**
+  - [ ] Replikasi layout dan posisi form sesuai urutan di atas; validasi dengan screenshot/browser comparison.
+  - [ ] Implementasikan tabel, filter, sorting, pagination, aksi row, modal/detail, validasi, permission, dan state response sesuai kontrak.
+
+### [ ] Pembelian / Barang Datang
+- **Endpoint:** `/site/purchasing/receipt`
+- **Status lokal:** ada API purchase receipt; parity halaman belum diverifikasi
+- **Tabel:**
+  - `table` ? STATUS | NO BPB | NO REFF | TANGGAL | SUPPLIER | NO PO | AKSI
+- **Filter/form dan posisi field (urutan DOM):**
+  - `form-0` `POST` `/site/purchasing/receipt`:
+    - 1. `file_import_csv` ? type=`file` ? placeholder=File
+  - `form-1` `POST` `/site/purchasing/receipt`:
+    - 1. `dtNoBPB` ? type=`text`
+    - 2. `dtNoPo` ? type=`text`
+    - 3. `dtTglMulai` ? type=`text`
+    - 4. `dtTglSampai` ? type=`text`
+    - 5. `dtNamaSupp`
+    - 6. `dtKodeSupp`
+    - 7. `dtGudang`
+    - 8. `dtNoRef` ? type=`text`
+    - 9. `dtNote` ? type=`text`
+    - 10. `dtCreatedBy`
+    - 11. `dtUpdateBy`
+    - 12. `dtCreatedDate` ? type=`text`
+    - 13. `dtUpdateDate` ? type=`text`
+    - 14. `dtPeriode`
+- **Tombol/aksi terdeteksi:** `Toggle navigation`, `New`, `Filter`, `Reset`, `Import`, `×`, `Download Template`, `Save`, `Cancel`, `Filter Data`
+- **Endpoint AJAX/behavior terdeteksi:** `/site/auto/dropdown/`, `/site/home/dashboard/UpdateDB`, `/site/import/csv/data?note=barang_datang`, `/site/import/csv?note=barang_datang`, `/site/master/user/modal_chpass`, `/site/search/filter/createdby`, `/site/search/filter/gudang`, `/site/search/filter/periode`, `/site/search/filter/suppliercode`, `/site/search/filter/suppliername`, `/site/search/filter/updateby`
+- **TODO parity:**
+  - [ ] Replikasi layout dan posisi form sesuai urutan di atas; validasi dengan screenshot/browser comparison.
+  - [ ] Implementasikan tabel, filter, sorting, pagination, aksi row, modal/detail, validasi, permission, dan state response sesuai kontrak.
+
+### [ ] Pembelian / Faktur Pembelian
+- **Endpoint:** `/site/purchasing/faktur`
+- **Status lokal:** ada API purchase invoice; parity halaman belum diverifikasi
+- **Tabel:**
+  - `table` ? STATUS | NO FAKTUR | NO REFF | TANGGAL | SUPPLIER | TOTAL | AKSI
+- **Filter/form dan posisi field (urutan DOM):**
+  - `form-0` `POST` `/site/purchasing/faktur`:
+    - 1. `file_import_csv` ? type=`file` ? placeholder=File
+  - `form-1` `POST` `/site/purchasing/faktur`:
+    - 1. `dtNoFaktur` ? type=`text`
+    - 2. `dtTglMulai` ? type=`text`
+    - 3. `dtTglSampai` ? type=`text`
+    - 4. `dtNamaSupp`
+    - 5. `dtKodeSupp`
+    - 6. `dtTermin`
+    - 7. `dtJangkaMulai` ? type=`text`
+    - 8. `dtJangkaSampai` ? type=`text`
+    - 9. `dtGudang`
+    - 10. `dtType`
+    - 11. `dtNoPo` ? type=`text`
+    - 12. `dtReffPo` ? type=`text`
+    - 13. `dtDiskon` ? type=`text`
+    - 14. `dtNet` ? type=`text`
+    - 15. `dtPPN`
+    - 16. `dtStatus`
+    - 17. `dtNoBarang` ? type=`text`
+    - 18. `dtReffBarang` ? type=`text`
+    - 19. `dtNote` ? type=`text`
+    - 20. `dtNoRef` ? type=`text`
+    - 21. `dtCreatedBy`
+    - 22. `dtUpdateBy`
+    - 23. `dtCreatedDate` ? type=`text`
+    - 24. `dtUpdateDate` ? type=`text`
+    - 25. `dtPeriode`
+- **Tombol/aksi terdeteksi:** `Toggle navigation`, `New`, `Filter`, `Reset`, `Import`, `×`, `Download Template`, `Save`, `Cancel`, `Filter Data`
+- **Endpoint AJAX/behavior terdeteksi:** `/site/auto/dropdown/`, `/site/home/dashboard/UpdateDB`, `/site/import/csv/data?note=beli`, `/site/import/csv?note=beli`, `/site/master/user/modal_chpass`, `/site/search/filter/createdby`, `/site/search/filter/gudang`, `/site/search/filter/periode`, `/site/search/filter/ppn`, `/site/search/filter/status`, `/site/search/filter/suppliercode`, `/site/search/filter/suppliername`, `/site/search/filter/termin`, `/site/search/filter/typeinvoice`, `/site/search/filter/updateby`
+- **TODO parity:**
+  - [ ] Replikasi layout dan posisi form sesuai urutan di atas; validasi dengan screenshot/browser comparison.
+  - [ ] Implementasikan tabel, filter, sorting, pagination, aksi row, modal/detail, validasi, permission, dan state response sesuai kontrak.
+
+### [ ] Pembelian / Faktur Retur Beli
+- **Endpoint:** `/site/purchasing/retur`
+- **Status lokal:** ada API purchase return; parity halaman belum diverifikasi
+- **Tabel:**
+  - `table` ? STATUS | NO RETUR | NO REFF | TANGGAL | SUPPLIER | TOTAL | AKSI
+- **Filter/form dan posisi field (urutan DOM):**
+  - `form-0` `POST` `/site/purchasing/retur`:
+    - 1. `file_import_csv` ? type=`file` ? placeholder=File
+  - `form-1` `POST` `/site/purchasing/retur`:
+    - 1. `dtNoRetur` ? type=`text`
+    - 2. `dtTglMulai` ? type=`text`
+    - 3. `dtTglSampai` ? type=`text`
+    - 4. `dtNamaSupp`
+    - 5. `dtKodeSupp`
+    - 6. `dtTermin`
+    - 7. `dtJangkaMulai` ? type=`text`
+    - 8. `dtJangkaSampai` ? type=`text`
+    - 9. `dtGudang`
+    - 10. `dtNoFaktur` ? type=`text`
+    - 11. `dtReffFaktur` ? type=`text`
+    - 12. `dtDiskon` ? type=`text`
+    - 13. `dtNet` ? type=`text`
+    - 14. `dtPPN`
+    - 15. `dtStatus`
+    - 16. `dtNoRef` ? type=`text`
+    - 17. `dtNote` ? type=`text`
+    - 18. `dtCreatedBy`
+    - 19. `dtUpdateBy`
+    - 20. `dtCreatedDate` ? type=`text`
+    - 21. `dtUpdateDate` ? type=`text`
+    - 22. `dtPeriode`
+- **Tombol/aksi terdeteksi:** `Toggle navigation`, `New`, `Filter`, `Reset`, `Import`, `×`, `Download Template`, `Save`, `Cancel`, `Filter Data`
+- **Endpoint AJAX/behavior terdeteksi:** `/site/auto/dropdown/`, `/site/home/dashboard/UpdateDB`, `/site/import/csv/data?note=retur_beli`, `/site/import/csv?note=retur_beli`, `/site/master/user/modal_chpass`, `/site/search/filter/createdby`, `/site/search/filter/gudang`, `/site/search/filter/periode`, `/site/search/filter/ppn`, `/site/search/filter/status`, `/site/search/filter/suppliercode`, `/site/search/filter/suppliername`, `/site/search/filter/termin`, `/site/search/filter/updateby`
+- **TODO parity:**
+  - [ ] Replikasi layout dan posisi form sesuai urutan di atas; validasi dengan screenshot/browser comparison.
+  - [ ] Implementasikan tabel, filter, sorting, pagination, aksi row, modal/detail, validasi, permission, dan state response sesuai kontrak.
+
+### [ ] Pembelian / Laporan Pembelian
+- **Endpoint:** `/site/purchasing/report`
+- **Status lokal:** belum ditemukan route/view parity laporan yang jelas
+- **Tabel:**
+  - `fTable1` ? 1. Laporan Detail PO
+  - `fTable2` ? 1. Export PPN Masukan
+  - `fTable3` ? 1. Laporan Barang Datang (Nilai)
+  - `fTable4` ? 1. Laporan Harian Detail Pembelian Item
+  - `fTable5` ? 1. Perbandingan PO Outstanding dengan Stok saat ini
+  - `fTable6` ? 1. Laporan Rekap Detail Retur Pembelian
+- **Filter/form dan posisi field (urutan DOM):**
+  - `form-0` `GET` `/site/purchasing/report`:
+    - 1. `id` ? type=`hidden` ? label=Catatan
+    - 2. `NOTE` ? type=`text`
+- **Tombol/aksi terdeteksi:** `Toggle navigation`, `×`, `OK`, `Cancel`
+- **Endpoint AJAX/behavior terdeteksi:** `/site/home/dashboard/UpdateDB`, `/site/master/user/modal_chpass`, `/site/purchasing/report/ajax_edit//`, `/site/purchasing/report/ajax_update/`
+- **TODO parity:**
+  - [ ] Replikasi layout dan posisi form sesuai urutan di atas; validasi dengan screenshot/browser comparison.
+  - [ ] Implementasikan tabel, filter, sorting, pagination, aksi row, modal/detail, validasi, permission, dan state response sesuai kontrak.
+
+### [ ] Penjualan / Info Penjualan
+- **Endpoint:** `/site/sales/info`
+- **Status lokal:** ada modul sales; parity halaman belum diverifikasi
+- **Tab:** `SO`, `Penjualan & Retur`, `Pelunasan Piutang`, `Summary Piutang`, `Kartu Piutang`
+- **Tabel:**
+  - `table_so` ? TANGGAL | NO SO | STATUS SO | CUSTOMER | PPN | TOTAL | SALES | JANGKA | NO REFF | KEPERLUAN | KETERANGAN | PERIODE | KODE | NAMA | LOKASI
+  - `table_search` ? PERSON ID | Nama Customer | Kode customer | Lokasi | Alamat | Termin | Aksi | Person Site Id
+- **Filter/form dan posisi field (urutan DOM):**
+  - `form-0` `GET` `/site/sales/info`:
+    - 1. `supplier_search` ? type=`text`
+- **Tombol/aksi terdeteksi:** `Toggle navigation`, `Refresh`, `×`
+- **Endpoint AJAX/behavior terdeteksi:** `/site/home/dashboard/UpdateDB`, `/site/master/user/modal_chpass`, `/site/sales/info/record/so?person_flag=`
+- **TODO parity:**
+  - [ ] Replikasi layout dan posisi form sesuai urutan di atas; validasi dengan screenshot/browser comparison.
+  - [ ] Implementasikan tabel, filter, sorting, pagination, aksi row, modal/detail, validasi, permission, dan state response sesuai kontrak.
+
+### [ ] Penjualan / Sales Order
+- **Endpoint:** `/site/sales/order`
+- **Status lokal:** ada API sales order; parity halaman belum diverifikasi
+- **Tabel:**
+  - `table` ? STATUS | NO SO | NO REFF | TANGGAL | DIBUTUHKAN | CUSTOMER | SALES | TOTAL | AKSI
+- **Filter/form dan posisi field (urutan DOM):**
+  - `form-0` `POST` `/site/sales/order`:
+    - 1. `file_import_csv` ? type=`file` ? placeholder=File
+  - `form-1` `POST` `/site/sales/order`:
+    - 1. `dtNoSo` ? type=`text`
+    - 2. `dtTglMulai` ? type=`text`
+    - 3. `dtTglSampai` ? type=`text`
+    - 4. `dtNamaCust`
+    - 5. `dtKodeCust`
+    - 6. `dtButuh` ? type=`text`
+    - 7. `dtSales` ? type=`text`
+    - 8. `dtDiskon` ? type=`text`
+    - 9. `dtNet` ? type=`text`
+    - 10. `dtPPN`
+    - 11. `dtStatus`
+    - 12. `dtNoRef` ? type=`text`
+    - 13. `dtNote` ? type=`text`
+    - 14. `dtCreatedBy`
+    - 15. `dtUpdateBy`
+    - 16. `dtCreatedDate` ? type=`text`
+    - 17. `dtUpdateDate` ? type=`text`
+    - 18. `dtPeriode`
+- **Tombol/aksi terdeteksi:** `Toggle navigation`, `New`, `Filter`, `Reset`, `Import`, `×`, `Download Template`, `Save`, `Cancel`, `Filter Data`
+- **Endpoint AJAX/behavior terdeteksi:** `/site/auto/dropdown/`, `/site/home/dashboard/UpdateDB`, `/site/import/csv/data?note=so`, `/site/import/csv?note=so`, `/site/master/user/modal_chpass`, `/site/search/filter/createdby`, `/site/search/filter/customercode`, `/site/search/filter/customername`, `/site/search/filter/periode`, `/site/search/filter/ppn`, `/site/search/filter/status`, `/site/search/filter/updateby`
+- **TODO parity:**
+  - [ ] Replikasi layout dan posisi form sesuai urutan di atas; validasi dengan screenshot/browser comparison.
+  - [ ] Implementasikan tabel, filter, sorting, pagination, aksi row, modal/detail, validasi, permission, dan state response sesuai kontrak.
+
+### [ ] Penjualan / Surat Jalan
+- **Endpoint:** `/site/sales/delivery`
+- **Status lokal:** ada API delivery; parity halaman belum diverifikasi
+- **Tabel:**
+  - `table` ? STATUS | NO SJ | NO REFF | TANGGAL | CUSTOMER | NO SO | AKSI
+- **Filter/form dan posisi field (urutan DOM):**
+  - `form-0` `POST` `/site/sales/delivery`:
+    - 1. `file_import_csv` ? type=`file` ? placeholder=File
+  - `form-1` `POST` `/site/sales/delivery`:
+    - 1. `dtNoSj` ? type=`text`
+    - 2. `dtTglMulai` ? type=`text`
+    - 3. `dtTglSampai` ? type=`text`
+    - 4. `dtNamaCust`
+    - 5. `dtKodeCust`
+    - 6. `dtNoSo` ? type=`text`
+    - 7. `dtGudang`
+    - 8. `dtNoRef` ? type=`text`
+    - 9. `dtNote` ? type=`text`
+    - 10. `dtCreatedBy`
+    - 11. `dtUpdateBy`
+    - 12. `dtCreatedDate` ? type=`text`
+    - 13. `dtUpdateDate` ? type=`text`
+    - 14. `dtPeriode`
+- **Tombol/aksi terdeteksi:** `Toggle navigation`, `New`, `Filter`, `Reset`, `Import`, `×`, `Download Template`, `Save`, `Cancel`, `Filter Data`
+- **Endpoint AJAX/behavior terdeteksi:** `/site/auto/dropdown/`, `/site/home/dashboard/UpdateDB`, `/site/import/csv/data?note=surat_jalan`, `/site/import/csv?note=surat_jalan`, `/site/master/user/modal_chpass`, `/site/search/filter/createdby`, `/site/search/filter/customercode`, `/site/search/filter/customername`, `/site/search/filter/gudang`, `/site/search/filter/periode`, `/site/search/filter/updateby`
+- **TODO parity:**
+  - [ ] Replikasi layout dan posisi form sesuai urutan di atas; validasi dengan screenshot/browser comparison.
+  - [ ] Implementasikan tabel, filter, sorting, pagination, aksi row, modal/detail, validasi, permission, dan state response sesuai kontrak.
+
+### [ ] Penjualan / Penjualan Cash
+- **Endpoint:** `/site/sales/cash`
+- **Status lokal:** ada API sales transaction; parity halaman belum diverifikasi
+- **Tabel:**
+  - `table` ? STATUS | NO FAKTUR | NO REFF | TANGGAL | CUSTOMER | SALES | TOTAL | AKSI
+- **Filter/form dan posisi field (urutan DOM):**
+  - `form-0` `POST` `/site/sales/cash`:
+    - 1. `file_import_csv` ? type=`file` ? placeholder=File
+  - `form-1` `POST` `/site/sales/cash`:
+    - 1. `dtNoFaktur` ? type=`text`
+    - 2. `dtTglMulai` ? type=`text`
+    - 3. `dtTglSampai` ? type=`text`
+    - 4. `dtNamaCust`
+    - 5. `dtKodeCust`
+    - 6. `dtSales` ? type=`text`
+    - 7. `dtGudang`
+    - 8. `dtDiskon` ? type=`text`
+    - 9. `dtNet` ? type=`text`
+    - 10. `dtPPN`
+    - 11. `dtStatus`
+    - 12. `dtNoRef` ? type=`text`
+    - 13. `dtNote` ? type=`text`
+    - 14. `dtCreatedBy`
+    - 15. `dtUpdateBy`
+    - 16. `dtCreatedDate` ? type=`text`
+    - 17. `dtUpdateDate` ? type=`text`
+    - 18. `dtPeriode`
+- **Tombol/aksi terdeteksi:** `Toggle navigation`, `New`, `Filter`, `Reset`, `Import`, `×`, `Download Template`, `Save`, `Cancel`, `Filter Data`
+- **Endpoint AJAX/behavior terdeteksi:** `/site/auto/dropdown/`, `/site/home/dashboard/UpdateDB`, `/site/import/csv/data?note=jual_cash`, `/site/import/csv?note=jual_cash`, `/site/master/user/modal_chpass`, `/site/search/filter/createdby`, `/site/search/filter/customercode`, `/site/search/filter/customername`, `/site/search/filter/gudang`, `/site/search/filter/periode`, `/site/search/filter/ppn`, `/site/search/filter/status`, `/site/search/filter/updateby`
+- **TODO parity:**
+  - [ ] Replikasi layout dan posisi form sesuai urutan di atas; validasi dengan screenshot/browser comparison.
+  - [ ] Implementasikan tabel, filter, sorting, pagination, aksi row, modal/detail, validasi, permission, dan state response sesuai kontrak.
+
+### [ ] Penjualan / Penjualan Barcode (POS)
+- **Endpoint:** `/site/sales/barcode`
+- **Status lokal:** ada POS pharmacy; parity halaman belum diverifikasi
+- **Tabel:**
+  - `table` ? STATUS | NO FAKTUR | NO REFF | TANGGAL | CUSTOMER | SALES | TOTAL | AKSI
+- **Filter/form dan posisi field (urutan DOM):**
+  - `form-0` `POST` `/site/sales/barcode`:
+    - 1. `dtNoFaktur` ? type=`text`
+    - 2. `dtTglMulai` ? type=`text`
+    - 3. `dtTglSampai` ? type=`text`
+    - 4. `dtDiskon` ? type=`text`
+    - 5. `dtNet` ? type=`text`
+    - 6. `dtPPN`
+    - 7. `dtStatus`
+    - 8. `dtNoRef` ? type=`text`
+    - 9. `dtNote` ? type=`text`
+    - 10. `dtCreatedBy`
+    - 11. `dtUpdateBy`
+    - 12. `dtCreatedDate` ? type=`text`
+    - 13. `dtUpdateDate` ? type=`text`
+    - 14. `dtPeriode`
+- **Tombol/aksi terdeteksi:** `Toggle navigation`, `New`, `Filter`, `Reset`, `Filter Data`, `×`
+- **Endpoint AJAX/behavior terdeteksi:** `/site/auto/dropdown/`, `/site/home/dashboard/UpdateDB`, `/site/master/user/modal_chpass`, `/site/search/filter/createdby`, `/site/search/filter/periode`, `/site/search/filter/ppn`, `/site/search/filter/status`, `/site/search/filter/updateby`
+- **TODO parity:**
+  - [ ] Replikasi layout dan posisi form sesuai urutan di atas; validasi dengan screenshot/browser comparison.
+  - [ ] Implementasikan tabel, filter, sorting, pagination, aksi row, modal/detail, validasi, permission, dan state response sesuai kontrak.
+
+### [ ] Penjualan / Faktur Penjualan
+- **Endpoint:** `/site/sales/faktur`
+- **Status lokal:** ada API sales invoice; parity halaman belum diverifikasi
+- **Tabel:**
+  - `table` ? STATUS | NO FAKTUR | NO REFF | TANGGAL | CUSTOMER | SALES | TOTAL | AKSI
+- **Filter/form dan posisi field (urutan DOM):**
+  - `form-0` `POST` `/site/sales/faktur`:
+    - 1. `file_import_csv` ? type=`file` ? placeholder=File
+  - `form-1` `POST` `/site/sales/faktur`:
+    - 1. `dtNoFaktur` ? type=`text`
+    - 2. `dtTglMulai` ? type=`text`
+    - 3. `dtTglSampai` ? type=`text`
+    - 4. `dtNamaCust`
+    - 5. `dtKodeCust`
+    - 6. `dtTermin`
+    - 7. `dtJangkaMulai` ? type=`text`
+    - 8. `dtJangkaSampai` ? type=`text`
+    - 9. `dtGudang`
+    - 10. `dtType`
+    - 11. `dtNoSo` ? type=`text`
+    - 12. `dtReffSo` ? type=`text`
+    - 13. `dtDiskon` ? type=`text`
+    - 14. `dtNet` ? type=`text`
+    - 15. `dtPPN`
+    - 16. `dtStatus`
+    - 17. `dtSales`
+    - 18. `dtNoSJalan` ? type=`text`
+    - 19. `dtReffSJalan` ? type=`text`
+    - 20. `dtNoRef` ? type=`text`
+    - 21. `dtNote` ? type=`text`
+    - 22. `dtCreatedBy`
+    - 23. `dtUpdateBy`
+    - 24. `dtCreatedDate` ? type=`text`
+    - 25. `dtUpdateDate` ? type=`text`
+    - 26. `dtPeriode`
+- **Tombol/aksi terdeteksi:** `Toggle navigation`, `New`, `Filter`, `Reset`, `Import`, `×`, `Download Template`, `Save`, `Cancel`, `Filter Data`
+- **Endpoint AJAX/behavior terdeteksi:** `/site/auto/dropdown/`, `/site/home/dashboard/UpdateDB`, `/site/import/csv/data?note=jual_faktur_sj`, `/site/import/csv?note=jual_faktur_sj`, `/site/master/user/modal_chpass`, `/site/search/filter/createdby`, `/site/search/filter/customercode`, `/site/search/filter/customername`, `/site/search/filter/gudang`, `/site/search/filter/periode`, `/site/search/filter/ppn`, `/site/search/filter/sales`, `/site/search/filter/status`, `/site/search/filter/termin`, `/site/search/filter/typeinvoice`, `/site/search/filter/updateby`
+- **TODO parity:**
+  - [ ] Replikasi layout dan posisi form sesuai urutan di atas; validasi dengan screenshot/browser comparison.
+  - [ ] Implementasikan tabel, filter, sorting, pagination, aksi row, modal/detail, validasi, permission, dan state response sesuai kontrak.
+
+### [ ] Penjualan / Faktur Retur Jual
+- **Endpoint:** `/site/sales/retur`
+- **Status lokal:** ada API sales return; parity halaman belum diverifikasi
+- **Tabel:**
+  - `table` ? STATUS | NO RETUR | NO REFF | TANGGAL | CUSTOMER | SALES | TOTAL | AKSI
+- **Filter/form dan posisi field (urutan DOM):**
+  - `form-0` `POST` `/site/sales/retur`:
+    - 1. `file_import_csv` ? type=`file` ? placeholder=File
+  - `form-1` `POST` `/site/sales/retur`:
+    - 1. `dtNoRetur` ? type=`text`
+    - 2. `dtTglMulai` ? type=`text`
+    - 3. `dtTglSampai` ? type=`text`
+    - 4. `dtNamaCust`
+    - 5. `dtKodeCust`
+    - 6. `dtTermin`
+    - 7. `dtJangkaMulai` ? type=`text`
+    - 8. `dtJangkaSampai` ? type=`text`
+    - 9. `dtGudang`
+    - 10. `dtNoFaktur` ? type=`text`
+    - 11. `dtReffFaktur` ? type=`text`
+    - 12. `dtDiskon` ? type=`text`
+    - 13. `dtNet` ? type=`text`
+    - 14. `dtPPN`
+    - 15. `dtStatus`
+    - 16. `dtNoRef` ? type=`text`
+    - 17. `dtNote` ? type=`text`
+    - 18. `dtCreatedBy`
+    - 19. `dtUpdateBy`
+    - 20. `dtCreatedDate` ? type=`text`
+    - 21. `dtUpdateDate` ? type=`text`
+    - 22. `dtPeriode`
+- **Tombol/aksi terdeteksi:** `Toggle navigation`, `New`, `Filter`, `Reset`, `Import`, `×`, `Download Template`, `Save`, `Cancel`, `Filter Data`
+- **Endpoint AJAX/behavior terdeteksi:** `/site/auto/dropdown/`, `/site/home/dashboard/UpdateDB`, `/site/import/csv/data?note=retur_jual`, `/site/import/csv?note=retur_jual`, `/site/master/user/modal_chpass`, `/site/search/filter/createdby`, `/site/search/filter/customercode`, `/site/search/filter/customername`, `/site/search/filter/gudang`, `/site/search/filter/periode`, `/site/search/filter/ppn`, `/site/search/filter/status`, `/site/search/filter/termin`, `/site/search/filter/updateby`
+- **TODO parity:**
+  - [ ] Replikasi layout dan posisi form sesuai urutan di atas; validasi dengan screenshot/browser comparison.
+  - [ ] Implementasikan tabel, filter, sorting, pagination, aksi row, modal/detail, validasi, permission, dan state response sesuai kontrak.
+
+### [ ] Penjualan / Laporan Penjualan
+- **Endpoint:** `/site/sales/report`
+- **Status lokal:** ada laporan penjualan POS; parity halaman belum diverifikasi
+- **Tabel:**
+  - `fTable1` ? 1. Laporan Detail SO
+  - `fTable2` ? 1. Cetak Invoice Penjualan
+  - `fTable3` ? 1. Laporan Rekap Detail Retur Penjualan
+  - `fTable4` ? 1. Kartu Piutang
+  - `fTable5` ? 1. Laporan Bulanan Penjualan Per Customer Detail Item
+  - `fTable6` ? 1. Laporan Hasil Omzet sales PAKAI YANG INI
+  - `fTable7` ? 1. Laporan Nilai Surat Jalan
+- **Filter/form dan posisi field (urutan DOM):**
+  - `form-0` `GET` `/site/sales/report`:
+    - 1. `id` ? type=`hidden` ? label=Catatan
+    - 2. `NOTE` ? type=`text`
+- **Tombol/aksi terdeteksi:** `Toggle navigation`, `×`, `OK`, `Cancel`
+- **Endpoint AJAX/behavior terdeteksi:** `/site/home/dashboard/UpdateDB`, `/site/master/user/modal_chpass`, `/site/sales/report/ajax_edit//`, `/site/sales/report/ajax_update/`
+- **TODO parity:**
+  - [ ] Replikasi layout dan posisi form sesuai urutan di atas; validasi dengan screenshot/browser comparison.
+  - [ ] Implementasikan tabel, filter, sorting, pagination, aksi row, modal/detail, validasi, permission, dan state response sesuai kontrak.
+
+### [ ] Kas/Bank / Info Kas Bank
+- **Endpoint:** `/site/finance/info`
+- **Status lokal:** ada modul cash/bank; parity halaman belum diverifikasi
+- **Tab:** `KAS BANK`, `KARTU KAS BANK`
+- **Tabel:**
+  - `table_info` ? KODE ACC | NAMA KAS BANK | SALDO AWAL | DEBET | KREDIT | SALDO
+- **Filter/form dan posisi field (urutan DOM):**
+  - (tanpa form pada initial DOM; filter bisa berupa widget/JS dan wajib diuji browser)
+- **Tombol/aksi terdeteksi:** `Toggle navigation`, `Refresh`, `×`
+- **Endpoint AJAX/behavior terdeteksi:** `/site/finance/info/record/summary_kasbank?period_name=`, `/site/home/dashboard/UpdateDB`, `/site/master/user/modal_chpass`
+- **TODO parity:**
+  - [ ] Replikasi layout dan posisi form sesuai urutan di atas; validasi dengan screenshot/browser comparison.
+  - [ ] Implementasikan tabel, filter, sorting, pagination, aksi row, modal/detail, validasi, permission, dan state response sesuai kontrak.
+
+### [ ] Kas/Bank / Bukti Kas Masuk
+- **Endpoint:** `/site/finance/bkm`
+- **Status lokal:** ada API cash bank; parity halaman belum diverifikasi
+- **Tabel:**
+  - `table` ? STATUS | NO VOUCHER | NO REFF | TANGGAL | KAS/BANK | CUSTOMER | TOTAL | AKSI
+- **Filter/form dan posisi field (urutan DOM):**
+  - `form-0` `POST` `/site/finance/bkm`:
+    - 1. `file_import_csv` ? type=`file` ? placeholder=File
+  - `form-1` `POST` `/site/finance/bkm`:
+    - 1. `dtNoVoucher` ? type=`text`
+    - 2. `dtTglMulai` ? type=`text`
+    - 3. `dtTglSampai` ? type=`text`
+    - 4. `dtNamaCust`
+    - 5. `dtKodeCust`
+    - 6. `dtKasbank`
+    - 7. `dtNoCheck` ? type=`text`
+    - 8. `dtDariBank` ? type=`text`
+    - 9. `dtJtempogiro` ? type=`text`
+    - 10. `dtTotal` ? type=`text`
+    - 11. `dtStatus`
+    - 12. `dtNoRef` ? type=`text`
+    - 13. `dtNote` ? type=`text`
+    - 14. `dtCreatedBy`
+    - 15. `dtUpdateBy`
+    - 16. `dtCreatedDate` ? type=`text`
+    - 17. `dtUpdateDate` ? type=`text`
+    - 18. `dtPeriode`
+- **Tombol/aksi terdeteksi:** `Toggle navigation`, `New`, `Filter`, `Reset`, `Import`, `×`, `Download Template`, `Save`, `Cancel`, `Filter Data`
+- **Endpoint AJAX/behavior terdeteksi:** `/site/auto/dropdown/`, `/site/home/dashboard/UpdateDB`, `/site/import/csv/data?note=bkm`, `/site/import/csv?note=bkm`, `/site/master/user/modal_chpass`, `/site/search/filter/createdby`, `/site/search/filter/customercode`, `/site/search/filter/customername`, `/site/search/filter/kasbank`, `/site/search/filter/periode`, `/site/search/filter/status`, `/site/search/filter/updateby`
+- **TODO parity:**
+  - [ ] Replikasi layout dan posisi form sesuai urutan di atas; validasi dengan screenshot/browser comparison.
+  - [ ] Implementasikan tabel, filter, sorting, pagination, aksi row, modal/detail, validasi, permission, dan state response sesuai kontrak.
+
+### [ ] Kas/Bank / Bukti Kas Keluar
+- **Endpoint:** `/site/finance/bkk`
+- **Status lokal:** ada API cash bank; parity halaman belum diverifikasi
+- **Tabel:**
+  - `table` ? STATUS | NO VOUCHER | NO REFF | TANGGAL | KAS/BANK | SUPPLIER | TOTAL | AKSI
+- **Filter/form dan posisi field (urutan DOM):**
+  - `form-0` `POST` `/site/finance/bkk`:
+    - 1. `file_import_csv` ? type=`file` ? placeholder=File
+  - `form-1` `POST` `/site/finance/bkk`:
+    - 1. `dtNoVoucher` ? type=`text`
+    - 2. `dtTglMulai` ? type=`text`
+    - 3. `dtTglSampai` ? type=`text`
+    - 4. `dtNamaSupp`
+    - 5. `dtKodeSupp`
+    - 6. `dtKasbank`
+    - 7. `dtNoCheck` ? type=`text`
+    - 8. `dtDariBank` ? type=`text`
+    - 9. `dtJtempogiro` ? type=`text`
+    - 10. `dtTotal` ? type=`text`
+    - 11. `dtStatus`
+    - 12. `dtNoRef` ? type=`text`
+    - 13. `dtNote` ? type=`text`
+    - 14. `dtCreatedBy`
+    - 15. `dtUpdateBy`
+    - 16. `dtCreatedDate` ? type=`text`
+    - 17. `dtUpdateDate` ? type=`text`
+    - 18. `dtPeriode`
+- **Tombol/aksi terdeteksi:** `Toggle navigation`, `New`, `Filter`, `Reset`, `Import`, `×`, `Download Template`, `Save`, `Cancel`, `Filter Data`
+- **Endpoint AJAX/behavior terdeteksi:** `/site/auto/dropdown/`, `/site/home/dashboard/UpdateDB`, `/site/import/csv/data?note=bkk`, `/site/import/csv?note=bkk`, `/site/master/user/modal_chpass`, `/site/search/filter/createdby`, `/site/search/filter/kasbank`, `/site/search/filter/periode`, `/site/search/filter/status`, `/site/search/filter/suppliercode`, `/site/search/filter/suppliername`, `/site/search/filter/updateby`
+- **TODO parity:**
+  - [ ] Replikasi layout dan posisi form sesuai urutan di atas; validasi dengan screenshot/browser comparison.
+  - [ ] Implementasikan tabel, filter, sorting, pagination, aksi row, modal/detail, validasi, permission, dan state response sesuai kontrak.
+
+### [ ] Kas/Bank / Pencarian BG Masuk
+- **Endpoint:** `/site/finance/chequein`
+- **Status lokal:** belum ditemukan route/view parity yang jelas
+- **Tab:** `List BG`, `Saldo Awal Program`
+- **Tabel:**
+  - `(tanpa id)` ? Create By | : | --
+  - `table` ? STATUS | NO BG | CUSTOMER | NO BKM | BANK | TOTAL | TANGGAL | BANK TUJUAN | AKSI | BUAT | JTEMPO | CAIR | TOLAK
+  - `table_saldo` ? No BG | Giro | Total | Tanggal | Keterangan | Status | Action
+- **Filter/form dan posisi field (urutan DOM):**
+  - `form-0` `GET` `/site/finance/chequein`:
+    - 1. `id_saldo` ? type=`hidden` ? label=No BG Giro Total Tanggal Buat Jatuh Tempo Keterangan
+    - 2. `no_bg` ? type=`text`
+    - 3. `no_bg_old` ? type=`hidden`
+    - 4. `bank_id`
+    - 5. `total_amount_saldo` ? type=`number`
+    - 6. `created_date` ? type=`text`
+    - 7. `jtempo` ? type=`text`
+    - 8. `note` ? type=`text`
+  - `form-1` `GET` `/site/finance/chequein`:
+    - 1. `id` ? type=`hidden` ? label=No BG No. BKM Total Tanggal Cair Tanggal Tolak Bank Tujuan Status Cair Tolak Batal Cair
+    - 2. `receipt_id` ? type=`hidden` ? label=No BG No. BKM Total Tanggal Cair Tanggal Tolak Bank Tujuan Status Cair Tolak Batal Cair
+    - 3. `no_cek` ? type=`text`
+    - 4. `cheque_id` ? type=`hidden`
+    - 5. `no_bkm` ? type=`text`
+    - 6. `total_amount` ? type=`text`
+    - 7. `tgl_cair` ? type=`text`
+    - 8. `tgl_buat` ? type=`hidden`
+    - 9. `period_name` ? type=`hidden`
+    - 10. `tgl_tolak` ? type=`text`
+    - 11. `tgl_tolak2` ? type=`hidden`
+    - 12. `bank_id_dest`
+    - 13. `status` ? type=`text`
+    - 14. `status_id` ? type=`hidden`
+    - 15. `status_doc_id` ? type=`hidden`
+    - 16. `btnCair` ? type=`button` ? label=No BG No. BKM Total Tanggal Cair Tanggal Tolak Bank Tujuan Status Cair Tolak Batal Cair
+    - 17. `btnTolak` ? type=`button` ? label=No BG No. BKM Total Tanggal Cair Tanggal Tolak Bank Tujuan Status Cair Tolak Batal Cair
+    - 18. `btnBatal` ? type=`button` ? label=No BG No. BKM Total Tanggal Cair Tanggal Tolak Bank Tujuan Status Cair Tolak Batal Cair
+- **Tombol/aksi terdeteksi:** `Toggle navigation`, `Undo`, `Info`, `×`, `Save`, `Cancel`, `Cair`, `Tolak`, `Batal Cair`, `OK`
+- **Endpoint AJAX/behavior terdeteksi:** `/site/auto/change_status/`, `/site/auto/dropdown/`, `/site/finance/chequein/add_record`, `/site/finance/chequein/ajax_add_saldo/`, `/site/finance/chequein/ajax_update_saldo/`, `/site/finance/chequein/delete_record/`, `/site/finance/chequein/get_edit//`, `/site/finance/chequein/record//`, `/site/finance/chequein/update_record`, `/site/home/dashboard/UpdateDB`, `/site/master/user/modal_chpass`
+- **TODO parity:**
+  - [ ] Replikasi layout dan posisi form sesuai urutan di atas; validasi dengan screenshot/browser comparison.
+  - [ ] Implementasikan tabel, filter, sorting, pagination, aksi row, modal/detail, validasi, permission, dan state response sesuai kontrak.
+
+### [ ] Kas/Bank / Pencarian BG Keluar
+- **Endpoint:** `/site/finance/chequeout`
+- **Status lokal:** belum ditemukan route/view parity yang jelas
+- **Tab:** `List BG`, `Saldo Awal Program`
+- **Tabel:**
+  - `(tanpa id)` ? Create By | : | --
+  - `table` ? STATUS | NO BG | SUPPLIER | NO BKK | TOTAL | TANGGAL | BANK TUJUAN | AKSI | BUAT | JTEMPO | CAIR | TOLAK
+  - `table_saldo` ? No BG | Giro | Total | Tanggal | Keterangan | Status | Action
+- **Filter/form dan posisi field (urutan DOM):**
+  - `form-0` `GET` `/site/finance/chequeout`:
+    - 1. `id_saldo` ? type=`hidden` ? label=No BG Giro Total Tanggal Buat Jatuh Tempo Keterangan
+    - 2. `no_bg` ? type=`text`
+    - 3. `no_bg_old` ? type=`hidden`
+    - 4. `bank_id`
+    - 5. `total_amount_saldo` ? type=`number`
+    - 6. `created_date` ? type=`text`
+    - 7. `jtempo` ? type=`text`
+    - 8. `note` ? type=`text`
+  - `form-1` `GET` `/site/finance/chequeout`:
+    - 1. `id` ? type=`hidden` ? label=No BG No. BKK Total Tanggal Cair Tanggal Tolak Bank Tujuan Status Cair Tolak Batal Cair
+    - 2. `payment_id` ? type=`hidden` ? label=No BG No. BKK Total Tanggal Cair Tanggal Tolak Bank Tujuan Status Cair Tolak Batal Cair
+    - 3. `no_cek` ? type=`text`
+    - 4. `cheque_id` ? type=`hidden`
+    - 5. `no_bkk` ? type=`text`
+    - 6. `total_amount` ? type=`text`
+    - 7. `tgl_cair` ? type=`text`
+    - 8. `tgl_buat` ? type=`hidden`
+    - 9. `period_name` ? type=`hidden`
+    - 10. `tgl_tolak` ? type=`text`
+    - 11. `tgl_tolak2` ? type=`hidden`
+    - 12. `bank_id_dest`
+    - 13. `status` ? type=`text`
+    - 14. `status_id` ? type=`hidden`
+    - 15. `status_doc_id` ? type=`hidden`
+    - 16. `btnCair` ? type=`button` ? label=No BG No. BKK Total Tanggal Cair Tanggal Tolak Bank Tujuan Status Cair Tolak Batal Cair
+    - 17. `btnTolak` ? type=`button` ? label=No BG No. BKK Total Tanggal Cair Tanggal Tolak Bank Tujuan Status Cair Tolak Batal Cair
+    - 18. `btnBatal` ? type=`button` ? label=No BG No. BKK Total Tanggal Cair Tanggal Tolak Bank Tujuan Status Cair Tolak Batal Cair
+- **Tombol/aksi terdeteksi:** `Toggle navigation`, `Undo`, `Info`, `×`, `Save`, `Cancel`, `Cair`, `Tolak`, `Batal Cair`, `OK`
+- **Endpoint AJAX/behavior terdeteksi:** `/site/auto/change_status/`, `/site/auto/dropdown/`, `/site/finance/chequeout/add_record`, `/site/finance/chequeout/ajax_add_saldo/`, `/site/finance/chequeout/ajax_update_saldo/`, `/site/finance/chequeout/delete_record/`, `/site/finance/chequeout/get_edit//`, `/site/finance/chequeout/record//`, `/site/finance/chequeout/update_record`, `/site/home/dashboard/UpdateDB`, `/site/master/user/modal_chpass`
+- **TODO parity:**
+  - [ ] Replikasi layout dan posisi form sesuai urutan di atas; validasi dengan screenshot/browser comparison.
+  - [ ] Implementasikan tabel, filter, sorting, pagination, aksi row, modal/detail, validasi, permission, dan state response sesuai kontrak.
+
+### [ ] Kas/Bank / Laporan Kas/Bank
+- **Endpoint:** `/site/finance/report`
+- **Status lokal:** ada cash flow report; parity halaman belum diverifikasi
+- **Tabel:**
+  - `fTable1` ? 1. Detail Bukti Kas Keluar (BKK)
+  - `fTable2` ? 1. Laporan Giro Keluar
+- **Filter/form dan posisi field (urutan DOM):**
+  - `form-0` `GET` `/site/finance/report`:
+    - 1. `id` ? type=`hidden` ? label=Catatan
+    - 2. `NOTE` ? type=`text`
+- **Tombol/aksi terdeteksi:** `Toggle navigation`, `×`, `OK`, `Cancel`
+- **Endpoint AJAX/behavior terdeteksi:** `/site/finance/report/ajax_edit//`, `/site/finance/report/ajax_update/`, `/site/home/dashboard/UpdateDB`, `/site/master/user/modal_chpass`
+- **TODO parity:**
+  - [ ] Replikasi layout dan posisi form sesuai urutan di atas; validasi dengan screenshot/browser comparison.
+  - [ ] Implementasikan tabel, filter, sorting, pagination, aksi row, modal/detail, validasi, permission, dan state response sesuai kontrak.
+
+### [ ] GL / Info Accounting
+- **Endpoint:** `/site/gl/info`
+- **Status lokal:** ada accounting ledger; parity halaman belum diverifikasi
+- **Tab:** `Buku Besar Pembantu`, `Neraca Saldo`
+- **Tabel:**
+  - `table_buku` ? Tanggal | Keterangan | No Jurnal | No Ref | Kode | Akun | Awal | Debet | Kredit | Saldo
+- **Filter/form dan posisi field (urutan DOM):**
+  - (tanpa form pada initial DOM; filter bisa berupa widget/JS dan wajib diuji browser)
+- **Tombol/aksi terdeteksi:** `Toggle navigation`, `Refresh`, `×`
+- **Endpoint AJAX/behavior terdeteksi:** `/site/auto/end_date//`, `/site/gl/info/record/buku_besar?period_name=`, `/site/home/dashboard/UpdateDB`, `/site/master/user/modal_chpass`
+- **TODO parity:**
+  - [ ] Replikasi layout dan posisi form sesuai urutan di atas; validasi dengan screenshot/browser comparison.
+  - [ ] Implementasikan tabel, filter, sorting, pagination, aksi row, modal/detail, validasi, permission, dan state response sesuai kontrak.
+
+### [ ] GL / Transaksi Jurnal
+- **Endpoint:** `/site/gl/jurnal`
+- **Status lokal:** ada API journal; parity halaman belum diverifikasi
+- **Tabel:**
+  - `table` ? STATUS | NOMOR JURNAL | NO REFERENSI | TANGGAL | KETERANGAN | TOTAL | AKSI
+- **Filter/form dan posisi field (urutan DOM):**
+  - `form-0` `POST` `/site/gl/jurnal`:
+    - 1. `file_import_csv` ? type=`file` ? placeholder=File
+  - `form-1` `POST` `/site/gl/jurnal`:
+    - 1. `dtNoJurnal` ? type=`text`
+    - 2. `dtTglMulai` ? type=`text`
+    - 3. `dtTglSampai` ? type=`text`
+    - 4. `dtStatus`
+    - 5. `dtNoRef` ? type=`text`
+    - 6. `dtNote` ? type=`text`
+    - 7. `dtCreatedBy`
+    - 8. `dtUpdateBy`
+    - 9. `dtCreatedDate` ? type=`text`
+    - 10. `dtUpdateDate` ? type=`text`
+    - 11. `dtPeriode`
+- **Tombol/aksi terdeteksi:** `Toggle navigation`, `New`, `Filter`, `Reset`, `Import`, `×`, `Download Template`, `Save`, `Cancel`, `Filter Data`
+- **Endpoint AJAX/behavior terdeteksi:** `/site/auto/dropdown/`, `/site/home/dashboard/UpdateDB`, `/site/import/csv/data?note=jurnal`, `/site/import/csv?note=jurnal`, `/site/master/user/modal_chpass`, `/site/search/filter/createdby`, `/site/search/filter/periode`, `/site/search/filter/status`, `/site/search/filter/updateby`
+- **TODO parity:**
+  - [ ] Replikasi layout dan posisi form sesuai urutan di atas; validasi dengan screenshot/browser comparison.
+  - [ ] Implementasikan tabel, filter, sorting, pagination, aksi row, modal/detail, validasi, permission, dan state response sesuai kontrak.
+
+### [ ] GL / Closing Periode Akuntansi
+- **Endpoint:** `/site/gl/closing`
+- **Status lokal:** ada API closing period; parity halaman belum diverifikasi
+- **Tabel:**
+  - `table` ? BULAN | PERIODE | TANGGAL | TAHUN | TANGGAL | STATUS | MULAI AKHIR | AKHIR
+- **Filter/form dan posisi field (urutan DOM):**
+  - `form-0` `POST` `/site/facilities/setup/save_setting_suntik_awal`:
+    - 1. `ck_suntik_awal` ? type=`checkbox`
+    - 2. `(tanpa name/id)` ? type=`submit` ? label=PROSES
+- **Tombol/aksi terdeteksi:** `Toggle navigation`, `Closing`, `Create Period`, `Undo Closing`, `Proses`, `Test`, `View Problem`, `PROSES`, `×`
+- **Endpoint AJAX/behavior terdeteksi:** `/site/gl/closing`, `/site/gl/closing/closing_queue`, `/site/home/dashboard/UpdateDB`, `/site/master/user/modal_chpass`
+- **TODO parity:**
+  - [ ] Replikasi layout dan posisi form sesuai urutan di atas; validasi dengan screenshot/browser comparison.
+  - [ ] Implementasikan tabel, filter, sorting, pagination, aksi row, modal/detail, validasi, permission, dan state response sesuai kontrak.
+
+### [ ] GL / Laporan Accounting
+- **Endpoint:** `/site/gl/report`
+- **Status lokal:** ada financial statement report; parity halaman belum diverifikasi
+- **Tabel:**
+  - `fTable1` ? 1. Buku Besar Pembantu
+- **Filter/form dan posisi field (urutan DOM):**
+  - `form-0` `GET` `/site/gl/report`:
+    - 1. `id` ? type=`hidden` ? label=Catatan
+    - 2. `NOTE` ? type=`text`
+- **Tombol/aksi terdeteksi:** `Toggle navigation`, `×`, `OK`, `Cancel`
+- **Endpoint AJAX/behavior terdeteksi:** `/site/gl/report/ajax_edit//`, `/site/gl/report/ajax_update/`, `/site/home/dashboard/UpdateDB`, `/site/master/user/modal_chpass`
+- **TODO parity:**
+  - [ ] Replikasi layout dan posisi form sesuai urutan di atas; validasi dengan screenshot/browser comparison.
+  - [ ] Implementasikan tabel, filter, sorting, pagination, aksi row, modal/detail, validasi, permission, dan state response sesuai kontrak.
+
+### [ ] Analisa / Laporan Keuangan
+- **Endpoint:** `/site/analysis/keuangan`
+- **Status lokal:** ada cash flow/financial report; parity halaman belum diverifikasi
+- **Tabel:**
+  - `fTable1` ? 1. Laba Rugi Item / Barang #1 PAKAI INI
+  - `fTable2` ? 1. Laporan Arus Kas
+- **Filter/form dan posisi field (urutan DOM):**
+  - `form-0` `GET` `/site/analysis/keuangan`:
+    - 1. `id` ? type=`hidden` ? label=Catatan
+    - 2. `NOTE` ? type=`text`
+- **Tombol/aksi terdeteksi:** `Toggle navigation`, `×`, `OK`, `Cancel`
+- **Endpoint AJAX/behavior terdeteksi:** `/site/analysis/keuangan/ajax_edit//`, `/site/analysis/keuangan/ajax_update/`, `/site/home/dashboard/UpdateDB`, `/site/master/user/modal_chpass`
+- **TODO parity:**
+  - [ ] Replikasi layout dan posisi form sesuai urutan di atas; validasi dengan screenshot/browser comparison.
+  - [ ] Implementasikan tabel, filter, sorting, pagination, aksi row, modal/detail, validasi, permission, dan state response sesuai kontrak.
+
+### [ ] Analisa / Laporan Manajerial
+- **Endpoint:** `/site/analysis/manajerial`
+- **Status lokal:** ada analytics reports; parity halaman belum diverifikasi
+- **Tabel:**
+  - `fTable1` ? 1. Ekspor Customer Ekspor
+- **Filter/form dan posisi field (urutan DOM):**
+  - `form-0` `GET` `/site/analysis/manajerial`:
+    - 1. `id` ? type=`hidden` ? label=Catatan
+    - 2. `NOTE` ? type=`text`
+- **Tombol/aksi terdeteksi:** `Toggle navigation`, `×`, `OK`, `Cancel`
+- **Endpoint AJAX/behavior terdeteksi:** `/site/analysis/manajerial/ajax_edit//`, `/site/analysis/manajerial/ajax_update/`, `/site/home/dashboard/UpdateDB`, `/site/master/user/modal_chpass`
+- **TODO parity:**
+  - [ ] Replikasi layout dan posisi form sesuai urutan di atas; validasi dengan screenshot/browser comparison.
+  - [ ] Implementasikan tabel, filter, sorting, pagination, aksi row, modal/detail, validasi, permission, dan state response sesuai kontrak.
+
+## Urutan Pengerjaan
+### P0 ? Shell dan master data
+- [ ] Ganti/extend sidebar menjadi 7 top-level Ninesoft dan seluruh 24 submenu Master.
+- [ ] Selesaikan parity `Daftar Nilai`, `Barang dan Jasa`, `Formula (BOM)`, `Satuan`, `Saldo Awal`, `Konversi Item`, `Gudang`, `Jangka Waktu Kredit`, `Pajak`, `Customer`, `Supplier`, `Alamat`, `Sales`, `Daftar Harga`, `Asset`, `Account`, `Saldo Awal COA`, `Setting COA`, `User Group`, `Setting Menu`, `Cetakan`, `List Laporan`, `Cetak Barcode`, `Info Whatsapp`.
+### P0 ? Inventory
+- [ ] Selesaikan parity Info Barang Stok, Pindah Antar Gudang, Stok Adjustment, Stok Opname, Adjustment Nilai, Perakitan, dan Laporan Persediaan.
+### P1 ? Pembelian dan Penjualan
+- [ ] Selesaikan seluruh 6 submenu Pembelian dan 8 submenu Penjualan; pastikan alur draft ? approve/posting ? retur ? laporan.
+### P1 ? Kas/Bank dan GL
+- [ ] Selesaikan bukti kas masuk/keluar, BG masuk/keluar, laporan Kas/Bank, jurnal, closing, dan laporan accounting.
+### P2 ? Analisa dan administrasi
+- [ ] Selesaikan Laporan Keuangan, Laporan Manajerial, cetakan, list laporan, WhatsApp, import/export, dan pengaturan menu/user group.
+
+## Definition of Done
+- [ ] Semua 57 checklist halaman tercentang.
+- [ ] Snapshot/screenshot lokal dibandingkan dengan Ninesoft pada viewport yang sama; tidak ada field, header, aksi, tab, atau urutan posisi yang hilang.
+- [ ] Test API dan browser mencakup filter, reset, pagination, create/edit/delete, import/export, print, posting/closing, permission, dan error state.
+- [ ] Link menu dari sidebar sampai endpoint final tidak 404 dan active state konsisten.
+- [ ] Setelah perubahan struktur, jalankan ulang crawler Python dan simpan diff kontrak untuk review.

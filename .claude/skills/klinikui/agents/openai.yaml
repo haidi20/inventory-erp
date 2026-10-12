@@ -1,0 +1,4 @@
+interface:
+  display_name: "Klinik UI"
+  short_description: "Standar frontend Klinik 2026"
+  default_prompt: "Use $klinikui to build a new Klinik 2026 frontend feature with modular Vue, Either repo impl, and Playwright coverage."

@@ -1,0 +1,42 @@
+:root {
+    /* Mandiri brand colors */
+    --lv-primary: #003D79;
+    --lv-primary-dark: #002952;
+    --lv-accent: #FDB913;
+    --lv-accent-soft: #FFF3D6;
+    --lv-surface: #FFFFFF;
+    --lv-background: #F5F6FA;
+    --lv-border: #E8EAF0;
+    --lv-ink: #1A1A2E;
+    --lv-neutral: #6B7280;
+    --lv-success: #16A34A;
+    --lv-success-soft: #F0FDF4;
+    --lv-danger: #DC2626;
+    --lv-danger-soft: #FEF2F2;
+    --lv-warning: #D97706;
+    --lv-warning-soft: #FFFBEB;
+    --lv-info: #2563EB;
+    --lv-info-soft: #EFF6FF;
+}
+
+html.dark {
+    color-scheme: dark;
+
+    --lv-primary: #60A5FA;
+    --lv-primary-dark: #3B82F6;
+    --lv-accent: #FBBF24;
+    --lv-accent-soft: rgba(251, 191, 36, .14);
+    --lv-surface: #16202F;
+    --lv-background: #0B1220;
+    --lv-border: #334155;
+    --lv-ink: #E6EDF6;
+    --lv-neutral: #94A3B8;
+    --lv-success: #4ADE80;
+    --lv-success-soft: rgba(22, 101, 52, .32);
+    --lv-danger: #F87171;
+    --lv-danger-soft: rgba(153, 27, 27, .32);
+    --lv-warning: #FBBF24;
+    --lv-warning-soft: rgba(146, 64, 14, .28);
+    --lv-info: #60A5FA;
+    --lv-info-soft: rgba(37, 99, 235, .22);
+}

@@ -1,0 +1,479 @@
+.transaction-hub {
+    --hub-bg: #f1f5f9;
+    --hub-card: #ffffff;
+    --hub-border: #e2e8f0;
+    --hub-text: #1e293b;
+    --hub-muted: #64748b;
+    --hub-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+    --tone-blue: #2563eb;
+    --tone-green: #059669;
+    --tone-orange: #ea580c;
+    --tone-purple: #7c3aed;
+    --tone-red: #dc2626;
+    --tone-yellow: #ca8a04;
+    min-height: 100%;
+    padding: 4px 0 32px;
+    color: var(--hub-text);
+}
+
+.transaction-hub .hero-panel,
+.transaction-hub .module-card,
+.transaction-hub .status-panel,
+.transaction-hub .activity-panel {
+    background: var(--hub-card);
+    border: 1px solid var(--hub-border);
+    box-shadow: var(--hub-shadow);
+}
+
+.transaction-hub .hero-panel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    padding: 24px;
+    border-radius: 8px;
+    margin-bottom: 24px;
+}
+
+.transaction-hub .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--hub-muted);
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.transaction-hub .breadcrumb-current {
+    color: var(--hub-text);
+}
+
+.transaction-hub .hero-panel h1 {
+    margin: 10px 0 6px;
+    font-size: clamp(28px, 4vw, 42px);
+    line-height: 1.08;
+    font-weight: 900;
+    letter-spacing: 0;
+}
+
+.transaction-hub .hero-panel p,
+.transaction-hub .module-header p,
+.transaction-hub .section-heading p,
+.transaction-hub .menu-desc,
+.transaction-hub .status-card p,
+.transaction-hub .activity-type,
+.transaction-hub .activity-time {
+    color: var(--hub-muted);
+}
+
+.transaction-hub .hero-panel p {
+    max-width: 720px;
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.transaction-hub .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.transaction-hub .hub-button,
+.transaction-hub .refresh-button,
+.transaction-hub .view-all-link {
+    min-height: 42px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border-radius: 8px;
+    font-weight: 800;
+    text-decoration: none;
+    transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+
+.transaction-hub .hub-button {
+    padding: 0 16px;
+}
+
+.transaction-hub .hub-button.primary {
+    background: #0f172a;
+    color: #ffffff;
+}
+
+.transaction-hub .hub-button.secondary,
+.transaction-hub .refresh-button,
+.transaction-hub .view-all-link {
+    background: #ffffff;
+    color: var(--hub-text);
+    border: 1px solid var(--hub-border);
+}
+
+.transaction-hub .hub-button:hover,
+.transaction-hub .refresh-button:hover,
+.transaction-hub .view-all-link:hover,
+.transaction-hub .menu-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 26px rgba(15, 23, 42, 0.12);
+}
+
+.transaction-hub .module-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 24px;
+}
+
+.transaction-hub .module-card {
+    border-radius: 8px;
+    padding: 22px;
+}
+
+.transaction-hub .module-header,
+.transaction-hub .module-title-wrap,
+.transaction-hub .section-heading {
+    display: flex;
+    align-items: center;
+}
+
+.transaction-hub .module-header,
+.transaction-hub .section-heading {
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.transaction-hub .module-title-wrap {
+    gap: 14px;
+}
+
+.transaction-hub .module-icon {
+    width: 52px;
+    height: 52px;
+    display: grid;
+    place-items: center;
+    border-radius: 8px;
+    font-size: 22px;
+    color: #ffffff;
+}
+
+.transaction-hub .sales-card .module-icon {
+    background: #2563eb;
+}
+
+.transaction-hub .purchase-card .module-icon {
+    background: #ea580c;
+}
+
+.transaction-hub .module-header h2,
+.transaction-hub .section-heading h2,
+.transaction-hub .status-card h3 {
+    margin: 0;
+    color: var(--hub-text);
+}
+
+.transaction-hub .module-header h2,
+.transaction-hub .section-heading h2 {
+    font-size: 20px;
+    font-weight: 900;
+}
+
+.transaction-hub .module-header p,
+.transaction-hub .section-heading p {
+    margin: 4px 0 0;
+    font-size: 13px;
+    line-height: 1.45;
+}
+
+.transaction-hub .module-chip {
+    flex: 0 0 auto;
+    padding: 7px 10px;
+    border-radius: 999px;
+    background: #f8fafc;
+    color: var(--hub-muted);
+    font-size: 11px;
+    font-weight: 900;
+    border: 1px solid var(--hub-border);
+}
+
+.transaction-hub .menu-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.transaction-hub .menu-card {
+    position: relative;
+    min-height: 122px;
+    display: grid;
+    grid-template-columns: 42px minmax(0, 1fr);
+    align-items: start;
+    gap: 12px;
+    width: 100%;
+    padding: 15px;
+    border: 1px solid var(--hub-border);
+    border-radius: 8px;
+    background: #ffffff;
+    color: var(--hub-text);
+    text-align: left;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+}
+
+.transaction-hub .menu-card.is-disabled {
+    cursor: default;
+}
+
+.transaction-hub .menu-card.is-disabled:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+.transaction-hub .menu-icon,
+.transaction-hub .status-icon,
+.transaction-hub .activity-icon {
+    display: grid;
+    place-items: center;
+    border-radius: 8px;
+    background: color-mix(in srgb, currentColor 12%, #ffffff);
+    color: currentColor;
+}
+
+.transaction-hub .menu-icon {
+    width: 42px;
+    height: 42px;
+    font-size: 18px;
+}
+
+.transaction-hub .menu-copy {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.transaction-hub .menu-title {
+    font-size: 13px;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.transaction-hub .menu-desc {
+    font-size: 12px;
+    line-height: 1.35;
+}
+
+.transaction-hub .menu-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    min-width: 24px;
+    height: 24px;
+    padding: 0 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    background: #f8fafc;
+    color: var(--hub-text);
+    border: 1px solid var(--hub-border);
+    font-size: 10px;
+    font-weight: 900;
+}
+
+.transaction-hub .tone-blue { color: var(--tone-blue); }
+.transaction-hub .tone-green { color: var(--tone-green); }
+.transaction-hub .tone-orange { color: var(--tone-orange); }
+.transaction-hub .tone-purple { color: var(--tone-purple); }
+.transaction-hub .tone-red { color: var(--tone-red); }
+.transaction-hub .tone-yellow { color: var(--tone-yellow); }
+
+.transaction-hub .status-panel,
+.transaction-hub .activity-panel {
+    margin-top: 24px;
+    border-radius: 8px;
+    padding: 22px;
+}
+
+.transaction-hub .refresh-button,
+.transaction-hub .view-all-link {
+    padding: 0 14px;
+    font-size: 13px;
+}
+
+.transaction-hub .refresh-button:disabled {
+    opacity: 0.65;
+    cursor: wait;
+}
+
+.transaction-hub .status-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 18px;
+}
+
+.transaction-hub .status-card {
+    min-height: 156px;
+    padding: 16px;
+    border: 1px solid var(--hub-border);
+    border-radius: 8px;
+    background: #ffffff;
+    display: flex;
+    gap: 13px;
+}
+
+.transaction-hub .status-icon {
+    flex: 0 0 auto;
+    width: 42px;
+    height: 42px;
+    font-size: 17px;
+}
+
+.transaction-hub .status-card h3 {
+    font-size: 14px;
+    font-weight: 900;
+}
+
+.transaction-hub .status-card p {
+    margin: 5px 0 12px;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.transaction-hub .status-value {
+    color: var(--hub-text);
+    font-size: 20px;
+    font-weight: 900;
+}
+
+.transaction-hub .status-amount {
+    margin-top: 3px;
+    color: currentColor;
+    font-size: 12px;
+    font-weight: 900;
+}
+
+.transaction-hub .activity-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 18px;
+}
+
+.transaction-hub .activity-row {
+    min-height: 70px;
+    display: grid;
+    grid-template-columns: 44px minmax(150px, 1fr) minmax(110px, auto) minmax(86px, auto) minmax(82px, auto);
+    align-items: center;
+    gap: 14px;
+    padding: 13px 14px;
+    border: 1px solid var(--hub-border);
+    border-radius: 8px;
+    background: #ffffff;
+}
+
+.transaction-hub .activity-icon {
+    width: 40px;
+    height: 40px;
+    color: var(--tone-blue);
+}
+
+.transaction-hub .activity-reference,
+.transaction-hub .activity-amount,
+.transaction-hub .activity-status {
+    color: var(--hub-text);
+    font-weight: 900;
+}
+
+.transaction-hub .activity-type,
+.transaction-hub .activity-time {
+    font-size: 12px;
+}
+
+.transaction-hub .activity-amount,
+.transaction-hub .activity-time,
+.transaction-hub .activity-status {
+    text-align: right;
+}
+
+@media (max-width: 1180px) {
+    .transaction-hub .status-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 1023px) {
+    .transaction-hub .hero-panel {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .transaction-hub .hero-actions {
+        justify-content: flex-start;
+    }
+
+    .transaction-hub .module-card {
+        padding: 18px;
+    }
+
+    .transaction-hub .menu-card {
+        min-height: 116px;
+        padding: 13px;
+    }
+}
+
+@media (max-width: 767px) {
+    .transaction-hub {
+        padding-bottom: 20px;
+    }
+
+    .transaction-hub .module-grid,
+    .transaction-hub .status-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .transaction-hub .menu-grid {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    }
+
+    .transaction-hub .section-heading,
+    .transaction-hub .module-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .transaction-hub .activity-row {
+        grid-template-columns: 40px minmax(0, 1fr);
+    }
+
+    .transaction-hub .activity-amount,
+    .transaction-hub .activity-time,
+    .transaction-hub .activity-status {
+        grid-column: 2;
+        text-align: left;
+    }
+}
+
+@media (max-width: 520px) {
+    .transaction-hub .hero-panel,
+    .transaction-hub .module-card,
+    .transaction-hub .status-panel,
+    .transaction-hub .activity-panel {
+        padding: 16px;
+    }
+
+    .transaction-hub .hero-actions,
+    .transaction-hub .hub-button,
+    .transaction-hub .refresh-button,
+    .transaction-hub .view-all-link {
+        width: 100%;
+    }
+
+    .transaction-hub .menu-grid {
+        grid-template-columns: 1fr;
+    }
+}

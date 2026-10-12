@@ -1,0 +1,162 @@
+{
+    "$schema": "https://getcomposer.org/schema.json",
+    "name": "laravel/laravel",
+    "type": "project",
+    "description": "The skeleton application for the Laravel framework.",
+    "keywords": [
+        "laravel",
+        "framework"
+    ],
+    "license": "MIT",
+    "require": {
+        "php": "^8.2",
+        "barryvdh/laravel-dompdf": "^3.1",
+        "inertiajs/inertia-laravel": "^3.0",
+        "laravel/framework": "^12.0",
+        "laravel/pulse": "^1.8",
+        "laravel/reverb": "^1.12",
+        "laravel/tinker": "^2.10.1",
+        "livewire/livewire": "^4.2",
+        "maatwebsite/excel": "^3.1",
+        "owen-it/laravel-auditing": "^14.0",
+        "php-open-source-saver/jwt-auth": "^2.1",
+        "predis/predis": "^3.6",
+        "spatie/laravel-permission": "^6.25",
+        "tightenco/ziggy": "^2.6"
+    },
+    "require-dev": {
+        "deptrac/deptrac": "2.0.7",
+        "fakerphp/faker": "^1.23",
+        "larastan/larastan": "3.12.2",
+        "laravel/pail": "^1.2.2",
+        "laravel/pint": "^1.24",
+        "laravel/sail": "^1.41",
+        "laravel/telescope": "^5.25",
+        "mockery/mockery": "^1.6",
+        "nunomaduro/collision": "^8.6",
+        "phpunit/phpunit": "^11.5.50"
+    },
+    "autoload": {
+        "files": [
+            "app/Shared/Support/helpers.php"
+        ],
+        "psr-4": {
+            "App\\": "app/",
+            "App\\Shared\\": "app/Shared/",
+            "App\\Modules\\": "modules/",
+            "Database\\Migrations\\": "database/migrations/",
+            "Database\\Factories\\": [
+                "modules/Finance/Journal/database/factories/",
+                "modules/Finance/Ledger/database/factories/",
+                "modules/Operational/Manufacturing/database/factories/",
+                "modules/Operational/Master/database/factories/",
+                "modules/Operational/Sales/database/factories/",
+                "modules/Operational/Inventory/database/factories/",
+                "modules/Core/Organization/database/factories/",
+                "modules/Core/Identity/database/factories/",
+                "modules/Clinical/Registration/database/factories/"
+            ],
+            "Database\\Factories\\Accounting\\": [
+                "modules/Finance/Journal/database/factories/Accounting/",
+                "modules/Finance/Ledger/database/factories/Accounting/"
+            ],
+            "Database\\Factories\\Master\\": [
+                "modules/Operational/Master/database/factories/Master/",
+                "modules/Core/Organization/database/factories/Master/",
+                "modules/Core/Identity/database/factories/Master/",
+                "modules/Clinical/Registration/database/factories/Master/"
+            ],
+            "Database\\Factories\\Operational\\": [
+                "modules/Operational/Sales/database/factories/Operational/",
+                "modules/Operational/Inventory/database/factories/Operational/",
+                "modules/Operational/Master/database/factories/Operational/"
+            ],
+            "Database\\Seeders\\": [
+                "database/seeders/",
+                "modules/Clinical/Integration/database/seeders/",
+                "modules/Clinical/MedicalRecord/database/seeders/",
+                "modules/Clinical/Registration/database/seeders/",
+                "modules/Core/Authorization/database/seeders/",
+                "modules/Core/Identity/database/seeders/",
+                "modules/Core/Organization/database/seeders/",
+                "modules/Core/Platform/database/seeders/",
+                "modules/Finance/Journal/database/seeders/",
+                "modules/Finance/Ledger/database/seeders/",
+                "modules/Operational/Procurement/database/seeders/",
+                "modules/Operational/Master/database/seeders/",
+                "modules/Operational/Inventory/database/seeders/",
+                "modules/Operational/Sales/database/seeders/"
+            ]
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "setup": [
+            "composer install",
+            "@php -r \"file_exists(\u0027.env\u0027) || copy(\u0027.env.example\u0027, \u0027.env\u0027);\"",
+            "@php artisan key:generate",
+            "@php artisan migrate --force",
+            "npm install",
+            "npm run build"
+        ],
+        "dev": [
+            "Composer\\Config::disableProcessTimeout",
+            "npx concurrently -c \"#93c5fd,#c4b5fd,#fb7185,#fdba74\" \"php artisan serve\" \"php artisan queue:listen --tries=1 --timeout=0\" \"php artisan pail --timeout=0\" \"npm run dev\" --names=server,queue,logs,vite --kill-others"
+        ],
+        "test": [
+            "@php artisan config:clear --ansi",
+            "@php artisan test"
+        ],
+        "ci:pint": [
+            "vendor/bin/pint --test modules/Operational/Master/Support modules/Operational/Master/Services/ProductExportService.php modules/Operational/Master/Services/ProductImportService.php modules/Operational/Master/Repositories/ProductRepository.php modules/Operational/Master/Http/Controllers/ProductController.php modules/Operational/Master/Http/Controllers/WebProductController.php modules/Operational/Master/Entities/ProductEntity.php modules/Core/Identity/Models/User.php modules/Core/Identity/Entities/UserEntity.php modules/Core/Identity/Repositories/UserRepository.php modules/Core/Identity/Http/Controllers/UserController.php"
+        ],
+        "ci:phpstan": [
+            "vendor/bin/phpstan analyse --memory-limit=1G"
+        ],
+        "ci:deptrac": [
+            "vendor/bin/deptrac analyse"
+        ],
+        "ci:module-boundaries": [
+            "@php scripts/check-module-boundaries.php"
+        ],
+        "post-autoload-dump": [
+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+            "@php artisan package:discover --ansi"
+        ],
+        "post-update-cmd": [
+            "@php artisan vendor:publish --tag=laravel-assets --ansi --force"
+        ],
+        "post-root-package-install": [
+            "@php -r \"file_exists(\u0027.env\u0027) || copy(\u0027.env.example\u0027, \u0027.env\u0027);\""
+        ],
+        "post-create-project-cmd": [
+            "@php artisan key:generate --ansi",
+            "@php -r \"file_exists(\u0027database/database.sqlite\u0027) || touch(\u0027database/database.sqlite\u0027);\"",
+            "@php artisan migrate --graceful --ansi"
+        ],
+        "pre-package-uninstall": [
+            "Illuminate\\Foundation\\ComposerScripts::prePackageUninstall"
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "dont-discover": []
+        }
+    },
+    "config": {
+        "platform-check": false,
+        "optimize-autoloader": false,
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "php-http/discovery": true
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
