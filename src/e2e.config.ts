@@ -1,12 +1,14 @@
 import type { E2EConfig } from 'e2e';
 import { web } from '@e2e-dev/web';
-import { gateway } from 'ai';
+import { createOpenRouter } from '@openrouter/ai-sdk-provider';
+
+const openrouter = createOpenRouter({ apiKey: process.env.OPENROUTER_API_KEY ?? '' });
 
 export default {
-  // The Vercel AI Gateway serves the model id and reads AI_GATEWAY_API_KEY, or the OIDC token of a linked Vercel project.
+  // OpenRouter serves the model id and reads OPENROUTER_API_KEY.
   agents: {
     default: {
-      model: gateway('openai/gpt-6-luna-fast'),
+      model: openrouter('openai/gpt-4o-mini'),
       system: 'You are a thorough QA agent. Verify every outcome.',
     },
   },
@@ -20,8 +22,8 @@ export default {
   }],
   credentials: {
     superadmin: {
-      username: process.env.E2E_SUPERADMIN_USERNAME ?? '',
-      password: process.env.E2E_SUPERADMIN_PASSWORD ?? '',
+      username: process.env.E2E_SUPERADMIN_USERNAME ?? 'superadmin',
+      password: process.env.E2E_SUPERADMIN_PASSWORD ?? 'superadmin',
     },
   },
 } satisfies E2EConfig;

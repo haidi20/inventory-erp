@@ -19,6 +19,7 @@
         "@e2e-dev/web": "^0.14.0",
         "@inertiajs/core": "^3.0.3",
         "@inertiajs/vue3": "^3.0.3",
+        "@openrouter/ai-sdk-provider": "^3.1.0",
         "@playwright/test": "^1.59.1",
         "@tailwindcss/vite": "^4.0.0",
         "@types/lodash": "^4.17.24",
