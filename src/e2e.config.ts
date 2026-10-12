@@ -8,7 +8,7 @@ export default {
   // OpenRouter serves the model id and reads OPENROUTER_API_KEY.
   agents: {
     default: {
-      model: openrouter('openai/gpt-4o-mini'),
+      model: openrouter('google/gemini-2.0-flash-lite-001'),
       system: 'You are a thorough QA agent. Verify every outcome.',
     },
   },
