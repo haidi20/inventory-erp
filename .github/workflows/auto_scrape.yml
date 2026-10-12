@@ -11,6 +11,7 @@ on:
 jobs:
   scrape-and-document:
     runs-on: ubuntu-latest
+    continue-on-error: true
     
     steps:
       - name: Checkout Repository

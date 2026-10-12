@@ -3,6 +3,7 @@ FROM serversideup/php:8.3-fpm-alpine AS base
 USER root
 
 RUN apk add --no-cache mysql-client bash git \
+    && install-php-extensions bcmath gd intl zip \
     && adduser -D -u 1000 www-data 2>/dev/null || true
 
 COPY docker/app/php-fpm/www.conf /usr/local/etc/php-fpm.d/www.conf
