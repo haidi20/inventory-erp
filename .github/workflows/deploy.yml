@@ -30,6 +30,11 @@ jobs:
       - name: Install Composer dependencies
         run: composer install --no-interaction --prefer-dist --no-progress --ignore-platform-reqs --no-scripts
 
+      - name: Prepare environment
+        run: |
+          cp .env.example .env
+          php artisan key:generate
+
       - name: Smoke check Laravel boot
         run: php artisan about --only=environment
 
