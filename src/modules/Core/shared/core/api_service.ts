@@ -27,16 +27,18 @@ function getNodeEnv(name: string): string | undefined {
     }
 }
 
-function resolveRuntimeContext(): { environment?: string } {
+function resolveRuntimeContext(): { environment?: string; company_uuid?: string } {
     try {
         const page = usePage<CustomPageProps & {
             app_context?: {
                 runtime_environment?: string;
+                company_uuid?: string;
             };
         }>();
 
         return {
             environment: page?.props?.app_context?.runtime_environment ?? getNodeEnv('KLINIK_RUNTIME_ENV'),
+            company_uuid: page?.props?.app_context?.company_uuid,
         };
     } catch (error) {
         return {
@@ -79,6 +81,10 @@ apiService.interceptors.request.use(
 
         if (runtimeContext.environment) {
             config.headers['X-Klinik-Environment'] = runtimeContext.environment;
+        }
+
+        if (runtimeContext.company_uuid) {
+            config.headers['X-Klinik-Company-Uuid'] = runtimeContext.company_uuid;
         }
 
         return config;

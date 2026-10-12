@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { CHART_OF_ACCOUNTS_COLUMNS } from '@modules/Finance/Journal/presentations/viewmodels/chart_of_accounts.state';
+import { CHART_OF_ACCOUNTS_COLUMNS, createChartOfAccountsUIState } from '@modules/Finance/Journal/presentations/viewmodels/chart_of_accounts.state';
 
-import { onMounted, ref } from 'vue';
+import { onMounted } from 'vue';
 import { Head } from '@inertiajs/vue3';
 import DataTable from '@modules/Core/shared/Components/common/DataTable.vue';
 import { useChartOfAccountsVM } from '@modules/Finance/Journal/presentations/viewmodels/chart_of_accounts.vm';
@@ -9,7 +9,7 @@ import ChartOfAccountsForm from '@modules/Finance/Journal/presentations/views/Pa
 
 const columns = CHART_OF_ACCOUNTS_COLUMNS;
 const vm = useChartOfAccountsVM();
-const datatableRef = ref<{ reload(): void } | null>(null);
+const { datatableRef } = createChartOfAccountsUIState();
 
 onMounted(() => {
     vm.registerReload(() => datatableRef.value?.reload());

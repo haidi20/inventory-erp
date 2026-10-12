@@ -4,8 +4,8 @@ namespace App\Modules\Operational\Master\Http\Controllers;
 
 use App\Modules\Core\Identity\Http\Controllers\Controller;
 use App\Modules\Operational\Master\Services\ProductService;
-use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Inertia\Response;
 

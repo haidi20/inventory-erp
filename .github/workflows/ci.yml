@@ -158,7 +158,7 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install --with-deps chromium
       - name: Prepare test database
-        run: php artisan migrate:fresh --seed
+        run: php artisan migrate:fresh --seed --force
       - name: Run Playwright
         run: npm run e2e:report
       - name: Coverage gate

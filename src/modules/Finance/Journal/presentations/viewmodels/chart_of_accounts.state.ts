@@ -1,3 +1,4 @@
+import { ref } from 'vue';
 import type { DataTableColumn } from '@modules/Core/shared/Components/common/DataTable-types';
 
 export type AccountType = 'asset' | 'liability' | 'equity' | 'revenue' | 'expense';
@@ -33,3 +34,8 @@ export const CHART_OF_ACCOUNTS_COLUMNS: DataTableColumn[] = [
     { key: 'is_active', label: 'Status',    width: '120px', align: 'center', sortable: true },
     { key: 'actions',   label: 'Aksi',      width: '110px', align: 'center' },
 ];
+
+export function createChartOfAccountsUIState() {
+    const datatableRef = ref<any>();
+    return { datatableRef };
+}

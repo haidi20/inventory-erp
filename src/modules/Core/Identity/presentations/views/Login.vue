@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onMounted } from 'vue';
+import { onMounted } from 'vue';
 import { useLoginVM } from '@modules/Core/Identity/presentations/viewmodels/login.vm';
 
 // Props dari Inertia
@@ -9,16 +9,6 @@ const props = defineProps<{
 }>();
 
 const vm = useLoginVM();
-
-// Inertia mengirim error bag sebagai array per field; jangan dirender mentah
-// (akan tampil sebagai [ "pesan" ]) -- gabungkan jadi kalimat tunggal.
-const firstError = computed(() => {
-    const value = Object.values(props.errors ?? {})[0];
-    if (Array.isArray(value)) {
-        return value.join(' ');
-    }
-    return value ?? '';
-});
 
 onMounted(() => {
     vm.initCsrf();
@@ -45,9 +35,9 @@ onMounted(() => {
                 <div v-if="props.status" class="alert-success">{{ props.status }}</div>
 
                 <!-- Validation/auth errors -->
-                <div v-if="firstError" class="alert-error">
+                <div v-if="vm.getFirstError(props.errors)" class="alert-error">
                     <i class="fa-solid fa-circle-exclamation"></i>
-                    {{ firstError }}
+                    {{ vm.getFirstError(props.errors) }}
                 </div>
                 <div v-if="vm.clientError" class="alert-error">
                     <i class="fa-solid fa-circle-exclamation"></i>

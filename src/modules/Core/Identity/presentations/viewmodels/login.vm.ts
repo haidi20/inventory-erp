@@ -129,6 +129,14 @@ export const useLoginVM = defineStore('login-vm', () => {
         }
     };
 
+    const getFirstError = (errors?: Record<string, string | string[]>): string => {
+        const value = Object.values(errors ?? {})[0];
+        if (Array.isArray(value)) {
+            return value.join(' ');
+        }
+        return value ?? '';
+    };
+
     return {
         email,
         password,
@@ -155,5 +163,6 @@ export const useLoginVM = defineStore('login-vm', () => {
         selectRoleFromForm,
         showPassword,
         togglePasswordVisibility,
+        getFirstError,
     };
 });

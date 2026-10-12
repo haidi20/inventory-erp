@@ -39,12 +39,9 @@ describe('useLoginVM', () => {
         expect(vm.roleConfirmed).toBe(false);
     });
 
-    it('harus memiliki 2 demo accounts aktif dengan email @klinik.local', () => {
+    it('demo accounts dikosongkan (semua dikomentari)', () => {
         const vm = useLoginVM();
-        expect(vm.demoAccounts).toHaveLength(2);
-        const roles = vm.demoAccounts.map(a => a.role);
-        expect(roles).toEqual(['Owner', 'Apoteker']);
-        vm.demoAccounts.forEach(a => expect(a.email).toContain('@klinik.local'));
+        expect(vm.demoAccounts).toHaveLength(0);
     });
 
     // ── Modal controls ───────────────────────────────────────────────────────
