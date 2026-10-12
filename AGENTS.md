@@ -103,3 +103,35 @@ Pilih validasi sesuai area perubahan, jalankan dari `src/`:
   menjelaskan konteks, perilaku sebelum/sesudah, file terdampak, dan hasil
   validasi.
 
+## Dual Repository Push
+
+Project ini memakai dua repositori dengan aturan push yang berbeda:
+
+| Remote | URL | Branch | Visibilitas | History |
+|---|---|---|---|---|
+| `origin` | `https://github.com/haidi20/klinik.git` | `haidi` | Private | Lengkap |
+| `public` | `https://github.com/haidi20/inventory-erp.git` | `main` | Public | Bersih (orphan) |
+
+- Push default ke `origin haidi` dengan full history. Semua data boleh ada
+  di sini.
+- Push ke repo public HANYA melalui branch lokal `clean-public`. Branch ini
+  dibuat dengan `git checkout --orphan clean-public` sehingga tidak membawa
+  history lama.
+- SEBELUM push ke `public`, WAJIB verifikasi file sensitif berikut tidak ada:
+  - `ninesoft.sql` (dump ERP production: NPWP, alamat, telepon, rekening bank)
+  - `src/database/data/products-main.json` (produk real dari database main)
+  - Data pasien real (nama, NIK, no HP, alamat) di file mana pun
+  - Kredensial hardcoded (password, API key, token)
+  - File `.env` (hanya `.env.example` yang boleh)
+- Untuk sinkronisasi perubahan baru ke repo public:
+  1. Commit dan push ke `origin haidi` terlebih dahulu.
+  2. `git checkout clean-public`.
+  3. Terapkan perubahan yang sama, KECUALI file sensitif di atas.
+  4. Commit di `clean-public`.
+  5. `git push public clean-public:main`.
+  6. `git checkout haidi` untuk kembali bekerja.
+- Jika file baru yang sensitif ditambahkan ke `haidi`, TIDAK BOLEH di-copy
+  ke `clean-public`. Gunakan data dummy atau env variable.
+- Repo public mendapat GitHub Actions unlimited; repo private terkena limit
+  2.000 menit/bulan. Prioritaskan CI di repo public.
+
