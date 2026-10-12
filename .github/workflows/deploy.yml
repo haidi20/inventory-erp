@@ -24,11 +24,11 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: "8.3"
-          extensions: mbstring, pdo_sqlite
+          extensions: bcmath, curl, dom, gd, iconv, intl, mbstring, pdo_pgsql, pdo_mysql, pdo_sqlite, simplexml, xml, xmlwriter, zip
           coverage: none
 
       - name: Install Composer dependencies
-        run: composer install --no-interaction --prefer-dist --no-progress
+        run: composer install --no-interaction --prefer-dist --no-progress --ignore-platform-req=ext-*
 
       - name: Run PHPUnit
         run: php artisan test
