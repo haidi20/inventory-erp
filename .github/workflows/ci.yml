@@ -187,7 +187,9 @@ jobs:
           sed -i 's/QUEUE_CONNECTION=redis/QUEUE_CONNECTION=sync/' .env
           php artisan key:generate --force
       - name: Run Playwright
-        run: npm run e2e:report
+        run: |
+          set -o pipefail
+          bash scripts/ci/run-playwright-e2e.sh | tee ../playwright-e2e.log
       - name: Coverage gate
         if: always()
         run: npm run ci:coverage:playwright
@@ -198,4 +200,10 @@ jobs:
           path: |
             src/test-results/
             src/playwright-report/
+          retention-days: 7
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playwright-e2e-log
+          path: playwright-e2e.log
           retention-days: 7

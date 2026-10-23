@@ -1,6 +1,7 @@
 import { defineConfig, devices } from '@playwright/test';
 
 const baseURL = process.env.KLINIK_TEST_BASE_URL ?? 'http://127.0.0.1:8000';
+const manageServerInScript = process.env.E2E_MANAGE_SERVER === '1';
 
 export default defineConfig({
   testDir: '.',
@@ -36,10 +37,12 @@ export default defineConfig({
       },
     },
   ],
-  webServer: {
-    command: 'php artisan serve --host=127.0.0.1 --port=8000',
-    url: baseURL,
-    reuseExistingServer: true,
-    timeout: 120_000,
-  },
+  webServer: manageServerInScript
+    ? undefined
+    : {
+        command: 'php artisan serve --host=127.0.0.1 --port=8000',
+        url: baseURL,
+        reuseExistingServer: true,
+        timeout: 120_000,
+      },
 });
