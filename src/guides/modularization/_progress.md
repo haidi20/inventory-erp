@@ -1886,3 +1886,23 @@ Verifikasi: `npm run typecheck` lulus; `npx e2e list` menemukan 190 test
 (termasuk setup dan 1 skip known-gap); full smoke 140/140 pass; seluruh suite
 API/UI fokus pass saat dijalankan per file; suite security/tenant/contracts
 baru pass (5 test, 1 skip). Tidak ada commit/push.
+
+### 18.191 CI: Verifikasi opening balance General Ledger
+
+#### Status
+- Selesai (verifikasi perbaikan existing) - 2026-10-23.
+
+#### Temuan
+- `GeneralLedgerRepository::getOpeningBalance()` menjumlahkan saldo periode
+  `Opening` dan mutasi jurnal posted sebelum tanggal target.
+- Mutasi debit/kredit dikonversi sesuai arah normal akun, sehingga prior
+  mutation tidak lagi terabaikan.
+- Perbaikan existing sudah terbukti oleh test
+  `GeneralLedgerRepositoryTest::test_get_opening_balance_includes_opening_period_and_prior_mutations`.
+
+#### Validasi
+- PHPUnit fokus: 1 test, 1 assertion lulus.
+- Pint fokus: pass.
+- PHPStan fokus: no errors.
+- Bukti perbaikan public:
+  https://github.com/haidi20/inventory-erp/commit/9de3ab476.
