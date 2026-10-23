@@ -28,7 +28,7 @@ cleanup() {
 trap cleanup EXIT
 
 start_server() {
-    PHP_CLI_SERVER_WORKERS=4 php -S 127.0.0.1:8000 -t public tests/E2E/server.php &
+    php -S 127.0.0.1:8000 -t public tests/E2E/server.php &
     serverPid=$!
 
     for waitAttempt in $(seq 1 30); do
