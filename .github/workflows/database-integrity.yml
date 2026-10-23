@@ -43,6 +43,8 @@ jobs:
           php-version: "8.2"
           extensions: mbstring, pdo_sqlite, sqlite3
           coverage: none
+      - name: Prepare writable directories
+        run: mkdir -p bootstrap/cache storage/framework/views storage/framework/cache storage/framework/sessions
       - name: Install dependencies
         run: composer install --no-interaction --prefer-dist --no-progress
       - name: Verify V2 seeder remains disabled
