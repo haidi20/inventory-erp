@@ -28,7 +28,7 @@ cleanup() {
 trap cleanup EXIT
 
 start_server() {
-    PHP_CLI_SERVER_WORKERS=4 php artisan serve --host=127.0.0.1 --port=8000 --no-reload &
+    PHP_CLI_SERVER_WORKERS=4 php -S 127.0.0.1:8000 vendor/laravel/framework/src/Illuminate/Foundation/resources/server.php &
     serverPid=$!
 
     for waitAttempt in $(seq 1 30); do

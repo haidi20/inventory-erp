@@ -32,7 +32,7 @@ class PlaywrightCiRuntimeTest extends TestCase
         $workflow = (string) file_get_contents($workflowPath);
         $config = (string) file_get_contents($configPath);
 
-        $this->assertStringContainsString('PHP_CLI_SERVER_WORKERS=4 php artisan serve --host=127.0.0.1 --port=8000 --no-reload', $script);
+        $this->assertStringContainsString('PHP_CLI_SERVER_WORKERS=4 php -S 127.0.0.1:8000 vendor/laravel/framework/src/Illuminate/Foundation/resources/server.php', $script);
         $this->assertStringContainsString('curl --silent --fail http://127.0.0.1:8000/up', $script);
         $this->assertStringContainsString('npm run e2e:report', $script);
         $this->assertStringContainsString('bash scripts/ci/run-playwright-e2e.sh 2>&1 | tee playwright-e2e.log', $workflow);
