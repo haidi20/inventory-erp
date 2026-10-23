@@ -16,8 +16,8 @@ class PlaywrightCiRuntimeTest extends TestCase
      * agar kegagalan start maupun test dapat didiagnosis dari artifact.
      *
      * Output: Test lulus bila workflow menjalankan Playwright dengan tee ke
-     * log E2E, config webServer memakai artisan serve tanpa --no-reload,
-     * dan artifact log E2E terdaftar di workflow.
+     * log E2E, script server memakai router E2E dan docroot public, serta
+     * artifact log E2E terdaftar di workflow.
      */
     public function test_public_playwright_ci_uses_managed_server(): void
     {
@@ -32,7 +32,7 @@ class PlaywrightCiRuntimeTest extends TestCase
         $workflow = (string) file_get_contents($workflowPath);
         $config = (string) file_get_contents($configPath);
 
-        $this->assertStringContainsString('PHP_CLI_SERVER_WORKERS=4 php -S 127.0.0.1:8000 vendor/laravel/framework/src/Illuminate/Foundation/resources/server.php', $script);
+        $this->assertStringContainsString('PHP_CLI_SERVER_WORKERS=4 php -S 127.0.0.1:8000 -t public tests/E2E/server.php', $script);
         $this->assertStringContainsString('curl --silent --fail http://127.0.0.1:8000/up', $script);
         $this->assertStringContainsString('npm run e2e:report', $script);
         $this->assertStringContainsString('bash scripts/ci/run-playwright-e2e.sh 2>&1 | tee playwright-e2e.log', $workflow);
