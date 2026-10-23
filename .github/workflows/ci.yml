@@ -197,7 +197,7 @@ jobs:
           mkdir -p database
           touch database/database.sqlite
           php artisan config:clear
-          php artisan migrate:status
+          php artisan migrate:fresh --seed --force
       - name: Debug seeded auth user
         run: php scripts/ci/debug-auth.php
       - name: Run Playwright
