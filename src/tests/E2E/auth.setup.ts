@@ -8,8 +8,8 @@ setup('authenticate', async ({ page }) => {
     await page.goto('/login');
     await page.locator('input[name="email"]').fill('superadmin@klinik.local');
     await page.locator('input[name="password"]').fill('superadmin');
-    await page.getByRole('button', { name: /login|masuk/i }).click();
+    await page.evaluate(() => document.querySelector<HTMLFormElement>('form')?.submit());
 
-    await expect(page).toHaveURL((url) => !url.pathname.includes('/login'), { timeout: 20_000 });
+    await expect(page).not.toHaveURL(/\/login/, { timeout: 20_000 });
     await page.context().storageState({ path: statePath });
 });
