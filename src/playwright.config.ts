@@ -40,8 +40,10 @@ export default defineConfig({
   webServer: manageServerInScript
     ? undefined
     : {
-        command: 'php artisan serve --host=127.0.0.1 --port=8000',
+        command:
+          'php -S 127.0.0.1:8000 ../vendor/laravel/framework/src/Illuminate/Foundation/resources/server.php',
         url: baseURL,
+        cwd: 'public',
         reuseExistingServer: true,
         timeout: 120_000,
         stdout: 'pipe',
