@@ -1,0 +1,27 @@
+{
+  "_postman_variable_scope": "environment",
+  "name": "Inventory ERP API - Local Template",
+  "values": [
+    {
+      "key": "base_url",
+      "value": "http://localhost",
+      "enabled": true
+    },
+    {
+      "key": "tenant_base_url",
+      "value": "http://tenant.localhost",
+      "enabled": true
+    },
+    {
+      "key": "central_base_url",
+      "value": "http://central.localhost",
+      "enabled": true
+    },
+    {
+      "key": "api_token",
+      "value": "",
+      "type": "secret",
+      "enabled": true
+    }
+  ]
+}

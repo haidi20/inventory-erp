@@ -1,0 +1,257 @@
+{
+  "info": {
+    "_postman_id": "9f1b0e04-4f7d-4f3a-8e02-6f2d3f4c5a01",
+    "name": "Inventory ERP API",
+    "version": "1.0.0",
+    "description": "Koleksi dokumentasi API Inventory ERP. Gunakan environment tenant untuk endpoint tenant dan environment central untuk provisioning.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Overview",
+      "description": "# Panduan Umum\n\nSemua endpoint API utama memakai prefix `/api/v1` pada domain tenant. Endpoint POS kompatibel SBPOS memakai prefix `/api` tanpa `/v1`.\n\n## Autentikasi\n\nKirim token Sanctum pada header `Authorization: Bearer {{api_token}}` dan `Accept: application/json`.\n\n## Response Envelope\n\nRespons sukses memakai kontrak `status`, `message`, `data`, dan `errors`. Respons resource collection membungkus isi pada `data` dan metadata pagination pada `meta`.\n\n## Pagination Dan Filter\n\nParameter umum: `search`, `search_column`, `page`, `per_page`, `sort_by`, dan `sort_direction`. Nilai `search_column` dan `sort_by` harus sesuai whitelist backend.\n\n## Error Catalog\n\n| HTTP | Arti | Kapan dipakai |\n|---|---|---|\n| 400 | Bad Request | Payload atau kondisi transaksi tidak valid. |\n| 401 | Unauthorized | Token tidak ada, kedaluwarsa, atau tidak valid. |\n| 403 | Forbidden | Hak akses tidak cukup atau tenant tidak aktif. |\n| 404 | Not Found | Resource tidak ditemukan atau milik company/branch lain. |\n| 409 | Conflict | Duplikasi data atau konflik status transaksi. |\n| 422 | Validation Error | Validasi field gagal; detail ada di `errors`. |\n| 429 | Too Many Requests | Rate limit terlampaui. |\n| 500 | Server Error | Kegagalan internal yang tidak terduga. |",
+      "item": [
+        {
+          "name": "Response Envelope",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{tenant_base_url}}/api/v1/products?page=1&per_page=1",
+              "host": [
+                "{{tenant_base_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "products"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "per_page",
+                  "value": "1"
+                }
+              ]
+            },
+            "description": "Contoh endpoint collection untuk memverifikasi envelope dan metadata pagination."
+          },
+          "response": [
+            {
+              "name": "Success",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{tenant_base_url}}/api/v1/products?page=1&per_page=1",
+                  "host": [
+                    "{{tenant_base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "products"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "1"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"data\": [\n    {\n      \"uuid\": \"0197f0b2-6d2a-7c31-9a10-2f0b8a4f0001\",\n      \"name\": \"Paracetamol 500 mg\"\n    }\n  ],\n  \"meta\": {\n    \"total\": 42,\n    \"page\": 1,\n    \"per_page\": 1,\n    \"last_page\": 42\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Validation Error",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "{{tenant_base_url}}/api/v1/products",
+              "host": [
+                "{{tenant_base_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "products"
+              ]
+            },
+            "description": "Contoh request tanpa field wajib untuk melihat format validation error."
+          },
+          "response": [
+            {
+              "name": "Validation Failed",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}"
+                },
+                "url": {
+                  "raw": "{{tenant_base_url}}/api/v1/products",
+                  "host": [
+                    "{{tenant_base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "products"
+                  ]
+                }
+              },
+              "status": "Unprocessable Content",
+              "code": 422,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"Data yang dikirim tidak valid.\",\n  \"data\": {},\n  \"errors\": {\n    \"name\": [\n      \"Nama produk wajib diisi.\"\n    ]\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Error Catalog",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{tenant_base_url}}/api/v1/products/00000000-0000-0000-0000-000000000000",
+              "host": [
+                "{{tenant_base_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "products",
+                "00000000-0000-0000-0000-000000000000"
+              ]
+            },
+            "description": "Contoh resource yang tidak ditemukan atau milik scope company/branch lain."
+          },
+          "response": [
+            {
+              "name": "Not Found",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{tenant_base_url}}/api/v1/products/00000000-0000-0000-0000-000000000000",
+                  "host": [
+                    "{{tenant_base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "products",
+                    "00000000-0000-0000-0000-000000000000"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"status\": \"error\",\n  \"message\": \"Produk tidak ditemukan.\",\n  \"data\": {},\n  \"errors\": {}\n}"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:8000"
+    },
+    {
+      "key": "tenant_base_url",
+      "value": "http://demo.localhost:8000"
+    },
+    {
+      "key": "api_token",
+      "value": ""
+    },
+    {
+      "key": "company_uuid",
+      "value": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "key": "branch_uuid",
+      "value": "00000000-0000-0000-0000-000000000000"
+    }
+  ]
+}
