@@ -2,7 +2,6 @@
 
 namespace App\Modules\Core\Identity\Http\Controllers;
 
-use App\Modules\Core\Identity\Http\Controllers\Controller;
 use App\Modules\Core\Identity\Services\WebAuthService;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -62,7 +61,7 @@ class WebAuthController extends Controller
         $user = $this->webAuthService->findUser($identifier);
         $password = (string) $request->input('password');
 
-        if (!$user || !$this->webAuthService->validateCredentials($user, $password)) {
+        if (! $user || ! $this->webAuthService->validateCredentials($user, $password)) {
             return response()->json([
                 'success' => false,
                 'message' => 'Email atau password tidak valid.',
@@ -71,7 +70,7 @@ class WebAuthController extends Controller
 
         return response()->json([
             'success' => true,
-            'roles'   => collect($user->roles),
+            'roles' => collect($user->roles),
         ]);
     }
 
@@ -80,8 +79,7 @@ class WebAuthController extends Controller
         [, $fieldName] = $this->extractCredentials($request);
         $identifier = trim($request->input($fieldName));
         $user = $this->webAuthService->findUser($identifier);
-
-        if (!$user) {
+        if (! $user) {
             return back()->withErrors([
                 $fieldName => 'Email atau password tidak valid.',
             ])->onlyInput($fieldName);
@@ -93,13 +91,13 @@ class WebAuthController extends Controller
             $request->boolean('remember')
         );
 
-        if (!$authUser) {
+        if (! $authUser) {
             return back()->withErrors([
                 $fieldName => 'Email atau password tidak valid.',
             ])->onlyInput($fieldName);
         }
 
-        if (!$authUser->is_active) {
+        if (! $authUser->is_active) {
             $this->webAuthService->logout();
 
             return back()->with('error', 'Akun Anda tidak aktif.')->onlyInput($fieldName);
@@ -112,7 +110,7 @@ class WebAuthController extends Controller
             $request->session()->put('api_token', $token);
         }
 
-        return redirect()->intended($this->webAuthService->resolveLandingUrl($authUser));
+        return redirect()->to($this->webAuthService->resolveLandingUrl($authUser));
     }
 
     public function register(Request $request)
@@ -127,7 +125,7 @@ class WebAuthController extends Controller
             'timezone' => ['required', 'string', 'max:64'],
         ]);
 
-        if (!in_array($validated['timezone'], $this->webAuthService->getTimezones(), true)) {
+        if (! in_array($validated['timezone'], $this->webAuthService->getTimezones(), true)) {
             return back()
                 ->withErrors(['timezone' => 'Zona waktu tidak valid.'])
                 ->onlyInput(['name', 'email', 'username', 'company_name']);
@@ -136,7 +134,7 @@ class WebAuthController extends Controller
         $user = $this->webAuthService->register($validated);
         $authUser = $this->webAuthService->loginRegisteredUser($user->uuid);
 
-        if (!$authUser) {
+        if (! $authUser) {
             return back()->withErrors(['email' => 'Registrasi berhasil, tetapi sesi gagal dibuat.']);
         }
 
@@ -153,7 +151,7 @@ class WebAuthController extends Controller
     public function changePassword(Request $request)
     {
         $request->validate([
-            'password'              => 'required|string|min:6|confirmed',
+            'password' => 'required|string|min:6|confirmed',
             'password_confirmation' => 'required|string',
         ]);
 

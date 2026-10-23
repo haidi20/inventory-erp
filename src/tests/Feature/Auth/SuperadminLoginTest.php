@@ -124,4 +124,14 @@ class SuperadminLoginTest extends TestCase
 
         $response->assertRedirect('/');
     }
+
+    public function test_superadmin_login_ignores_stale_login_intended_url()
+    {
+        $response = $this->withSession(['url.intended' => '/login'])->post('/login', [
+            'email' => 'superadmin@klinik.local',
+            'password' => 'superadmin',
+        ]);
+
+        $response->assertRedirect('/');
+    }
 }
