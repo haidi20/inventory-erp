@@ -41,9 +41,8 @@ export default defineConfig({
     ? undefined
     : {
         command:
-          'php -S 127.0.0.1:8000 ../vendor/laravel/framework/src/Illuminate/Foundation/resources/server.php',
+          'php -S 127.0.0.1:8000 tests/E2E/server.php',
         url: baseURL,
-        cwd: 'public',
         reuseExistingServer: true,
         timeout: 120_000,
         stdout: 'pipe',
