@@ -196,6 +196,7 @@ jobs:
           sed -i 's/CACHE_STORE=redis/CACHE_STORE=array/' .env
           sed -i 's/QUEUE_CONNECTION=redis/QUEUE_CONNECTION=sync/' .env
           php artisan key:generate --force
+          php artisan jwt:secret --force
       - name: Debug seeded auth user
         run: php scripts/ci/debug-auth.php
       - name: Run Playwright
