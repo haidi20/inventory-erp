@@ -62,8 +62,9 @@ class GeneralLedgerRepository implements GeneralLedgerRepositoryInterface
 
         $isDebitNormal = $this->isDebitNormal($account->type);
         $isPL = $this->isPLAccount($account->type)
-            || str_starts_with((string) $account->code, '4')
-            || str_starts_with((string) $account->code, '5');
+            || ($account->type === null
+                && (str_starts_with((string) $account->code, '4')
+                    || str_starts_with((string) $account->code, '5')));
 
         $targetDate = is_numeric($date)
             ? Carbon::createFromTimestamp((int) $date)->startOfDay()
