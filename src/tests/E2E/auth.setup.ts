@@ -8,7 +8,7 @@ setup('authenticate', async ({ page }) => {
     await page.goto('/login');
     await page.locator('input[name="email"]').fill('superadmin@klinik.local');
     await page.locator('input[name="password"]').fill('superadmin');
-    await page.evaluate(() => document.querySelector<HTMLFormElement>('form')?.submit());
+    await page.getByRole('button', { name: /Masuk/i }).click();
 
     await expect(page).not.toHaveURL(/\/login/, { timeout: 20_000 });
     await page.context().storageState({ path: statePath });
