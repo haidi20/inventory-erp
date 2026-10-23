@@ -2,27 +2,34 @@
 
 namespace App\Modules\Finance\Ledger\Repositories;
 
-use App\Modules\Finance\Ledger\Models\AccountBalance;
-use App\Modules\Finance\Ledger\Entities\GeneralLedgerFilterEntity;
-use App\Modules\Finance\Journal\Models\Account;
 use App\Modules\Core\Organization\Models\Branch;
-use Carbon\Carbon;
-use App\Modules\Finance\Ledger\Models\ClosingPeriod;
-use App\Modules\Finance\Journal\Models\Coa;
-use Illuminate\Support\Facades\DB;
-use App\Modules\Finance\Ledger\Models\GeneralLedger;
-use App\Modules\Finance\Journal\Models\JournalLine;
+use App\Modules\Finance\Journal\Models\Account;
 use App\Modules\Finance\Journal\Models\Journal;
+use App\Modules\Finance\Journal\Models\JournalLine;
+use App\Modules\Finance\Ledger\Entities\GeneralLedgerFilterEntity;
+use App\Modules\Finance\Ledger\Models\ClosingPeriod;
+use App\Modules\Finance\Ledger\Models\GeneralLedger;
+use Carbon\Carbon;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\DB;
 
 /**
  * GeneralLedgerRepository
- * 
+ *
  * Implementasi repository untuk manajemen data Buku Besar (General Ledger).
  * Menangani kalkulasi saldo awal dan pengambilan histori transaksi jurnal.
  */
 class GeneralLedgerRepository implements GeneralLedgerRepositoryInterface
 {
+    /**
+     * Param:
+     * - GeneralLedgerFilterEntity $entity: data entity.
+     *
+     * Proses: Membuat pagination.
+     *
+     * Output: Paginator hasil data.
+     */
     public function paginate(GeneralLedgerFilterEntity $entity): LengthAwarePaginator
     {
         return GeneralLedger::query()
@@ -37,18 +44,27 @@ class GeneralLedgerRepository implements GeneralLedgerRepositoryInterface
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
+     *
+     * Param:
+     * - string $accountUuid: data akun.
+     * - string|int $date: tanggal.
+     * - ?string $branchUuid: cabang.
+     *
+     * Proses: Mengeksekusi pembacaan data opening balance pada domain Finance/Ledger; repository menjadi pemilik query/transaksi dan mengubah hasil menjadi Entity/DTO bila dikembalikan ke service. Akses data tetap memperhatikan konteks company/branch untuk menjaga isolasi tenant.
+     *
+     * Output: Nilai numerik hasil proses.
      */
     public function getOpeningBalance(string $accountUuid, string|int $date, ?string $branchUuid = null): float
     {
         // Get account details to determine balance direction and type
         $account = Account::query()->where('uuid', $accountUuid)->firstOrFail();
-        
+
         $isDebitNormal = $this->isDebitNormal($account->type);
         $isPL = $this->isPLAccount($account->type)
             || str_starts_with((string) $account->code, '4')
             || str_starts_with((string) $account->code, '5');
-        
+
         $targetDate = is_numeric($date)
             ? Carbon::createFromTimestamp((int) $date)->startOfDay()
             : Carbon::parse($date)->startOfDay();
@@ -60,8 +76,8 @@ class GeneralLedgerRepository implements GeneralLedgerRepositoryInterface
             return 0.0;
         }
 
-        // Balance Sheet accounts have an initial balance from "Opening" period
-        if (!$isPL) {
+        // Balance Sheet accounts have an initial balance from Opening period
+        if (! $isPL) {
             $openingBalance = DB::table('account_balances')
                 ->where('account_uuid', $accountUuid)
                 ->where('company_uuid', $account->company_uuid)
@@ -112,14 +128,25 @@ class GeneralLedgerRepository implements GeneralLedgerRepositoryInterface
         )->first();
 
         $mutation = $isDebitNormal
-            ? ($totals->debit - $totals->credit) 
+            ? ($totals->debit - $totals->credit)
             : ($totals->credit - $totals->debit);
 
         return (float) $openingBalance + (float) $mutation;
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
+     *
+     * Param:
+     * - string $accountUuid: data akun.
+     * - string|int $startDate: batas awal.
+     * - string|int $endDate: batas akhir.
+     * - ?string $branchUuid: cabang.
+     * - array $options: konfigurasi tambahan.
+     *
+     * Proses: Mengeksekusi pembacaan data journal lines pada domain Finance/Ledger; repository menjadi pemilik query/transaksi dan mengubah hasil menjadi Entity/DTO bila dikembalikan ke service. Akses data tetap memperhatikan konteks company/branch untuk menjaga isolasi tenant.
+     *
+     * Output: Array hasil proses.
      */
     public function getJournalLines(string $accountUuid, string|int $startDate, string|int $endDate, ?string $branchUuid = null, array $options = []): array
     {
@@ -144,24 +171,24 @@ class GeneralLedgerRepository implements GeneralLedgerRepositoryInterface
             $query->where('journals.branch_uuid', $branchUuid);
         }
 
-        if (!empty($options['keyword'])) {
+        if (! empty($options['keyword'])) {
             $keyword = strtolower($options['keyword']);
-            $query->whereRaw("LOWER(journals.description) LIKE ?", ["%{$keyword}%"]);
+            $query->whereRaw('LOWER(journals.description) LIKE ?', ['%'.$keyword.'%']);
         }
 
-        if (!empty($options['min_amount'])) {
+        if (! empty($options['min_amount'])) {
             // Use CAST(? AS REAL) because PHP floats are bound as TEXT by PDO/SQLite,
             // and SQLite considers INTEGER < TEXT regardless of value.
-            $query->whereRaw("(journal_lines.debit + journal_lines.credit) >= CAST(? AS REAL)", [(float) $options['min_amount']]);
+            $query->whereRaw('(journal_lines.debit + journal_lines.credit) >= CAST(? AS REAL)', [(float) $options['min_amount']]);
         }
 
-        if (!empty($options['max_amount'])) {
-            $query->whereRaw("(journal_lines.debit + journal_lines.credit) <= CAST(? AS REAL)", [(float) $options['max_amount']]);
+        if (! empty($options['max_amount'])) {
+            $query->whereRaw('(journal_lines.debit + journal_lines.credit) <= CAST(? AS REAL)', [(float) $options['max_amount']]);
         }
 
         if (isset($options['is_reconciled']) && $options['is_reconciled'] !== null) {
             // is_reconciled is always 0 in SQLite (no reconciliation table yet); if filter=true → 0 results
-            $query->whereRaw("0 = 1"); // placeholder: mark as unreconciled when true is requested
+            $query->whereRaw('0 = 1'); // placeholder: mark as unreconciled when true is requested
         }
 
         return $query->select([
@@ -177,6 +204,16 @@ class GeneralLedgerRepository implements GeneralLedgerRepositoryInterface
         ])->get()->toArray();
     }
 
+    /**
+     * Membangun ulang buku besar satu periode dari jurnal final.
+     *
+     * Param:
+     * - string $closingPeriodUuid: UUID periode yang disinkronkan.
+     *
+     * Proses: Transaksi eksplisit; periode dan jurnal dibaca tanpa global scope karena sync adalah operasi sistem lintas sesi (bukan scope user login); kumpulkan journal posted/reversed/voided pada rentang periode dan branch periode, ambil lines join journals terurut tanggal/referensi, lalu upsert ke general_ledgers.
+     *
+     * Output: Tidak mengembalikan nilai.
+     */
     public function syncByPeriod(string $closingPeriodUuid): void
     {
         DB::beginTransaction();
@@ -229,7 +266,7 @@ class GeneralLedgerRepository implements GeneralLedgerRepositoryInterface
             foreach ($lines as $line) {
                 $roundedDebit = round((float) $line->debit, 2);
                 $roundedCredit = round((float) $line->credit, 2);
-                $key = $line->branch_uuid . ':' . $line->account_uuid;
+                $key = $line->branch_uuid.':'.$line->account_uuid;
                 $balances[$key] = round(($balances[$key] ?? 0) + ($roundedDebit - $roundedCredit), 2);
 
                 // Use updateOrCreate keyed by journal_line_uuid to preserve the GL UUID on re-sync (true upsert).
@@ -237,17 +274,17 @@ class GeneralLedgerRepository implements GeneralLedgerRepositoryInterface
                 GeneralLedger::withoutGlobalScopes()->updateOrCreate(
                     ['journal_line_uuid' => $line->journal_line_uuid, 'deleted_at' => 0],
                     [
-                        'branch_uuid'  => $line->branch_uuid,
+                        'branch_uuid' => $line->branch_uuid,
                         'company_uuid' => $line->company_uuid,
                         'account_uuid' => $line->account_uuid,
                         'journal_uuid' => $line->journal_uuid,
                         'journal_date' => $line->journal_date,
                         'reference_no' => $line->reference_no,
-                        'description'  => $line->description,
-                        'debit'        => $roundedDebit,
-                        'credit'       => $roundedCredit,
-                        'balance'      => $balances[$key],
-                        'is_system'    => (bool) $line->is_system,
+                        'description' => $line->description,
+                        'debit' => $roundedDebit,
+                        'credit' => $roundedCredit,
+                        'balance' => $balances[$key],
+                        'is_system' => (bool) $line->is_system,
                     ]
                 );
             }
@@ -258,17 +295,42 @@ class GeneralLedgerRepository implements GeneralLedgerRepositoryInterface
         }
     }
 
+    /**
+     * Param:
+     * - string $closingPeriodUuid: closing period uuid.
+     *
+     * Proses: Mengeksekusi pembacaan data period pada domain Finance/Ledger; repository menjadi pemilik query/transaksi dan mengubah hasil menjadi Entity/DTO bila dikembalikan ke service.
+     *
+     * Output: ClosingPeriod hasil proses atau null.
+     */
     public function findPeriod(string $closingPeriodUuid): ?ClosingPeriod
     {
         return ClosingPeriod::withoutGlobalScopes()->where('uuid', $closingPeriodUuid)->first();
     }
 
+    /**
+     * Param:
+     * - string $branchUuid: cabang.
+     *
+     * Proses: Mengeksekusi pembacaan data branch pada domain Finance/Ledger; repository menjadi pemilik query/transaksi dan mengubah hasil menjadi Entity/DTO bila dikembalikan ke service.
+     *
+     * Output: Branch hasil proses atau null.
+     */
     public function findBranch(string $branchUuid): ?Branch
     {
         return Branch::query()->where('uuid', $branchUuid)->first();
     }
 
-    public function findPeriodsForCashFlow(string $period, ?string $branchUuid = null): \Illuminate\Support\Collection
+    /**
+     * Param:
+     * - string $period: periode.
+     * - ?string $branchUuid: cabang.
+     *
+     * Proses: Mengeksekusi pembacaan data periods for cash flow pada domain Finance/Ledger; repository menjadi pemilik query/transaksi dan mengubah hasil menjadi Entity/DTO bila dikembalikan ke service. Akses data tetap memperhatikan konteks company/branch untuk menjaga isolasi tenant.
+     *
+     * Output: Collection data hasil proses.
+     */
+    public function findPeriodsForCashFlow(string $period, ?string $branchUuid = null): Collection
     {
         return ClosingPeriod::withoutGlobalScopes()
             ->where('period', $period)
@@ -278,6 +340,14 @@ class GeneralLedgerRepository implements GeneralLedgerRepositoryInterface
 
     /**
      * Menghitung total debit dan credit dari general_ledger dalam satu periode.
+     *
+     * Param:
+     * - string $branchUuid: cabang.
+     * - string $periodUuid: periode.
+     *
+     * Proses: Mengeksekusi pembacaan data trial balance sums pada domain Finance/Ledger; repository menjadi pemilik query/transaksi dan mengubah hasil menjadi Entity/DTO bila dikembalikan ke service. Akses data tetap memperhatikan konteks company/branch untuk menjaga isolasi tenant.
+     *
+     * Output: Array hasil proses.
      */
     public function getTrialBalanceSums(string $branchUuid, string $periodUuid): array
     {
@@ -292,7 +362,7 @@ class GeneralLedgerRepository implements GeneralLedgerRepositoryInterface
             ->first();
 
         return [
-            'debit'  => (float) ($sums->total_debit ?? 0),
+            'debit' => (float) ($sums->total_debit ?? 0),
             'credit' => (float) ($sums->total_credit ?? 0),
         ];
     }
@@ -300,10 +370,19 @@ class GeneralLedgerRepository implements GeneralLedgerRepositoryInterface
     /**
      * Determine if account type is Debit Normal.
      * Logic based on standard accounting rules commonly used in the system.
+     *
+     * Param:
+     * - ?string $type: tipe data.
+     *
+     * Proses: Mengeksekusi pemrosesan data is debit normal pada domain Finance/Ledger; repository menjadi pemilik query/transaksi dan mengubah hasil menjadi Entity/DTO bila dikembalikan ke service.
+     *
+     * Output: Boolean hasil proses.
      */
     private function isDebitNormal(?string $type): bool
     {
-        if (!$type) return true;
+        if (! $type) {
+            return true;
+        }
         $type = strtolower(trim((string) $type));
 
         return in_array($type, ['asset', 'expense', 'cogs', 'other_expense'], true);
@@ -311,10 +390,19 @@ class GeneralLedgerRepository implements GeneralLedgerRepositoryInterface
 
     /**
      * Determine if account is a Profit & Loss account.
+     *
+     * Param:
+     * - ?string $type: tipe data.
+     *
+     * Proses: Mengeksekusi pemrosesan data is pl account pada domain Finance/Ledger; repository menjadi pemilik query/transaksi dan mengubah hasil menjadi Entity/DTO bila dikembalikan ke service.
+     *
+     * Output: Boolean hasil proses.
      */
     private function isPLAccount(?string $type): bool
     {
-        if (!$type) return false;
+        if (! $type) {
+            return false;
+        }
         $type = strtolower(trim((string) $type));
 
         return in_array($type, ['revenue', 'expense', 'cogs', 'other_revenue', 'other_expense'], true);
