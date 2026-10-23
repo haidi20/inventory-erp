@@ -182,6 +182,9 @@ jobs:
           sed -i 's/DB_PORT=13306//' .env
           sed -i 's/DB_USERNAME=klinik//' .env
           sed -i 's/DB_PASSWORD=klinikpassword//' .env
+          sed -i 's/SESSION_DRIVER=redis/SESSION_DRIVER=array/' .env
+          sed -i 's/CACHE_STORE=redis/CACHE_STORE=array/' .env
+          sed -i 's/QUEUE_CONNECTION=redis/QUEUE_CONNECTION=sync/' .env
           php artisan key:generate --force
       - name: Run Playwright
         run: npm run e2e:report
