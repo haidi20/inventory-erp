@@ -86,6 +86,7 @@ class V1DatabaseSeeder extends Seeder
                 TaxSeeder::class,
                 PaymentTermSeeder::class,
                 RuntimeUserSeeder::class,
+                SuperadminSeeder::class,
             ]);
 
             $this->call([
