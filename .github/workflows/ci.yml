@@ -202,7 +202,7 @@ jobs:
       - name: Run Playwright
         run: |
           set -o pipefail
-          npm run e2e:report 2>&1 | tee playwright-e2e.log
+          bash scripts/ci/run-playwright-e2e.sh 2>&1 | tee playwright-e2e.log
       - name: Coverage gate
         if: always()
         run: npm run ci:coverage:playwright
@@ -218,5 +218,5 @@ jobs:
         if: always()
         with:
           name: playwright-e2e-log
-          path: playwright-e2e.log
+          path: src/playwright-e2e.log
           retention-days: 7
