@@ -28,7 +28,7 @@ cleanup() {
 trap cleanup EXIT
 
 start_server() {
-    PHP_CLI_SERVER_WORKERS=4 php -S 127.0.0.1:8000 vendor/laravel/framework/src/Illuminate/Foundation/resources/server.php &
+    PHP_CLI_SERVER_WORKERS=4 php -S 127.0.0.1:8000 tests/E2E/server.php &
     serverPid=$!
 
     for waitAttempt in $(seq 1 30); do
