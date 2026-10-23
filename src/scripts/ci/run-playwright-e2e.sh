@@ -28,7 +28,7 @@ cleanup() {
 trap cleanup EXIT
 
 start_server() {
-    php artisan serve --host=127.0.0.1 --port=8000 --no-reload &
+    php artisan serve --host=127.0.0.1 --port=8000 &
     serverPid=$!
 
     for waitAttempt in $(seq 1 30); do
