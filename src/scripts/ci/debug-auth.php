@@ -14,3 +14,10 @@ dump(Illuminate\Support\Facades\Auth::validate([
     'email' => 'superadmin@klinik.local',
     'password' => 'superadmin',
 ]));
+
+dump(Illuminate\Support\Facades\Auth::attempt([
+    'email' => 'superadmin@klinik.local',
+    'password' => 'superadmin',
+]));
+
+dump(Illuminate\Support\Facades\Auth::id());
