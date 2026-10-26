@@ -165,6 +165,7 @@ jobs:
         working-directory: src
     env:
       KLINIK_TEST_BASE_URL: http://127.0.0.1:8000
+      PHP_CLI_SERVER_WORKERS: "4"
       DB_CONNECTION: sqlite
       DB_DATABASE: database/database.sqlite
     steps:
