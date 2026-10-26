@@ -9,8 +9,8 @@ test.describe('Complaint View', () => {
     test.beforeEach(async ({ page }) => {
         // Login terlebih dahulu
         await page.goto('/login');
-        await page.fill('[name="email"]', 'admin@klinik.local');
-        await page.fill('[name="password"]', 'password');
+        await page.fill('[name="email"]', 'superadmin@klinik.local');
+        await page.fill('[name="password"]', 'superadmin');
         await page.click('[type="submit"]');
         await page.waitForURL('**/');
     });
