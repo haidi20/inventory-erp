@@ -1,0 +1,57 @@
+name: Docker Compose Smoke
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "docker/app/Dockerfile"
+      - "docker/docker-compose.prod.yml"
+      - ".github/workflows/docker-smoke.yml"
+  workflow_dispatch:
+
+jobs:
+  smoke:
+    name: Build, recreate, and smoke PHP-FPM
+    runs-on: ubuntu-24.04
+    env:
+      APP_KEY: base64:6f01fab05e0b4cfc157203e6780f8d80d966a936d331ee16f8a9ba7b4a5c75aa=
+    steps:
+      - uses: actions/checkout@v4
+      - name: Create Compose override
+        run: |
+          cat > docker/docker-compose.smoke.yml <<'YAML'
+          services:
+            app:
+              environment:
+                APP_KEY: ${APP_KEY}
+          YAML
+      - name: Build application image
+        run: docker compose -f docker/docker-compose.prod.yml -f docker/docker-compose.smoke.yml up -d --build postgres redis app
+      - name: Recreate PHP-FPM container
+        run: docker compose -f docker/docker-compose.prod.yml -f docker/docker-compose.smoke.yml up -d --force-recreate app
+      - name: Wait for PHP-FPM health
+        run: |
+          for attempt in $(seq 1 30); do
+            status="$(docker inspect -f "{{.State.Health.Status}}" klinik_app_prod || true)"
+            echo "PHP-FPM health: $status"
+            [ "$status" = "healthy" ] && exit 0
+            sleep 2
+          done
+          docker compose -f docker/docker-compose.prod.yml -f docker/docker-compose.smoke.yml logs app
+          exit 1
+      - name: Verify PHP and Laravel boot
+        run: |
+          docker compose -f docker/docker-compose.prod.yml -f docker/docker-compose.smoke.yml exec -T app sh -lc 'php -v | grep -E "PHP 8\.3\.(3[6-9]|[4-9][0-9])" && php artisan --version && php artisan route:list --except-vendor > /dev/null'
+      - name: Save container logs
+        if: always()
+        run: docker compose -f docker/docker-compose.prod.yml -f docker/docker-compose.smoke.yml logs --no-color > docker-compose-smoke.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: docker-compose-smoke-${{ github.run_id }}
+          path: docker-compose-smoke.log
+          if-no-files-found: error
+      - name: Cleanup
+        if: always()
+        run: docker compose -f docker/docker-compose.prod.yml -f docker/docker-compose.smoke.yml down -v --remove-orphans
