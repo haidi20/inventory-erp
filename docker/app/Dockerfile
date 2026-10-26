@@ -1,4 +1,4 @@
-FROM serversideup/php:8.3-fpm-alpine AS base
+FROM serversideup/php:8.3-fpm-alpine@sha256:6f01fab05e0b4cfc157203e6780f8d80d966a936d331ee16f8a9ba7b4a5c75aa AS base
 
 USER root
 

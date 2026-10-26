@@ -7,6 +7,7 @@ on:
       - master
       - dev
     paths:
+      - "docker/app/Dockerfile"
       - "src/**"
       - "scripts/**"
       - ".github/workflows/ci.yml"
@@ -22,6 +23,17 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  docker-php-guard:
+    name: Docker PHP Security Guard
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify pinned PHP image meets secure patch
+        run: |
+          expected_image="serversideup/php:8.3-fpm-alpine@sha256:6f01fab05e0b4cfc157203e6780f8d80d966a936d331ee16f8a9ba7b4a5c75aa"
+          grep -F "FROM $expected_image" docker/app/Dockerfile
+          docker pull "$expected_image"
+          docker run --rm --entrypoint php "$expected_image" -r "exit(version_compare(PHP_VERSION, '8.3.36', '>=') ? 0 : 1);"
   php-pint:
     name: PHP Pint
     runs-on: ubuntu-latest

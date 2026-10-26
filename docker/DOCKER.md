@@ -71,3 +71,9 @@ Triggered on tag pushes (e.g., `v1.0.0`) and merges to `main`.
 - **Non-Root Execution**: Both production images (`be` and `fe`) run as a non-privileged `klinik` user.
 - **Multi-Stage Builds**: Final images contain only production artifacts, minimizing the attack surface.
 - **Healthchecks**: Services include container-native healthchecks for robust orchestration.
+
+### PHP Version Audit
+
+| Environment | PHP version | Source |
+| --- | --- | --- |
+| Docker app (dev/prod) | 8.3.36 (pinned digest) | `docker/app/Dockerfile` |
