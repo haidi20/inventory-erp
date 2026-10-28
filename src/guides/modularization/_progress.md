@@ -1932,5 +1932,13 @@ baru pass (5 test, 1 skip). Tidak ada commit/push.
 - Validasi hijau: `npm run typecheck` lulus.
 - Validasi hijau public lintas-branch: `npm run e2e:ci` lulus 5 test dan
   gate 100% (5/5 scenarios).
+- Reproduksi merah CI public `5377a5d1`: PHP CLI server mengalami
+  `Segmentation fault` saat request `/inventory`.
+- Perbaikan public `864265a2`: server Playwright dikelola script satu
+  worker, runtime PHP Playwright dipin `8.2.28`, dan log E2E disimpan
+  sebagai artifact.
+- Validasi guard runtime merah sebelum patch, lalu hijau setelah patch.
+- CI public `40624009447` hijau penuh; Playwright lulus 5 test dan
+  coverage gate mencapai 100% (5/5 scenarios).
 - Validasi hijau private setelah fresh seed: `npm run e2e:ci` lulus 6 test
   dan gate 100% (6/6 scenarios).
