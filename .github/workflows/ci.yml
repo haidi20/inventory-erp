@@ -214,9 +214,7 @@ jobs:
       - name: Debug seeded auth user
         run: php scripts/ci/debug-auth.php
       - name: Run Playwright
-        run: |
-          set -o pipefail
-          bash scripts/ci/run-playwright-e2e.sh 2>&1 | tee playwright-e2e.log
+        run: npm run e2e:ci
       - name: Coverage gate
         if: always()
         run: npm run ci:coverage:playwright

@@ -11,6 +11,7 @@
         "e2e": "playwright test --project=chromium",
         "e2e:report": "playwright test --project=chromium",
         "e2e:remember-me": "playwright test modules/Core/Identity/tests/presentation/views/login.view.spec.ts --project=chromium -g \"sesi login remember bertahan setelah browser di-restart\" --reporter=junit",
+        "e2e:ci": "playwright test modules/Core/Organization/tests/api-environment-mode.real-data.view.spec.ts modules/Operational/Inventory/tests/presentation/views/inventory.real-data.view.spec.ts modules/Operational/Inventory/tests/presentation/views/inventory-real-data.view.spec.ts modules/Operational/Procurement/tests/presentations/purchase_order_form.real-data.view.spec.ts --project=chromium",
         "ci:coverage:vitest": "node ../scripts/check-vitest-coverage.mjs coverage/coverage-summary.json 0.5",
         "ci:coverage:playwright": "node ../scripts/check-playwright-coverage.mjs test-results/junit.xml 95",
         "test:e2e": "e2e run"

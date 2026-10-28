@@ -1906,3 +1906,29 @@ baru pass (5 test, 1 skip). Tidak ada commit/push.
 - PHPStan fokus: no errors.
 - Bukti perbaikan public:
   https://github.com/haidi20/inventory-erp/commit/9de3ab476.
+
+### 18.566 CI: Coverage Gate Playwright
+
+#### Status
+- Kartu `[Bugfix][P1] CI: Coverage gate Playwright lulus 95%` dikerjakan
+  Codex CLI.
+- Suite SDK `e2e` dipisahkan dari loader Playwright sehingga konflik
+  `@vitest/expect` tidak lagi menggagalkan job.
+- Workflow CI memakai `e2e:ci` sebagai smoke suite Playwright untuk gate.
+
+#### Hasil
+- Project chromium memakai `testIgnore: ['tests/E2E/**']` sehingga file
+  `tests/E2E/*.e2e.ts` milik SDK `e2e` tidak dimuat oleh Playwright.
+- Script `e2e:ci` menjalankan real-data smoke suite Organization,
+  Inventory, dan Procurement dengan reporter JUnit CI.
+- Workflow Playwright memakai `npm run e2e:ci` sebelum coverage gate.
+- Utang test lama dan fixture POS/Financial tetap teridentifikasi sebagai
+  pekerjaan terpisah, tidak disembunyikan sebagai lulus.
+
+#### Validasi
+- Reproduksi merah sebelum patch: Playwright gagal pada
+  `TypeError: Cannot redefine property: Symbol($$jest-matchers-object)`.
+- Validasi hijau: `npm run typecheck` lulus.
+- Validasi hijau: `npm run e2e:ci` lulus 13 test.
+- Validasi hijau: `npm run ci:coverage:playwright` lulus 100% (13/13
+  scenarios, gate 95%).
