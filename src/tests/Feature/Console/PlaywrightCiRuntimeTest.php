@@ -34,7 +34,7 @@ class PlaywrightCiRuntimeTest extends TestCase
 
         $this->assertStringContainsString('php -S 127.0.0.1:8000 -t public tests/E2E/server.php', $script);
         $this->assertStringContainsString('curl --silent --fail http://127.0.0.1:8000/up', $script);
-        $this->assertStringContainsString('npm run e2e:report', $script);
+        $this->assertStringContainsString('npm run e2e:ci', $script);
         $this->assertStringContainsString('bash scripts/ci/run-playwright-e2e.sh 2>&1 | tee playwright-e2e.log', $workflow);
         $this->assertStringContainsString('playwright-e2e.log', $workflow);
         $this->assertStringContainsString('src/playwright-e2e.log', $workflow);

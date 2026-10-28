@@ -172,7 +172,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: shivammathur/setup-php@v2
         with:
-          php-version: "8.2"
+          php-version: "8.2.28"
           extensions: mbstring, pdo_sqlite
           coverage: none
       - uses: actions/setup-node@v4
@@ -214,7 +214,7 @@ jobs:
       - name: Debug seeded auth user
         run: php scripts/ci/debug-auth.php
       - name: Run Playwright
-        run: npm run e2e:ci
+        run: bash scripts/ci/run-playwright-e2e.sh 2>&1 | tee playwright-e2e.log
       - name: Coverage gate
         if: always()
         run: npm run ci:coverage:playwright

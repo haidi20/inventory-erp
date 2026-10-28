@@ -3,7 +3,7 @@
 set -Eeuo pipefail
 
 export E2E_MANAGE_SERVER=1
-export PHP_CLI_SERVER_WORKERS="${PHP_CLI_SERVER_WORKERS:-4}"
+export PHP_CLI_SERVER_WORKERS="${PHP_CLI_SERVER_WORKERS:-1}"
 
 serverPid=""
 
@@ -46,4 +46,4 @@ start_server() {
 }
 
 start_server
-npm run e2e:report
+npm run e2e:ci
