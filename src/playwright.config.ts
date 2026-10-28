@@ -41,7 +41,7 @@ export default defineConfig({
     ? undefined
     : {
         command:
-          'php -S 127.0.0.1:8000 tests/E2E/server.php',
+          'php -S 127.0.0.1:8000 -t public tests/E2E/server.php',
         url: baseURL,
         reuseExistingServer: true,
         timeout: 120_000,

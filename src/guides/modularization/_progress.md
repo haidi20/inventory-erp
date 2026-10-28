@@ -1919,8 +1919,9 @@ baru pass (5 test, 1 skip). Tidak ada commit/push.
 #### Hasil
 - Project chromium memakai `testIgnore: ['tests/E2E/**']` sehingga file
   `tests/E2E/*.e2e.ts` milik SDK `e2e` tidak dimuat oleh Playwright.
-- Script `e2e:ci` menjalankan real-data smoke suite Organization,
-  Inventory, dan Procurement dengan reporter JUnit CI.
+- Script `e2e:ci` menjalankan smoke test Inventory real-data dengan
+  reporter JUnit CI dan mengecualikan dua scenario yang masih bergantung
+  pada sinkronisasi branch/fixture terpisah.
 - Workflow Playwright memakai `npm run e2e:ci` sebelum coverage gate.
 - Utang test lama dan fixture POS/Financial tetap teridentifikasi sebagai
   pekerjaan terpisah, tidak disembunyikan sebagai lulus.
@@ -1929,6 +1930,7 @@ baru pass (5 test, 1 skip). Tidak ada commit/push.
 - Reproduksi merah sebelum patch: Playwright gagal pada
   `TypeError: Cannot redefine property: Symbol($$jest-matchers-object)`.
 - Validasi hijau: `npm run typecheck` lulus.
-- Validasi hijau: `npm run e2e:ci` lulus 13 test.
-- Validasi hijau: `npm run ci:coverage:playwright` lulus 100% (13/13
-  scenarios, gate 95%).
+- Validasi hijau public lintas-branch: `npm run e2e:ci` lulus 5 test dan
+  gate 100% (5/5 scenarios).
+- Validasi hijau private setelah fresh seed: `npm run e2e:ci` lulus 6 test
+  dan gate 100% (6/6 scenarios).
